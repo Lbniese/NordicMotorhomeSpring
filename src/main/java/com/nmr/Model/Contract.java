@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 
 public class Contract {
     private int id;
-    private LocalDateTime fromDate;
-    private LocalDateTime toDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private String pickupPoint;
     private String dropoffPoint;
     private String miscellaneous;
@@ -17,10 +17,10 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(int id, LocalDateTime fromDate, LocalDateTime toDate, String pickupPoint, String dropoffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
+    public Contract(int id, LocalDateTime startDate, LocalDateTime endDate, String pickupPoint, String dropoffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
         this.id = id;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.pickupPoint = pickupPoint;
         this.dropoffPoint = dropoffPoint;
         this.miscellaneous = miscellaneous;
@@ -37,20 +37,20 @@ public class Contract {
         this.id = id;
     }
 
-    public LocalDateTime getFromDate() {
-        return fromDate;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setFromDate(LocalDateTime fromDate) {
-        this.fromDate = fromDate;
+    public void setFromDate(LocalDateTime startDate) {
+        this.startDate = startDate;
     }
 
-    public LocalDateTime getToDate() {
-        return toDate;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
-    public void setToDate(LocalDateTime toDate) {
-        this.toDate = toDate;
+    public void setToDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
     public String getPickupPoint() {
