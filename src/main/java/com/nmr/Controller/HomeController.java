@@ -1,11 +1,28 @@
 package com.nmr.Controller;
 
+import com.nmr.Model.Customer;
+import com.nmr.Service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
 
+    @Autowired
+    CustomerService customerService;
+
     @GetMapping("/")
     public String index() { return "home/index"; }
+
+    @GetMapping("/customer")
+    public String customer() { return "home/customer"; }
+
+    @PostMapping("/customer")
+    public String customer(@ModelAttribute Customer customer) {
+        customerService.createCustomer(customer);
+        return "redirect:/customer";
+    }
 }
