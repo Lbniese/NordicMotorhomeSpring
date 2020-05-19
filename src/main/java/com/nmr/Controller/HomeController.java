@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -31,6 +32,16 @@ public class HomeController {
     public String customer(@ModelAttribute Customer customer) {
         customerService.createCustomer(customer);
         return "redirect:/customer";
+    }
+
+    @GetMapping("/deleteCustomer/{id}")
+    public String deleteCustomer(@PathVariable("id") int id) {
+        boolean deleted = customerService.deleteCustomer(id);
+        if (deleted) {
+            return "redirect:/customer";
+        } else {
+            return "redirect:/customer";
+        }
     }
 
 

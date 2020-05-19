@@ -15,9 +15,12 @@
     </a>
 </div>
 
-<h1>Create customer<h1>
-    
-<form action="customer" method="post">
+<button class="tablink" onclick="openPage('createCustomer', this, 'dimgrey')">Create Customer</button>
+<button class="tablink" onclick="openPage('viewCustomer', this, 'dimgrey')">View Customers</button>
+<div class="tabcontet" id="createCustomer">
+    <div id="formular">
+    <h1>Create customer</h1>
+        <form action="customer" method="post">
     <label>First name</label>
     <input name="firstName" type="text"><br>
 
@@ -41,8 +44,10 @@
 
     <button id="createbutton" type="submit">Create customer</button>
 
-</form>
-    <div id="viewCustomer">
+        </form>
+    </div>
+</div>
+<div class="tabcontent" id="viewCustomer">
         <h3>View Customers</h3>
         <table>
             <thead>
@@ -71,8 +76,31 @@
                 <td th:text="${customer.city}"/>
                 <td th:text="${customer.country}"/>
                 <td>
+                    <a th:href="@{'/deleteCustomer/'+${customer.id}}">
+                        <button class="btnDeleteCustomer">Delete</button>
+                    </a>
+                </td>
             </tr>
         </table>
     </div>
+
+<script>
+    function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "black";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+
+    document.getElementById("viewCustomer").click();
+</script>
+
 </body>
 </html>

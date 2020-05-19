@@ -25,4 +25,16 @@ public class CustomerRepo {
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
         return template.query(sql, rowMapper);
     }
+
+    public Customer findCustomerById(int id) {
+        String sql = "SELECT * FROM Customer WHERE id = ?";
+        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        Customer customer = template.queryForObject(sql, rowMapper, id);
+        return customer;
+    }
+
+    public Boolean deleteCustomer(int id) {
+        String sql = "DELETE FROM Customer WHERE id = ?";
+        return template.update(sql, id) > 0;
+    }
 }

@@ -20,4 +20,12 @@ public class CustomerService {
         return customerRepo.fetchAll();
     }
 
+    public Customer findCustomerById(int id) {
+        return customerRepo.findCustomerById(id);
+    }
+
+    public Boolean deleteCustomer(int id) {
+        return customerRepo.deleteCustomer(id);
+    }
+
 }
