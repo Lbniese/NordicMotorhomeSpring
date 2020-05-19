@@ -15,9 +15,8 @@
     </a>
 </div>
 
-<button class="tablink" onclick="openPage('createCustomer', this, 'dimgrey')">Create Customer</button>
-<button class="tablink" onclick="openPage('viewCustomer', this, 'dimgrey')">View Customers</button>
-<div class="tabcontet" id="createCustomer">
+
+<div id="createCustomer">
     <div id="formular">
     <h1>Create customer</h1>
         <form action="customer" method="post">
@@ -47,7 +46,7 @@
         </form>
     </div>
 </div>
-<div class="tabcontent" id="viewCustomer">
+<div id="viewCustomer">
         <h3>View Customers</h3>
         <table>
             <thead>
@@ -84,23 +83,7 @@
         </table>
     </div>
 
-<script>
-    function openPage(pageName, elmnt, color) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "black";
-        }
-        document.getElementById(pageName).style.display = "block";
-        elmnt.style.backgroundColor = color;
-    }
 
-    document.getElementById("viewCustomer").click();
-</script>
 
 </body>
 </html>
