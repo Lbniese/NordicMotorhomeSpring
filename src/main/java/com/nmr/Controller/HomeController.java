@@ -4,9 +4,12 @@ import com.nmr.Model.Customer;
 import com.nmr.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -18,11 +21,17 @@ public class HomeController {
     public String index() { return "home/index"; }
 
     @GetMapping("/customer")
-    public String customer() { return "home/customer"; }
+    public String customer(Model model) {
+        List<Customer> customerList = customerService.fetchAll();
+        model.addAttribute("customers", customerList);
+        return "home/customer";
+    }
 
     @PostMapping("/customer")
     public String customer(@ModelAttribute Customer customer) {
         customerService.createCustomer(customer);
         return "redirect:/customer";
     }
+
+
 }

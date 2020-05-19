@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link href="index.css" rel="stylesheet" type="text/css">
@@ -40,7 +40,39 @@
     <input name="driverLicenceNumber" type="text"><br>
 
     <button id="createbutton" type="submit">Create customer</button>
-</form>
 
+</form>
+    <div id="viewCustomer">
+        <h3>View Customers</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Driver licence number</th>
+                <th>Zip code</th>
+                <th>City</th>
+                <th>Country</th>
+            </tr>
+            </thead>
+            <tr th:each="customer: ${customers}">
+                <td th:text="${customer.id}"/>
+                <td th:text="${customer.firstName}"/>
+                <td th:text="${customer.lastName}"/>
+                <td th:text="${customer.phoneNumber}"/>
+                <td th:text="${customer.email}"/>
+                <td th:text="${customer.address}"/>
+                <td th:text="${customer.driverLicenceNumber}"/>
+                <td th:text="${customer.zipCode}"/>
+                <td th:text="${customer.city}"/>
+                <td th:text="${customer.country}"/>
+                <td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

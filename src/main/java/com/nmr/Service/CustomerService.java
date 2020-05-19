@@ -5,6 +5,8 @@ import com.nmr.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
     @Autowired
@@ -13,4 +15,9 @@ public class CustomerService {
     public Customer createCustomer(Customer customer) {
         return customerRepo.createCustomer(customer);
     }
+
+    public List<Customer> fetchAll() {
+        return customerRepo.fetchAll();
+    }
+
 }
