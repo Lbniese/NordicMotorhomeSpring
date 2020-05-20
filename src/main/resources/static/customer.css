@@ -16,11 +16,33 @@ table
 }
 
 tr:nth-child(even) {
-    background-color: gray;
-    text-shadow: black 1px 1px;
+    background-color: white;
 }
 
 tr:nth-child(odd) {
-    background-color: gray;
-    text-shadow: black 1px 1px;
+    background-color: whitesmoke;
+}
+
+.tablink {
+    background-color: orange;
+    color: #000000;
+    float: left;
+    border: none;
+    outline: solid black 1px;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+}
+
+.tablink:hover {
+    background-color: #777777;
+}
+
+.tabcontent {
+    background-color: white;
+    color: black;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
 }
