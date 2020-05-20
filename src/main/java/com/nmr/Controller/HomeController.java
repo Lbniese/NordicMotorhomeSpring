@@ -34,7 +34,7 @@ public class HomeController {
         return "redirect:/customer";
     }
 
-    @GetMapping("/deleteCustomer/{id}")
+    @GetMapping("/deletecustomer/{id}")
     public String deleteCustomer(@PathVariable("id") int id) {
         boolean deleted = customerService.deleteCustomer(id);
         if (deleted) {
@@ -42,6 +42,18 @@ public class HomeController {
         } else {
             return "redirect:/customer";
         }
+    }
+
+    @GetMapping("/updatecustomer/{id}")
+    public String updateCustomer(@PathVariable("id") int id, Model model){
+        model.addAttribute("customer",customerService.findCustomerById(id));
+        return "home/updatecustomer";
+    }
+
+    @PostMapping("/customer/updatecustomer")
+    public String updateCustomer(@ModelAttribute Customer customer) {
+        customerService.updateCustomer(customer.getId(), customer);
+        return "redirect:/customer";
     }
 
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="logo.png"/>
+    </a>
+</div>
+<form action="/customer/updatecustomer" method="post">
+    <br><label>ID</label><br>
+    <input name="id" th:value="${customer.id}" type="text"><br>
+
+    <br><label>First name</label><br>
+    <input name="firstName" th:value="${customer.firstName}" type="text"><br>
+
+    <br><label>Last name</label><br>
+    <input name="lastName" th:value="${customer.lastName}" type="text"><br>
+
+    <br><label>Phone number</label><br>
+    <input name="phoneNumber" th:value="${customer.phoneNumber}" type="text"><br>
+
+    <br><label>Email</label><br>
+    <input name="email" th:value="${customer.email}" type="text"><br>
+
+    <br><label>Address</label><br>
+    <input name="address" th:value="${customer.address}" type="text"><br>
+
+    <br><label>Driver licence number</label><br>
+    <input name="driverLicenceNumber" th:value="${customer.driverLicenceNumber}" type="text"><br>
+
+    <br><label>Zipcode</label><br>
+    <input name="zipCode" th:value="${customer.zipCode}" type="text"><br>
+
+    <button id="updateButton" type="submit">Update customer</button>
+</form>
+</body>
+</html>
