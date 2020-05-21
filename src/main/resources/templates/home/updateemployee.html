@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="..\logo.png"/>
+    </a>
+</div>
+<form action="/employee/updateemployee" method="post">
+    <br><label>ID</label><br>
+    <input name="id" th:value="${employee.id}" type="text"><br>
+
+    <br><label>First name</label><br>
+    <input name="firstName" th:value="${employee.firstName}" type="text"><br>
+
+    <br><label>Last name</label><br>
+    <input name="lastName" th:value="${employee.lastName}" type="text"><br>
+
+    <br><label>Phone number</label><br>
+    <input name="phoneNumber" th:value="${employee.phoneNumber}" type="text"><br>
+
+    <br><label>Email</label><br>
+    <input name="email" th:value="${employee.email}" type="text"><br>
+
+    <br><label>Address</label><br>
+    <input name="address" th:value="${employee.address}" type="text"><br>
+
+    <br><label>Title</label><br>
+    <input name="title" th:value="${employee.title}" type="text"><br>
+
+    <br><label>Zipcode</label><br>
+    <input name="zipCode" th:value="${employee.zipCode}" type="text"><br>
+
+    <button id="updateButton" type="submit">Update employee</button>
+</form>
+</body>
+</html>
