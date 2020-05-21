@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="customer.css" rel="stylesheet" type="text/css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="logo.png"/>
+    </a>
+</div>
+
+<button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'orange')">Create Employee</button>
+<button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'orange')">View Employees</button>
+
+<div class="tabcontent" id="createemployee">
+    <div id="formular">
+        <h1>Create employee</h1>
+        <form action="employee" method="post">
+            <label>First name</label>
+            <input name="firstName" type="text"><br>
+
+            <label>Last name</label>
+            <input name="lastName" type="text"><br>
+
+            <label>Phone number</label>
+            <input name="phoneNumber" type="text"><br>
+
+            <label>Email</label>
+            <input name="email" type="text"><br>
+
+            <label>Address</label>
+            <input name="address" type="text"><br>
+
+            <label>Zip code</label>
+            <input name="zipCode" type="text"><br>
+
+            <label>Title</label>
+            <input name="title" type="text"><br>
+
+            <button id="createbutton" type="submit">Create employee</button>
+
+        </form>
+    </div>
+</div>
+<div class="tabcontent" id="viewemployee">
+    <h3>View Employees</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Title</th>
+            <th>Zip code</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Delete</th>
+            <th>Update</th>
+
+        </tr>
+        </thead>
+        <tr th:each="employee: ${employees}">
+            <td th:text="${employee.id}"/>
+            <td th:text="${employee.firstName}"/>
+            <td th:text="${employee.lastName}"/>
+            <td th:text="${employee.phoneNumber}"/>
+            <td th:text="${employee.email}"/>
+            <td th:text="${employee.address}"/>
+            <td th:text="${employee.title}"/>
+            <td th:text="${employee.zipCode}"/>
+            <td th:text="${employee.city}"/>
+            <td th:text="${employee.country}"/>
+            <td>
+                <a th:href="@{'/deleteEmployee/'+${employee.id}}">
+                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteEmployeer">Delete</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/updateemployee/'+${employee.id}}">
+                    <button class="btnUpdateEmployee">Update</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "white";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+
+    document.getElementById("viewEmployees").click();
+</script>
+</body>
+</html>
