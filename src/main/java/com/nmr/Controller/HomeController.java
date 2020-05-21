@@ -129,7 +129,7 @@ public class HomeController {
 
     @GetMapping("/updatemotorhome/{id")
     public String updateMotorhome(@PathVariable("id") int id, Model model) {
-        model.addAttribute("motorhome", employeeService.findEmployeeById(id));
+        model.addAttribute("motorhome", motorhomeService.findMotorhomeById(id));
         return "home/updatemotorhome";
     }
 
