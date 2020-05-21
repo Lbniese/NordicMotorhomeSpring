@@ -127,7 +127,7 @@ public class HomeController {
         }
     }
 
-    @GetMapping("/updatemotorhome/{id")
+    @GetMapping("/updatemotorhome/{id}")
     public String updateMotorhome(@PathVariable("id") int id, Model model) {
         model.addAttribute("motorhome", motorhomeService.findMotorhomeById(id));
         return "home/updatemotorhome";

@@ -6,22 +6,22 @@ public class Motorhome {
     private String model;
     private int odometer;
     private String size;
-    private String type;
+    private String vehicleType;
     private int pricePerDay;
-    private String serviceNotes;
+    private String serviceNote;
 
     public Motorhome() {
     }
 
-    public Motorhome(int id, String brand, String model, int odometer, String size, String type, int pricePerDay, String serviceNotes) {
+    public Motorhome(int id, String brand, String model, int odometer, String size, String vehicleType, int pricePerDay, String serviceNotes) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.odometer = odometer;
         this.size = size;
-        this.type = type;
+        this.vehicleType = vehicleType;
         this.pricePerDay = pricePerDay;
-        this.serviceNotes = serviceNotes;
+        this.serviceNote = serviceNotes;
     }
 
     public int getId() {
@@ -64,12 +64,12 @@ public class Motorhome {
         this.size = size;
     }
 
-    public String getType() {
-        return type;
+    public String getVehicleType() {
+        return vehicleType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public int getPricePerDay() {
@@ -80,11 +80,11 @@ public class Motorhome {
         this.pricePerDay = pricePerDay;
     }
 
-    public String getServiceNotes() {
-        return serviceNotes;
+    public String getServiceNote() {
+        return serviceNote;
     }
 
-    public void setServiceNotes(String serviceNotes) {
-        this.serviceNotes = serviceNotes;
+    public void setServiceNote(String serviceNote) {
+        this.serviceNote = serviceNote;
     }
 }

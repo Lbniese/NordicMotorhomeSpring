@@ -1,10 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="customer.css" rel="stylesheet" type="text/css">
+    <title>NMR</title>
 </head>
 <body>
 
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="logo.png"/>
+    </a>
+</div>
+
+<button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'orange')">Create Motorhome</button>
+<button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'orange')">View Motorhomes</button>
+
+<div class="tabcontent" id="createmotorhome">
+    <div id="formular">
+        <h1>Create Motorhome</h1>
+        <form action="motorhome" method="post">
+            <label>Brand</label>
+            <input name="brand" type="text"><br>
+
+            <label>Model</label>
+            <input name="model" type="text"><br>
+
+            <label>Odometer</label>
+            <input name="odometer" type="text"><br>
+
+            <label>Size</label>
+            <input name="size" type="text"><br>
+
+            <label>Type</label>
+            <input name="vehicleType" type="text"><br>
+
+            <label>Price Per Day</label>
+            <input name="pricePerDay" type="text"><br>
+
+            <label>Service Notes</label>
+            <input name="serviceNote" type="text"><br>
+
+            <button id="createbutton" type="submit">Create Motorhome</button>
+
+        </form>
+    </div>
+</div>
+
+<div class="tabcontent" id="viewMotorhomes">
+    <h3>View Motorhomes</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Odometer</th>
+            <th>Size</th>
+            <th>Type</th>
+            <th>Price Per Day</th>
+            <th>Service Note</th>
+            <th>Delete</th>
+            <th>Update</th>
+
+        </tr>
+        </thead>
+        <tr th:each="motorhome: ${motorhomes}">
+            <td th:text="${motorhome.id}"/>
+            <td th:text="${motorhome.brand}"/>
+            <td th:text="${motorhome.model}"/>
+            <td th:text="${motorhome.odometer}"/>
+            <td th:text="${motorhome.size}"/>
+            <td th:text="${motorhome.vehicleType}"/>
+            <td th:text="${motorhome.pricePerDay}"/>
+            <td th:text="${motorhome.serviceNote}"/>
+
+            <td>
+                <a th:href="@{'/deletemotorhome/'+${motorhome.id}}">
+                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteMotorhome">Delete</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/updatemotorhome/'+${motorhome.id}}">
+                    <button class="btnUpdateMotorhome">Update</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "white";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+
+    document.getElementById("viewMotorhomes").click();
+</script>
 </body>
 </html>

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>NMR</title>
 </head>
 <body>
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="..\logo.png"/>
+    </a>
+</div>
+<form action="/motorhome/updatemotorhome" method="post">
+    <br><label>ID</label><br>
+    <input name="id" th:value="${motorhome.id}" type="text"><br>
 
+    <br><label>Brand</label><br>
+    <input name="brand" th:value="${motorhome.brand}" type="text"><br>
+
+    <br><label>Model</label><br>
+    <input name="model" th:value="${motorhome.model}" type="text"><br>
+
+    <br><label>Odometer</label><br>
+    <input name="odometer" th:value="${motorhome.odometer}" type="text"><br>
+
+    <br><label>Size</label><br>
+    <input name="size" th:value="${motorhome.size}" type="text"><br>
+
+    <br><label>Type</label><br>
+    <input name="vehicleType" th:value="${motorhome.vehicleType}" type="text"><br>
+
+    <br><label>Price Per Day</label><br>
+    <input name="pricePerDay" th:value="${motorhome.pricePerDay}" type="text"><br>
+
+    <br><label>Service Note</label><br>
+    <input name="serviceNote" th:value="${motorhome.serviceNote}" type="text"><br>
+
+    <button id="updateButton" type="submit">Update Motorhome</button>
+</form>
 </body>
 </html>

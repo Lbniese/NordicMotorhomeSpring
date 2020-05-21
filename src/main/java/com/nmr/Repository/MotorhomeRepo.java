@@ -16,8 +16,8 @@ public class MotorhomeRepo {
     JdbcTemplate template;
 
     public Motorhome createMotorhome(Motorhome motorhome) {
-        String sql = "INSERT INTO Motorhome (brand, model, odometer, size, type, pricePerDay, serviceNotes) VALUES(?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, motorhome.getBrand(), motorhome.getModel(), motorhome.getOdometer(), motorhome.getSize(), motorhome.getType(), motorhome.getPricePerDay(), motorhome.getServiceNotes());
+        String sql = "INSERT INTO Motorhome (brand, model, odometer, size, vehicleType, pricePerDay, serviceNote) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, motorhome.getBrand(), motorhome.getModel(), motorhome.getOdometer(), motorhome.getSize(), motorhome.getVehicleType(), motorhome.getPricePerDay(), motorhome.getServiceNote());
         return null;
     }
 
@@ -40,8 +40,8 @@ public class MotorhomeRepo {
     }
 
     public Motorhome updateMotorhome(int id, Motorhome motorhome){
-        String sql = "UPDATE Motorhome SET brand=?, model=?, odometer=?, size=?, type=?, pricePerDay=?, serviceNotes=? WHERE id=?";
-        template.update(sql, motorhome.getBrand(), motorhome.getModel(), motorhome.getOdometer(), motorhome.getSize(), motorhome.getType(), motorhome.getPricePerDay(), motorhome.getServiceNotes(), id);
+        String sql = "UPDATE Motorhome SET brand=?, model=?, odometer=?, size=?, vehicleType=?, pricePerDay=?, serviceNote=? WHERE id=?";
+        template.update(sql, motorhome.getBrand(), motorhome.getModel(), motorhome.getOdometer(), motorhome.getSize(), motorhome.getVehicleType(), motorhome.getPricePerDay(), motorhome.getServiceNote(), id);
         return null;
     }
 
