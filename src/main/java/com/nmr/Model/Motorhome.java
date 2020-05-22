@@ -1,6 +1,11 @@
 package com.nmr.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Motorhome {
+    @Id
     private int id;
     private String brand;
     private String model;

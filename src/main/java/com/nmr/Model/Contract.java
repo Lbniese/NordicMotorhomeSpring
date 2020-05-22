@@ -1,11 +1,19 @@
 package com.nmr.Model;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@Entity
 public class Contract {
+    @Id
     private int id;
+    @DateTimeFormat(pattern ="yyyy-MM-dd HH:mm")
     private LocalDateTime startDate;
+    @DateTimeFormat(pattern ="yyyy-MM-dd HH:mm")
     private LocalDateTime endDate;
     private String pickUpPoint;
     private String dropOffPoint;
