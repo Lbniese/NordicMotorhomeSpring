@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="customer.css" rel="stylesheet" type="text/css">
+    <title>NMR</title>
+</head>
+<body>
+
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="logo.png"/>
+    </a>
+</div>
+
+<button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'orange')">Create Contract</button>
+<button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'orange')">View Contract</button>
+
+<div class="tabcontent" id="createcontract">
+    <div id="formular">
+        <h1>Create contract</h1>
+        <form action="contract" method="post">
+            <label>Start Date</label>
+            <input name="startDate" type="text"><br>
+
+            <label>End Date</label>
+            <input name="endDate" type="text"><br>
+
+            <label>Pick Up Point</label>
+            <input name="pickUpPoint" type="text"><br>
+
+            <label>Drop Off Point</label>
+            <input name="dropOffPoint" type="text"><br>
+
+            <label>Miscellaneous</label>
+            <input name="miscellaneous" type="text"><br>
+
+            <label>Motorhome ID</label>
+            <input name="motorhomeId" type="text"><br>
+
+            <label>Customer ID</label>
+            <input name="customerId" type="text"><br>
+
+            <label>Employee ID</label>
+            <input name="employeeId" type="text"><br>
+
+            <button id="createbutton" type="submit">Create Contract</button>
+
+        </form>
+    </div>
+</div>
+<div class="tabcontent" id="viewcontract">
+    <h3>View Contracts</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Pick Up Point</th>
+            <th>Drop Off Point</th>
+            <th>Miscellaneous</th>
+            <th>Motorhome ID</th>
+            <th>Customer ID</th>
+            <th>Employee ID</th>
+            <th>Delete</th>
+            <th>update</th>
+
+        </tr>
+        </thead>
+        <tr th:each="contract: ${contractscontract}">
+            <td th:text="${contract.id}"/>
+            <td th:text="${contract.startDate}"/>
+            <td th:text="${contract.endDate}"/>
+            <td th:text="${contract.pickUpPoint}"/>
+            <td th:text="${contract.dropOffPoint}"/>
+            <td th:text="${contract.miscellaneous}"/>
+            <td th:text="${contract.motorhomeId}"/>
+            <td th:text="${contract.customerId}"/>
+            <td th:text="${contract.employeeId"/>
+
+            <td>
+                <a th:href="@{'/deleteContract/'+${contract.id}}">
+                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteContract">Delete</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/updatecontract/'+${contract.id}}">
+                    <button class="btnUpdateContract">Update</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "white";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+
+    document.getElementById("viewContracts").click();
+</script>
+
+</body>
+</html>
