@@ -16,7 +16,7 @@ public class ContractRepo {
     JdbcTemplate template;
 
     public Contract createContract(Contract contract) {
-        String sql = "INSERT INTO Contract (startDate, endDate, pickUpPoint, dropOffPoint, miscellaneous, motorhomeId, customerId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Contract (startDate, endDate, pickUpPoint, dropOffPoint, miscellaneous, motorhomeId, customerId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         template.update(sql, contract.getStartDate(), contract.getEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getMotorhomeId(), contract.getCustomerId(), contract.getEmployeeId());
         return null;
     }
