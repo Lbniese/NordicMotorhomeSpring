@@ -1,8 +1,10 @@
 package com.nmr.Controller;
 
+import com.nmr.Model.Contract;
 import com.nmr.Model.Customer;
 import com.nmr.Model.Employee;
 import com.nmr.Model.Motorhome;
+import com.nmr.Service.ContractService;
 import com.nmr.Service.CustomerService;
 import com.nmr.Service.EmployeeService;
 import com.nmr.Service.MotorhomeService;
@@ -27,6 +29,9 @@ public class HomeController {
 
     @Autowired
     MotorhomeService motorhomeService;
+
+    @Autowired
+    ContractService contractService;
 
     @GetMapping("/")
     public String index() {
@@ -137,6 +142,41 @@ public class HomeController {
     public String updateMotorhome(@ModelAttribute Motorhome motorhome) {
         motorhomeService.updateMotorhome(motorhome.getId(), motorhome);
         return "redirect:/motorhome";
+    }
+
+    @GetMapping("/contract")
+    public String contract(Model model) {
+        List<Contract> contractList = contractService.fetchAll();
+        model.addAttribute("contracts",contractList);
+        return "home/contract";
+    }
+
+    @PostMapping("/contract")
+    public String contract(@ModelAttribute Contract contract) {
+        contractService.createContract(contract);
+        return "redirect:/contract";
+    }
+
+    @GetMapping("/deletecontract/{id}")
+    public String deleteContract(@PathVariable("id") int id) {
+        boolean deleted = contractService.deleteContract(id);
+        if (deleted) {
+            return "redirect:/contract";
+        } else {
+            return "redirect:/contract";
+        }
+    }
+
+    @GetMapping("/updatecontract/{id}")
+    public String updateContract(@PathVariable("id") int id, Model model) {
+        model.addAttribute("contract", contractService.findContractById(id));
+        return "home/updatecontract";
+    }
+
+    @PostMapping("/contract/updatecontract")
+    public String updateContract(@ModelAttribute Contract contract) {
+        contractService.updateContract(contract.getId(), contract);
+        return "redirect:/contract";
     }
 
 }

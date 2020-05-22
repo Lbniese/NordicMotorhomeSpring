@@ -7,8 +7,8 @@ public class Contract {
     private int id;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String pickupPoint;
-    private String dropoffPoint;
+    private String pickUpPoint;
+    private String dropOffPoint;
     private String miscellaneous;
     private int customerId;
     private int motorhomeId;
@@ -21,8 +21,8 @@ public class Contract {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.pickupPoint = pickupPoint;
-        this.dropoffPoint = dropoffPoint;
+        this.pickUpPoint = pickupPoint;
+        this.dropOffPoint = dropoffPoint;
         this.miscellaneous = miscellaneous;
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
@@ -53,20 +53,20 @@ public class Contract {
         this.endDate = endDate;
     }
 
-    public String getPickupPoint() {
-        return pickupPoint;
+    public String getPickUpPoint() {
+        return pickUpPoint;
     }
 
-    public void setPickupPoint(String pickupPoint) {
-        this.pickupPoint = pickupPoint;
+    public void setPickUpPoint(String pickUpPoint) {
+        this.pickUpPoint = pickUpPoint;
     }
 
-    public String getDropoffPoint() {
-        return dropoffPoint;
+    public String getDropOffPoint() {
+        return dropOffPoint;
     }
 
-    public void setDropoffPoint(String dropoffPoint) {
-        this.dropoffPoint = dropoffPoint;
+    public void setDropOffPoint(String dropOffPoint) {
+        this.dropOffPoint = dropOffPoint;
     }
 
     public String getMiscellaneous() {
