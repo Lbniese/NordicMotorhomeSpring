@@ -22,28 +22,19 @@
     <div id="formular">
     <h1>Create customer</h1>
         <form action="customer" method="post">
-    <label>First name</label>
-    <input name="firstName" type="text"><br>
 
-    <label>Last name</label>
-    <input name="lastName" type="text"><br>
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="First Name" name="firstName" id='firstName' required /> <br> <br>
+                <input type="input" class="form__field" placeholder="Last Name" name="lastName" id='lastName' required /> <br> <br>
+                <input type="input" class="form__field" placeholder="Phone Number" name="phoneNumber" id='phoneNumber' required /> <br> <br>
+                <input type="input" class="form__field" placeholder="Email" name="email" id='email' required /> <br> <br>
+                <input type="input" class="form__field" placeholder="Address" name="address" id='address' required /> <br> <br>
+                <input type="input" class="form__field" placeholder="Zip Code" name="zipCode" id='zipCode' required /><br> <br>
+                <input type="input" class="form__field" placeholder="Driver License Number" name="driverLicenceNumber" id='driverLicensenumber' required /> <br> <br>
+            </div>
 
-    <label>Phone number</label>
-    <input name="phoneNumber" type="text"><br>
 
-    <label>Email</label>
-    <input name="email" type="text"><br>
-
-    <label>Address</label>
-    <input name="address" type="text"><br>
-
-    <label>Zip code</label>
-    <input name="zipCode" type="text"><br>
-
-    <label>Driver Licence Number</label>
-    <input name="driverLicenceNumber" type="text"><br>
-
-    <button id="createbutton" type="submit">Create customer</button>
+    <button id="createbutton" type="submit">Create Customer</button>
 
         </form>
     </div>

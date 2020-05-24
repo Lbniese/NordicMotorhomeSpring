@@ -8,11 +8,24 @@ body{
         margin-right: auto;
     }
 
-#ctrPic{
-    height: 200px;
-    width: 400px;
-    padding: 100px;
+#customerPicture, #contractPicture, #employeePicture, #motorhomePicture{
+    max-height: 25%;
+    max-width: 25%;
+    float: left;
+    text-align: center;
+    align-content: center;
 }
+
+
+
+.customerText{
+    font-family: 'Poppins', sans-serif;
+    font-size: xx-large;
+    text-align: left;
+    float: bottom;
+}
+
+
 
 #creators{
     text-align: center;
