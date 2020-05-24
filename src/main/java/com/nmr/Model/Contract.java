@@ -25,12 +25,12 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(int id, LocalDateTime startDate, LocalDateTime endDate, String pickupPoint, String dropoffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
+    public Contract(int id, LocalDateTime startDate, LocalDateTime endDate, String pickUpPoint, String dropOffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.pickUpPoint = pickupPoint;
-        this.dropOffPoint = dropoffPoint;
+        this.pickUpPoint = pickUpPoint;
+        this.dropOffPoint = dropOffPoint;
         this.miscellaneous = miscellaneous;
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;

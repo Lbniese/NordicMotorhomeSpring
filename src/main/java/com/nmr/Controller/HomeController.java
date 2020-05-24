@@ -9,13 +9,12 @@ import com.nmr.Service.CustomerService;
 import com.nmr.Service.EmployeeService;
 import com.nmr.Service.MotorhomeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -147,12 +146,14 @@ public class HomeController {
     @GetMapping("/contract")
     public String contract(Model model) {
         List<Contract> contractList = contractService.fetchAll();
-        model.addAttribute("contracts",contractList);
+        model.addAttribute("contracts", contractList);
         return "home/contract";
     }
 
     @PostMapping("/contract")
-    public String contract(@ModelAttribute Contract contract) {
+    public String contract(@RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime startDate,
+                           @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime endDate,
+                           @ModelAttribute Contract contract) {
         contractService.createContract(contract);
         return "redirect:/contract";
     }

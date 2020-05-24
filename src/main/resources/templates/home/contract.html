@@ -35,11 +35,11 @@
             <label>Miscellaneous</label>
             <input name="miscellaneous" type="text"><br>
 
-            <label>Motorhome ID</label>
-            <input name="motorhomeId" type="text"><br>
-
             <label>Customer ID</label>
             <input name="customerId" type="text"><br>
+
+            <label>Motorhome ID</label>
+            <input name="motorhomeId" type="text"><br>
 
             <label>Employee ID</label>
             <input name="employeeId" type="text"><br>
@@ -60,27 +60,27 @@
             <th>Pick Up Point</th>
             <th>Drop Off Point</th>
             <th>Miscellaneous</th>
-            <th>Motorhome ID</th>
             <th>Customer ID</th>
+            <th>Motorhome ID</th>
             <th>Employee ID</th>
             <th>Delete</th>
             <th>update</th>
 
         </tr>
         </thead>
-        <tr th:each="contract: ${contractscontract}">
+        <tr th:each="contract: ${contracts}">
             <td th:text="${contract.id}"/>
-            <td th:text="${contract.startDate}"/>
-            <td th:text="${contract.endDate}"/>
+            <td th:text="${#temporals.format(contract.startDate, 'yyyy-MM-dd HH:mm')}"/>
+            <td th:text="${#temporals.format(contract.endDate, 'yyyy-MM-dd HH:mm')}"/>
             <td th:text="${contract.pickUpPoint}"/>
             <td th:text="${contract.dropOffPoint}"/>
             <td th:text="${contract.miscellaneous}"/>
-            <td th:text="${contract.motorhomeId}"/>
             <td th:text="${contract.customerId}"/>
-            <td th:text="${contract.employeeId"/>
+            <td th:text="${contract.motorhomeId}"/>
+            <td th:text="${contract.employeeId}"/>
 
             <td>
-                <a th:href="@{'/deleteContract/'+${contract.id}}">
+                <a th:href="@{'/deletecontract/'+${contract.id}}">
                     <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteContract">Delete</button>
                 </a>
             </td>

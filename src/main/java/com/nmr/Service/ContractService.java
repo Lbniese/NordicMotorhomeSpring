@@ -18,8 +18,8 @@ public class ContractService {
         return contractRepo.fetchAll();
     }
 
-    public Contract createContract(Contract c) {
-        return contractRepo.createContract(c);
+    public Contract createContract(Contract contract) {
+        return contractRepo.createContract(contract);
     }
 
     public Contract findContractById(int id) {
