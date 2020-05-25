@@ -143,6 +143,15 @@ public class HomeController {
     public String contract(Model model) {
         List<Contract> contractList = contractService.fetchAll();
         model.addAttribute("contracts", contractList);
+
+        List<Customer> customerList = customerService.fetchAll();
+        model.addAttribute("customers", customerList);
+
+        List<Motorhome> motorhomeList = motorhomeService.fetchAll();
+        model.addAttribute("motorhomes", motorhomeList);
+
+        List<Employee> employeeList = employeeService.fetchAll();
+        model.addAttribute("employees", employeeList);
         return "home/contract";
     }
 

@@ -28,7 +28,7 @@
             <input name="rentalStartDate" type="text"><br>
 
             <label>End Date</label>
-            <input name="rentalEndDate" type="text"><br>
+            <input name="rentalEndDate" type="text"><br><br>
 
 
             <div class="wrapper">
@@ -42,7 +42,7 @@
                     </select>
                 </div>
 
-
+                <br>
             <label>Drop Off Points</label>
             <div class="selectDropOffPoint" >
                 <select id="slctDropOffPoint" name="dropOffPoint">
@@ -53,18 +53,60 @@
                 </select>
             </div>
             </div>
-
+            <br><br>
             <label>Miscellaneous</label>
-            <input name="miscellaneous" type="text"><br>
+            <input name="miscellaneous" type="text"><br><br>
 
             <label>Customer ID</label>
-            <input name="customerId" type="text"><br>
+            <div class="wrapper">
+                <div class="selectCustomer">
+                    <select id="slctCustomer" name="customerId">
+                        <option label="Select .." value="NONE"></option>
+                        <tr th:each="customer: ${customers}">
+                            <option th:value="${customer.id}">
+                                <td th:text="${customer.id}"/>
+                                <td th:text="${customer.firstName}"/>
+                                <td th:text="${customer.lastName}"/>
+                            </option>
+                        </tr>
+                    </select>
+                </div><br>
 
-            <label>Motorhome ID</label>
-            <input name="motorhomeId" type="text"><br>
+                <label>Motorhome ID</label>
+                <div class="selectMotorhome">
+                    <select id="slctMotorhome" name="motorhomeId">
+                        <option label="Select .." value="NONE"></option>
+                        <tr th:each="motorhome: ${motorhomes}">
+                            <option th:value="${motorhome.id}">
+                                <td th:text="${motorhome.id}"/>
+                                <td th:text="${motorhome.brand}"/>
+                                <td th:text="${motorhome.model}"/>
+                            </option>
+                        </tr>
+                    </select>
+                </div>
+                <br>
+                <label>Employee ID</label>
+                <div class="selectEmployee">
+                    <select id="slctEmployee" name="employeeId">
+                        <option label="Select .." value="NONE"></option>
+                        <tr th:each="employee: ${employees}">
+                            <option th:value="${employee.id}">
+                                <td th:text="${employee.id}"/>
+                                <td th:text="${employee.firstName}"/>
+                                <td th:text="${employee.lastName}"/>
+                                <td th:text="${employee.title}"/>
+                            </option>
+                        </tr>
+                    </select>
+                </div>
+            </div>
 
-            <label>Employee ID</label>
-            <input name="employeeId" type="text"><br>
+
+
+
+
+            <br>
 
             <button id="createbutton" type="submit">Create Contract</button>
 
