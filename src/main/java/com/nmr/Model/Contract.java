@@ -22,6 +22,10 @@ public class Contract {
     private int motorhomeId;
     private int employeeId;
     private double fullPrice;
+    private double pickUpPrice;
+    private double dropOffPrice;
+    private int pickUpKm;
+    private int dropOffKm;
 
     public Contract() {
     }
@@ -36,6 +40,38 @@ public class Contract {
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
         this.employeeId = employeeId;
+    }
+
+    public double getPickUpPrice() {
+        return pickUpPrice;
+    }
+
+    public void setPickUpPrice(double pickUpPrice) {
+        this.pickUpPrice = pickUpPrice;
+    }
+
+    public double getDropOffPrice() {
+        return dropOffPrice;
+    }
+
+    public void setDropOffPrice(double dropOffPrice) {
+        this.dropOffPrice = dropOffPrice;
+    }
+
+    public int getPickUpKm() {
+        return pickUpKm;
+    }
+
+    public void setPickUpKm(int pickUpKm) {
+        this.pickUpKm = pickUpKm;
+    }
+
+    public int getDropOffKm() {
+        return dropOffKm;
+    }
+
+    public void setDropOffKm(int dropOffKm) {
+        this.dropOffKm = dropOffKm;
     }
 
     public double getFullPrice() {

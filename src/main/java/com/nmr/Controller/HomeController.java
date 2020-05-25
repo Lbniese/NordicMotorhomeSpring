@@ -1,6 +1,5 @@
 package com.nmr.Controller;
 
-import com.nmr.Handler.PriceHandler;
 import com.nmr.Model.*;
 import com.nmr.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -195,7 +194,8 @@ public class HomeController {
         Contract contract = contractService.findContractById(id);
         Motorhome motorhome = motorhomeService.findMotorhomeById(contract.getMotorhomeId());
         Employee employee = employeeService.findEmployeeById(contract.getEmployeeId());
-        contract = contractService.calulateFullPrice(contract, motorhome);
+        contract = contractService.calculateFullPrice(contract, motorhome);
+        contract = contractService.calculatePickUpAndDropOff(contract);
         model.addAttribute("contract", contract);
         model.addAttribute("customer", customerService.findCustomerById(contract.getCustomerId()));
         model.addAttribute("motorhome", motorhome);

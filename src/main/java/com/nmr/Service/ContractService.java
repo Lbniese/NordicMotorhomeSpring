@@ -43,8 +43,13 @@ public class ContractService {
         return contractRepo.updateContract(id, contract);
     }
 
-    public Contract calulateFullPrice(Contract contract, Motorhome motorhome){
+    public Contract calculateFullPrice(Contract contract, Motorhome motorhome){
         contract.setFullPrice(PriceHandler.calculateFullPrice(contract.getRentalStartDate(), contract.getRentalEndDate(), motorhome.getPricePerDay()));
+        return contract;
+    }
+    public Contract calculatePickUpAndDropOff(Contract contract){
+        contract.setPickUpPrice(PriceHandler.calculatePickUpPrice(contract.getPickUpPoint()));
+        contract.setDropOffPrice(PriceHandler.calculateDropOffPrice(contract.getDropOffPoint()));
         return contract;
     }
 
