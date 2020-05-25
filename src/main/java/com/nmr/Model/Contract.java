@@ -21,6 +21,7 @@ public class Contract {
     private int customerId;
     private int motorhomeId;
     private int employeeId;
+    private double fullPrice;
 
     public Contract() {
     }
@@ -35,6 +36,14 @@ public class Contract {
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
         this.employeeId = employeeId;
+    }
+
+    public double getFullPrice() {
+        return fullPrice;
+    }
+
+    public void setFullPrice(double fullPrice) {
+        this.fullPrice = fullPrice;
     }
 
     public int getId() {

@@ -10,7 +10,7 @@ public class Motorhome {
     private String brand;
     private String model;
     private int odometer;
-    private String size;
+    private String vehicleSize;
     private String vehicleType;
     private int pricePerDay;
     private String serviceNote;
@@ -18,12 +18,12 @@ public class Motorhome {
     public Motorhome() {
     }
 
-    public Motorhome(int id, String brand, String model, int odometer, String size, String vehicleType, int pricePerDay, String serviceNotes) {
+    public Motorhome(int id, String brand, String model, int odometer, String vehicleSize, String vehicleType, int pricePerDay, String serviceNotes) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.odometer = odometer;
-        this.size = size;
+        this.vehicleSize = vehicleSize;
         this.vehicleType = vehicleType;
         this.pricePerDay = pricePerDay;
         this.serviceNote = serviceNotes;
@@ -61,12 +61,12 @@ public class Motorhome {
         this.odometer = odometer;
     }
 
-    public String getSize() {
-        return size;
+    public String getVehicleSize() {
+        return vehicleSize;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setVehicleSize(String size) {
+        this.vehicleSize = size;
     }
 
     public String getVehicleType() {

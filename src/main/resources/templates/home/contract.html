@@ -82,7 +82,8 @@
             <th>Motorhome ID</th>
             <th>Employee ID</th>
             <th>Delete</th>
-            <th>update</th>
+            <th>Update</th>
+            <th>Invoice</th>
             <th>Cancel</th>
 
         </tr>
@@ -107,6 +108,13 @@
                 <a th:href="@{'/updatecontract/'+${contract.id}}">
                     <button class="btnUpdateContract">Update</button>
                 </a>
+            </td>
+            <td>
+                <div class="invoice">
+                    <a th:href="@{'/invoice/'+${contract.id}}">
+                        <button>Invoice</button>
+                    </a>
+                </div>
             </td>
         </tr>
     </table>

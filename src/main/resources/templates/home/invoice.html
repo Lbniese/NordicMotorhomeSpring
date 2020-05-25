@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<h1>hejsa invoice</h1>
 
+<form action="/contract/invoice" method="post">
+    <br><label>Contract ID</label><br>
+    <span th:text="${contract.id}"></span>
+        <br>
+    <span th:text="${contract.fullPrice}"></span>
+
+    <br><label>First name</label><br>
+    <input name="firstName" th:value="${customer.firstName}" type="text"><br>
+
+
+
+
+
+</form>
 </body>
 </html>

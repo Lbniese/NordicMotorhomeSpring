@@ -1,7 +1,9 @@
 package com.nmr.Service;
 
 
+import com.nmr.Handler.PriceHandler;
 import com.nmr.Model.Contract;
+import com.nmr.Model.Motorhome;
 import com.nmr.Repository.ContractRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,11 @@ public class ContractService {
 
     public Contract updateContract(int id, Contract contract) {
         return contractRepo.updateContract(id, contract);
+    }
+
+    public Contract calulateFullPrice(Contract contract, Motorhome motorhome){
+        contract.setFullPrice(PriceHandler.calculateFullPrice(contract.getRentalStartDate(), contract.getRentalEndDate(), motorhome.getPricePerDay()));
+        return contract;
     }
 
 }

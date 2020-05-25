@@ -1,13 +1,8 @@
 package com.nmr.Controller;
 
-import com.nmr.Model.Contract;
-import com.nmr.Model.Customer;
-import com.nmr.Model.Employee;
-import com.nmr.Model.Motorhome;
-import com.nmr.Service.ContractService;
-import com.nmr.Service.CustomerService;
-import com.nmr.Service.EmployeeService;
-import com.nmr.Service.MotorhomeService;
+import com.nmr.Handler.PriceHandler;
+import com.nmr.Model.*;
+import com.nmr.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -31,6 +26,7 @@ public class HomeController {
 
     @Autowired
     ContractService contractService;
+
 
     @GetMapping("/")
     public String index() {
@@ -178,6 +174,22 @@ public class HomeController {
     public String updateContract(@ModelAttribute Contract contract) {
         contractService.updateContract(contract.getId(), contract);
         return "redirect:/contract";
+    }
+
+    @GetMapping("contract/invoice")
+    public String invoice(){
+        return "home/invoice";
+    }
+
+    @GetMapping("/invoice/{id}")
+    public String invoice(@PathVariable("id") int id, Model model) {
+        Contract contract = contractService.findContractById(id);
+        Motorhome motorhome = motorhomeService.findMotorhomeById(contract.getMotorhomeId());
+        contract = contractService.calulateFullPrice(contract, motorhome);
+        model.addAttribute("contract", contract);
+        model.addAttribute("customer", customerService.findCustomerById(contract.getCustomerId()));
+        model.addAttribute("motorhome", motorhome);
+        return "home/invoice";
     }
 
 }
