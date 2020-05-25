@@ -12,7 +12,7 @@
 </div>
 <form action="/contract/updatecontract" method="post">
     <br><label>ID</label><br>
-    <input name="id" th:value="${contract.id}" type="text"><br>
+    <input name="id" th:value="${contract.id}" type="text" readOnly tabindex="-1"><br>
 
     <br><label>Start Date</label><br>
     <input name="rentalStartDate" th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>

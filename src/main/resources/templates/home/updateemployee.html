@@ -12,7 +12,7 @@
 </div>
 <form action="/employee/updateemployee" method="post">
     <br><label>ID</label><br>
-    <input name="id" th:value="${employee.id}" type="text"><br>
+    <input name="id" th:value="${employee.id}" type="text" readOnly tabindex="-1"><br>
 
     <br><label>First name</label><br>
     <input name="firstName" th:value="${employee.firstName}" type="text"><br>
