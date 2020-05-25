@@ -196,13 +196,35 @@
             </td>
         </tr>
 
-        <tr class="item last">
+        <tr class="item">
             <td>
                 End Date
             </td>
 
             <td>
                 <span th:text="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd')}"></span>
+            </td>
+        </tr>
+
+        <tr class="item">
+            <td>
+                Pick Up Point
+            </td>
+
+            <td>
+                <span th:text="${contract.pickUpPoint}"></span>
+            </td>
+        </tr>
+
+
+
+        <tr class="item last">
+            <td>
+                Drop Off Point
+            </td>
+
+            <td>
+                <span th:text="${contract.dropOffPoint}"></span>
             </td>
         </tr>
 
