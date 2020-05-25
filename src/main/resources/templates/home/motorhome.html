@@ -30,10 +30,34 @@
             <input name="odometer" type="text"><br>
 
             <label>Size</label>
-            <input name="size" type="text"><br>
 
+
+            <div class="wrapper">
+            <div class="selectSize">
+                <select id="slctSize" name="size">
+                    <option label="Select .." value="NONE"></option>
+                    <option label="Small" value="Small"></option>
+                    <option label="Large" value="Large"></option>
+                </select>
+            </div>
+                <br>
             <label>Type</label>
-            <input name="vehicleType" type="text"><br>
+                <div class="selectType">
+                    <select id="slctType" name="vehicleType">
+                        <option label="Select .." value="NONE"></option>
+                        <option label="Class A Motorhome" value="Class A Motorhome"></option>
+                        <option label="Class B Motorhome" value="Class B Motorhome"></option>
+                        <option label="Class C Motorhome" value="Class C Motorhome"></option>
+                        <option label="Travel Trailer" value="Travel Trailer"></option>
+                        <option label="Fifth Wheel Trailer" value="Fifth Wheel Trailer"></option>
+                        <option label="Hybrid Travel Trailer" value="Hybrid Travel Trailer"></option>
+                        <option label="Pop-up Trailer" value="Pop-up Travel Trailer"></option>
+                        <option label="Truck Camper" value="Truck Camper"></option>
+                        <option label="Toy Hauler" value="Toy Hauler"></option>
+                    </select>
+                </div>
+            </div>
+            <br>
 
             <label>Price Per Day</label>
             <input name="pricePerDay" type="text"><br>
