@@ -24,12 +24,15 @@ public class MotorhomeService {
         return motorhomeRepo.findMotorhomeById(id);
     }
 
-
     public Boolean deleteMotorhome(int id) {
         return motorhomeRepo.deleteMotorhome(id);
     }
 
     public Motorhome updateMotorhome(int id, Motorhome motorhome){
         return motorhomeRepo.updateMotorhome(id, motorhome);
+    }
+
+    public Motorhome updateSeasonalPrice(int percentage){
+        return null;
     }
 }
