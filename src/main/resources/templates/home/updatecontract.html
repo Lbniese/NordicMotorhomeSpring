@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>NMR</title>
+    <title>NMRcontract</title>
 </head>
 <body>
+<div class="logo">
+    <a href="/">
+        <img id="logo" alt="logo" src="..\logo.png"/>
+    </a>
+</div>
+<form action="/contract/updatecontract" method="post">
+    <br><label>ID</label><br>
+    <input name="id" th:value="${contract.id}" type="text"><br>
 
+    <br><label>Start Date</label><br>
+    <input name="rentalStartDate" th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
+
+    <br><label>End Date</label><br>
+    <input name="rentalEndDate" th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
+
+    <br><label>Pick Up Point</label><br>
+    <input name="pickUpPoint" th:value="${contract.pickUpPoint}" type="text"><br>
+
+    <br><label>Drop Off Point</label><br>
+    <input name="dropOffPoint" th:value="${contract.dropOffPoint}" type="text"><br>
+
+    <br><label>Miscellaneous</label><br>
+    <input name="miscellaneous" th:value="${contract.miscellaneous}" type="text"><br>
+
+    <br><label>Customer ID</label><br>
+    <input name="customerId" th:value="${contract.customerId}" type="text"><br>
+
+    <br><label>Motorhome ID</label><br>
+    <input name="motorhomeId" th:value="${contract.motorhomeId}" type="text"><br>
+
+    <br><label>Employee ID</label><br>
+    <input name="employeeId" th:value="${contract.employeeId}" type="text"><br>
+
+    <button id="updateButton" type="submit">Update contract</button>
+</form>
 </body>
 </html>
