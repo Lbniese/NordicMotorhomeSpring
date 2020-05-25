@@ -26,11 +26,29 @@
             <label>End Date</label>
             <input name="rentalEndDate" type="text"><br>
 
-            <label>Pick Up Point</label>
-            <input name="pickUpPoint" type="text"><br>
 
-            <label>Drop Off Point</label>
-            <input name="dropOffPoint" type="text"><br>
+            <div class="wrapper">
+            <label>Pick Up Points</label>
+                <div class="selectPickUpPoint" >
+                    <select id="slctPickUpPoint" name="pickUpPoint">
+                        <option label="Select .." value="NONE"></option>
+                        <option label="NMR - Headquarters" value="0"></option>
+                        <option label="Airport" value="20"></option>
+                        <option label="Train Station" value="30"></option>
+                    </select>
+                </div>
+
+
+            <label>Drop Off Points</label>
+            <div class="selectDropOffPoint" >
+                <select id="slctDropOffPoint" name="dropOffPoint">
+                    <option label="Select .." value="NONE"></option>
+                    <option label="NMR - Headquarters" value="headquarters"></option>
+                    <option label="Airport" value="airport"></option>
+                    <option label="Train Station" value="trainStation"></option>
+                </select>
+            </div>
+            </div>
 
             <label>Miscellaneous</label>
             <input name="miscellaneous" type="text"><br>
