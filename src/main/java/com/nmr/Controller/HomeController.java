@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -189,6 +190,7 @@ public class HomeController {
         model.addAttribute("contract", contract);
         model.addAttribute("customer", customerService.findCustomerById(contract.getCustomerId()));
         model.addAttribute("motorhome", motorhome);
+        model.addAttribute("localDate", LocalDate.now());
         return "home/invoice";
     }
 
