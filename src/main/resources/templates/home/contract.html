@@ -13,6 +13,10 @@
     </a>
 </div>
 
+
+<div id="errorBox" th:text="${message}" style="padding: 8px; color: white"></div>
+
+
 <button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'orange')">Create Contract</button>
 <button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'orange')">View Contract</button>
 
@@ -133,6 +137,8 @@
         }
         document.getElementById(pageName).style.display = "block";
         elmnt.style.backgroundColor = color;
+
+        document.getElementById("errorBox").style.display = "none";
     }
 
     document.getElementById("viewContracts").click();

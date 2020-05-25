@@ -8,6 +8,7 @@ import com.nmr.Repository.ContractRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -20,8 +21,14 @@ public class ContractService {
         return contractRepo.fetchAll();
     }
 
-    public Contract createContract(Contract contract) {
-        return contractRepo.createContract(contract);
+    public boolean createContract(Contract contract) {
+        if(contractRepo.rentalDateValidation(contract.getMotorhomeId(), contract.getRentalStartDate(), contract.getRentalEndDate())) {
+        contractRepo.createContract(contract);
+        return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public Contract findContractById(int id) {

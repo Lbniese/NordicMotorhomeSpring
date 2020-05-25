@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -43,5 +44,13 @@ public class ContractRepo {
         String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, miscellaneous=?, customerId=?, motorhomeId=?, employeeId=? WHERE id=?";
         template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), id);
         return null;
+    }
+
+    public boolean rentalDateValidation(int motorhomeId, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate){
+        String sql = "SELECT count(*) FROM Contract WHERE motorhomeId = ? AND rentalStartDate < ? AND rentalEndDate > ?";
+        int rowCount = template.queryForObject(sql, new Object[] { motorhomeId,rentalEndDate, rentalStartDate }, Integer.class);
+        if(rowCount == 0)
+            return true;
+        return false;
     }
 }

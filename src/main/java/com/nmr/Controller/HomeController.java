@@ -150,9 +150,17 @@ public class HomeController {
     @PostMapping("/contract")
     public String contract(@RequestParam("rentalStartDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime rentalStartDate,
                            @RequestParam("rentalEndDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime rentalEndDate,
-                           @ModelAttribute Contract contract) {
-        contractService.createContract(contract);
-        return "redirect:/contract";
+                           @ModelAttribute Contract contract, Model model) {
+        boolean created = contractService.createContract(contract);
+        if(created){
+            return "redirect:/contract";
+        }
+        else{
+            model.addAttribute("message", "Error: Either the start date or end date is overlapping with an existing contract for the selected vehicle.");
+            List<Contract> contractList = contractService.fetchAll();
+            model.addAttribute("contracts", contractList);
+            return "home/contract";
+        }
     }
 
     @GetMapping("/deletecontract/{id}")
