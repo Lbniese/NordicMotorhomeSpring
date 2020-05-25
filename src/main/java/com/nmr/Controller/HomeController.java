@@ -186,10 +186,12 @@ public class HomeController {
     public String invoice(@PathVariable("id") int id, Model model) {
         Contract contract = contractService.findContractById(id);
         Motorhome motorhome = motorhomeService.findMotorhomeById(contract.getMotorhomeId());
+        Employee employee = employeeService.findEmployeeById(contract.getEmployeeId());
         contract = contractService.calulateFullPrice(contract, motorhome);
         model.addAttribute("contract", contract);
         model.addAttribute("customer", customerService.findCustomerById(contract.getCustomerId()));
         model.addAttribute("motorhome", motorhome);
+        model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
         return "home/invoice";
     }

@@ -129,14 +129,16 @@
                     <tr>
                         <td>
                             Nordic Motorhome Rental<br>
+                            <span th:text="${employee.firstName}"></span> <span th:text="${employee.lastName}"></span><br>
+                            <span th:text="${employee.phoneNumber}"></span><br>
                             Østerfælled Torv 3<br>
                             2100 København Ø, DK
                         </td>
 
                         <td>
-                            Customer #: <span th:text="${customer.id}"></span><br>
-                            <span th:text="${customer.firstName}"></span> <span
-                                th:text="${customer.lastName}"></span><br>
+                            <br>Customer #: <span th:text="${customer.id}"></span><br>
+                            <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br>
+                            <span th:text="${customer.phoneNumber}"></span><br>
                             <span th:text="${customer.email}"></span>
                         </td>
                     </tr>
@@ -166,41 +168,41 @@
 
         <tr class="heading">
             <td>
-                Item
+                Details
             </td>
 
             <td>
-                Price
-            </td>
-        </tr>
-
-        <tr class="item">
-            <td>
-                Autocamper - Class A
-            </td>
-
-            <td>
-                DKK 300.00
+                <!-- Price -->
             </td>
         </tr>
 
         <tr class="item">
             <td>
-                Bike
+                <span th:text="${motorhome.brand}"></span> <span th:text="${motorhome.model}"></span>, <span th:text="${motorhome.vehicleType}"></span>
             </td>
 
             <td>
-                DKK 75.00
+                Price Per Day: <span th:text="${motorhome.pricePerDay}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item">
+            <td>
+                Start Date
+            </td>
+
+            <td>
+                <span th:text="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd')}"></span>
             </td>
         </tr>
 
         <tr class="item last">
             <td>
-                Food
+                End Date
             </td>
 
             <td>
-                DKK 10.00
+                <span th:text="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd')}"></span>
             </td>
         </tr>
 
@@ -208,7 +210,7 @@
             <td></td>
 
             <td>
-                Total: DKK 385.00
+                Total: DKK <span th:text="${contract.fullPrice}"></span>
             </td>
         </tr>
     </table>
