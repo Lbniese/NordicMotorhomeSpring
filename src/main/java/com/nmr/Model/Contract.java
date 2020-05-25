@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 public class Contract {
     @Id
     private int id;
-    @DateTimeFormat(pattern ="yyyy-MM-dd HH:mm")
-    private LocalDateTime startDate;
-    @DateTimeFormat(pattern ="yyyy-MM-dd HH:mm")
-    private LocalDateTime endDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime rentalStartDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime rentalEndDate;
     private String pickUpPoint;
     private String dropOffPoint;
     private String miscellaneous;
@@ -25,10 +25,10 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(int id, LocalDateTime startDate, LocalDateTime endDate, String pickUpPoint, String dropOffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
+    public Contract(int id, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, String pickUpPoint, String dropOffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
         this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.rentalStartDate = rentalStartDate;
+        this.rentalEndDate = rentalEndDate;
         this.pickUpPoint = pickUpPoint;
         this.dropOffPoint = dropOffPoint;
         this.miscellaneous = miscellaneous;
@@ -45,20 +45,20 @@ public class Contract {
         this.id = id;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public LocalDateTime getRentalStartDate() {
+        return rentalStartDate;
     }
 
-    public void setFromDate(LocalDateTime startDate) {
-        this.startDate = startDate;
+    public void setRentalStartDate(LocalDateTime RentalStartDate) {
+        this.rentalStartDate = RentalStartDate;
     }
 
-    public LocalDateTime getEndDate() {
-        return endDate;
+    public LocalDateTime getRentalEndDate() {
+        return rentalEndDate;
     }
 
-    public void setToDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+    public void setRentalEndDate(LocalDateTime rentalEndDate) {
+        this.rentalEndDate = rentalEndDate;
     }
 
     public String getPickUpPoint() {

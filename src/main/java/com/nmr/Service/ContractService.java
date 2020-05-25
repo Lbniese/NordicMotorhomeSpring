@@ -30,8 +30,8 @@ public class ContractService {
         return contractRepo.deleteContract(id);
     }
 
-    public Contract updateContract(int id, Contract c) {
-        return contractRepo.updateContract(id, c);
+    public Contract updateContract(int id, Contract contract) {
+        return contractRepo.updateContract(id, contract);
     }
 
 }

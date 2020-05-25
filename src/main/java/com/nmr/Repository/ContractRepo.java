@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -17,8 +16,8 @@ public class ContractRepo {
     JdbcTemplate template;
 
     public Contract createContract(Contract contract) {
-        String sql = "INSERT INTO Contract (startDate, endDate, pickUpPoint, dropOffPoint, miscellaneous, customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, contract.getStartDate(), contract.getEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(),contract.getMotorhomeId() , contract.getEmployeeId());
+        String sql = "INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, miscellaneous, customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(),contract.getMotorhomeId() , contract.getEmployeeId());
         return null;
     }
 
@@ -41,8 +40,8 @@ public class ContractRepo {
     }
 
     public Contract updateContract(int id, Contract contract){
-        String sql = "UPDATE Contract SET startDate=?, endDate=?, pickUpPoint=?, dropOffPoint=?, miscellaneous=?, customerId=?, motorhomeId=?, employeeId=? WHERE id=?";
-        template.update(sql, contract.getStartDate(), contract.getEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), id);
+        String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, miscellaneous=?, customerId=?, motorhomeId=?, employeeId=? WHERE id=?";
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), id);
         return null;
     }
 }

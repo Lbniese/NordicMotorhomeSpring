@@ -21,10 +21,10 @@
         <h1>Create contract</h1>
         <form action="contract" method="post">
             <label>Start Date</label>
-            <input name="startDate" type="text"><br>
+            <input name="rentalStartDate" type="text"><br>
 
             <label>End Date</label>
-            <input name="endDate" type="text"><br>
+            <input name="rentalEndDate" type="text"><br>
 
             <label>Pick Up Point</label>
             <input name="pickUpPoint" type="text"><br>
@@ -65,13 +65,14 @@
             <th>Employee ID</th>
             <th>Delete</th>
             <th>update</th>
+            <th>Cancel</th>
 
         </tr>
         </thead>
         <tr th:each="contract: ${contracts}">
             <td th:text="${contract.id}"/>
-            <td th:text="${#temporals.format(contract.startDate, 'yyyy-MM-dd HH:mm')}"/>
-            <td th:text="${#temporals.format(contract.endDate, 'yyyy-MM-dd HH:mm')}"/>
+            <td th:text="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}"/>
+            <td th:text="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}"/>
             <td th:text="${contract.pickUpPoint}"/>
             <td th:text="${contract.dropOffPoint}"/>
             <td th:text="${contract.miscellaneous}"/>
