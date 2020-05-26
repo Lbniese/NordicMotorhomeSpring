@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Invoice</title>
+    <title>NMR - Invoice</title>
 
     <style>
         .invoice-box {
@@ -114,7 +114,7 @@
                         </td>
 
                         <td>
-                            Invoice / Contract #: <span th:text="${contract.id}"></span><br>
+                            Invoice / Contract # <span th:text="${contract.id}"></span><br>
                             Generated Date: <span th:text="${#temporals.format(localDate,'yyyy-MM-dd')}"></span>
                         </td>
 
@@ -136,7 +136,7 @@
                         </td>
 
                         <td>
-                            <br>Customer #: <span th:text="${customer.id}"></span><br>
+                            <br>Customer # <span th:text="${customer.id}"></span><br>
                             <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br>
                             <span th:text="${customer.phoneNumber}"></span><br>
                             <span th:text="${customer.email}"></span>
