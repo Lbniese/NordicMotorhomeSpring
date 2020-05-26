@@ -62,19 +62,19 @@ body {
     align-items: center;
     min-height: 100vh;
     font-size: 1.5rem;
-    background-color:#222222;
+    background-color: #222222;
 }
 
-#createbutton{
+#createbutton {
     background: darkorange;
 }
 
-thead{
+thead {
     background-color: darkorange;
     border-radius: 2px;
 }
 
-td{
+td {
     padding: 20px;
 }
 

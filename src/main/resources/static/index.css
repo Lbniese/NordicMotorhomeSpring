@@ -1,14 +1,14 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
-#logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-#customerPicture, #contractPicture, #employeePicture, #motorhomePicture{
+#customerPicture, #contractPicture, #employeePicture, #motorhomePicture {
     max-height: 25%;
     max-width: 25%;
     float: left;
@@ -17,8 +17,7 @@ body{
 }
 
 
-
-.customerText{
+.customerText {
     font-family: 'Poppins', sans-serif;
     font-size: xx-large;
     text-align: left;
@@ -26,8 +25,7 @@ body{
 }
 
 
-
-#creators{
+#creators {
     text-align: center;
     bottom: 0;
     height: 100px;

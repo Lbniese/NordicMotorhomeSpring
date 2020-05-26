@@ -2,103 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Invoice</title>
-
-    <style>
-        .invoice-box {
-            max-width: 800px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #eee;
-            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-            font-size: 16px;
-            line-height: 24px;
-            font-family: 'Roboto', Arial, sans-serif;
-            color: #555;
-        }
-
-        .invoice-box table {
-            width: 100%;
-            line-height: inherit;
-            text-align: left;
-        }
-
-        .invoice-box table td {
-            padding: 5px;
-            vertical-align: top;
-        }
-
-        .invoice-box table tr td:nth-child(2) {
-            text-align: right;
-        }
-
-        .invoice-box table tr.top table td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.top table td.title {
-            font-size: 45px;
-            line-height: 45px;
-            color: #333;
-        }
-
-        .invoice-box table tr.information table td {
-            padding-bottom: 40px;
-        }
-
-        .invoice-box table tr.heading td {
-            background: #eee;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-        }
-
-        .invoice-box table tr.details td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.item td {
-            border-bottom: 1px solid #eee;
-        }
-
-        .invoice-box table tr.item.last td {
-            border-bottom: none;
-        }
-
-        .invoice-box table tr.total td:nth-child(2) {
-            border-top: 2px solid #eee;
-            font-weight: bold;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .invoice-box table tr.top table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-
-            .invoice-box table tr.information table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-        }
-
-        /** RTL **/
-        .rtl {
-            direction: rtl;
-            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        }
-
-        .rtl table {
-            text-align: right;
-        }
-
-        .rtl table tr td:nth-child(2) {
-            text-align: left;
-        }
-    </style>
+    <link href="..\invoice.css" rel="stylesheet" type="text/css">
+    <title>NMR - Invoice</title>
 </head>
-
 <body>
 <div class="invoice-box">
     <table cellpadding="0" cellspacing="0">
@@ -108,13 +14,13 @@
                     <tr>
                         <td class="title">
                             <a href="/">
-                            <img alt="logo_invoice" id="logo_invoice" src="..\logo_invoice.png"
-                                 style="width:100%; max-width:300px;">
+                                <img alt="logo_invoice" id="logo_invoice" src="..\logo_invoice.png"
+                                     style="width:100%; max-width:300px;">
                             </a>
                         </td>
 
                         <td>
-                            Invoice / Contract #: <span th:text="${contract.id}"></span><br>
+                            Invoice / Contract # <span th:text="${contract.id}"></span><br>
                             Generated Date: <span th:text="${#temporals.format(localDate,'yyyy-MM-dd')}"></span>
                         </td>
 
@@ -129,15 +35,17 @@
                     <tr>
                         <td>
                             Nordic Motorhome Rental<br>
-                            <span th:text="${employee.firstName}"></span> <span th:text="${employee.lastName}"></span><br>
+                            <span th:text="${employee.firstName}"></span> <span
+                                th:text="${employee.lastName}"></span><br>
                             <span th:text="${employee.phoneNumber}"></span><br>
                             Østerfælled Torv 3<br>
                             2100 København Ø, DK
                         </td>
 
                         <td>
-                            <br>Customer #: <span th:text="${customer.id}"></span><br>
-                            <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br>
+                            <br>Customer # <span th:text="${customer.id}"></span><br>
+                            <span th:text="${customer.firstName}"></span> <span
+                                th:text="${customer.lastName}"></span><br>
                             <span th:text="${customer.phoneNumber}"></span><br>
                             <span th:text="${customer.email}"></span>
                         </td>
@@ -178,7 +86,8 @@
 
         <tr class="item">
             <td>
-                <span th:text="${motorhome.brand}"></span> <span th:text="${motorhome.model}"></span>, <span th:text="${motorhome.vehicleType}"></span>
+                <span th:text="${motorhome.brand}"></span> <span th:text="${motorhome.model}"></span>, <span
+                    th:text="${motorhome.vehicleType}"></span>
             </td>
 
             <td>
@@ -215,7 +124,6 @@
                 <span th:text="${contract.pickUpPoint}"></span> <span th:text="${contract.pickUpPrice}"></span> DKK
             </td>
         </tr>
-
 
 
         <tr class="item last">
