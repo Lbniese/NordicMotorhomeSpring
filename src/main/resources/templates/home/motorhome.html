@@ -14,8 +14,8 @@
     </a>
 </div>
 
-<button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'orange')">Create Motorhome</button>
-<button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'orange')">View Motorhomes</button>
+<button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'lightsalmon')">Create Motorhome</button>
+<button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'lightsalmon')">View Motorhomes</button>
 
 <div class="tabcontent" id="createmotorhome">
     <div id="formular">
@@ -123,7 +123,7 @@
         }
         tablinks = document.getElementsByClassName("tablink");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "white";
+            tablinks[i].style.backgroundColor = "orange";
         }
         document.getElementById(pageName).style.display = "block";
         elmnt.style.backgroundColor = color;

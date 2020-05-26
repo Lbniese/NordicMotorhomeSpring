@@ -14,8 +14,8 @@
     </a>
 </div>
 
-<button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'orange')">Create Employee</button>
-<button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'orange')">View Employees</button>
+<button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'lightsalmon')">Create Employee</button>
+<button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'lightsalmon')">View Employees</button>
 
 <div class="tabcontent" id="createemployee">
     <div id="formular">
@@ -101,7 +101,7 @@
         }
         tablinks = document.getElementsByClassName("tablink");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "white";
+            tablinks[i].style.backgroundColor = "orange";
         }
         document.getElementById(pageName).style.display = "block";
         elmnt.style.backgroundColor = color;

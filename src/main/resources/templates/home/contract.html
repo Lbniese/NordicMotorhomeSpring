@@ -20,8 +20,8 @@
 <div id="errorBox" th:text="${message}" th:if="${message != null}"></div>
 
 
-<button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'orange')">Create Contract</button>
-<button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'orange')">View Contract</button>
+<button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'lightsalmon')">Create Contract</button>
+<button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'lightsalmon')">View Contract</button>
 
 <div class="tabcontent" id="createcontract">
     <div id="formular">
@@ -178,7 +178,7 @@
         }
         tablinks = document.getElementsByClassName("tablink");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "white";
+            tablinks[i].style.backgroundColor = "orange";
         }
         document.getElementById(pageName).style.display = "block";
         elmnt.style.backgroundColor = color;
