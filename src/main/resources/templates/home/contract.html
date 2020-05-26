@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link href="contract.css" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
     <link href="customer.css" rel="stylesheet" type="text/css">
@@ -14,7 +15,8 @@
 </div>
 
 
-<div id="errorBox" th:text="${message}" style="padding: 8px; color: white"></div>
+
+<div id="errorBox" th:text="${message}" th:if="${message != null}"></div>
 
 
 <button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'orange')">Create Contract</button>
