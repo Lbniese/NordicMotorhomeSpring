@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link href="general.css" rel="stylesheet" type="text/css">
     <link href="customer.css" rel="stylesheet" type="text/css">
     <title>NMR - Customer</title>
 </head>
@@ -15,8 +16,8 @@
     </a>
 </div>
 
-<button class="tablink" id="createCustomerTab" onclick="openPage('createcustomer', this, 'orange')">Create Customer</button>
-<button class="tablink" id="viewCustomerTab" onclick="openPage('viewcustomer', this, 'orange')">View Customers</button>
+<button class="tablink" id="createCustomerTab" onclick="openPage('createcustomer', this, 'lightsalmon')">Create Customer</button>
+<button class="tablink" id="viewCustomerTab" onclick="openPage('viewcustomer', this, 'lightsalmon')">View Customers</button>
 
 <div class="tabcontent" id="createcustomer">
     <div id="formular">
@@ -93,7 +94,7 @@
         }
         tablinks = document.getElementsByClassName("tablink");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "white";
+            tablinks[i].style.backgroundColor = "orange";
         }
         document.getElementById(pageName).style.display = "block";
         elmnt.style.backgroundColor = color;
