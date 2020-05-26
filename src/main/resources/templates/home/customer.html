@@ -51,10 +51,10 @@
                 <th>Phone number</th>
                 <th>Email</th>
                 <th>Address</th>
-                <th>Driver licence number</th>
                 <th>Zip code</th>
                 <th>City</th>
                 <th>Country</th>
+                <th>Driver licence number</th>
                 <th>Delete</th>
                 <th>Update</th>
 
@@ -67,10 +67,10 @@
                 <td th:text="${customer.phoneNumber}"/>
                 <td th:text="${customer.email}"/>
                 <td th:text="${customer.address}"/>
-                <td th:text="${customer.driverLicenceNumber}"/>
                 <td th:text="${customer.zipCode}"/>
                 <td th:text="${customer.city}"/>
                 <td th:text="${customer.country}"/>
+                <td th:text="${customer.driverLicenceNumber}"/>
                 <td>
                     <a th:href="@{'/deleteCustomer/'+${customer.id}}">
                         <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteCustomer">Delete</button>
