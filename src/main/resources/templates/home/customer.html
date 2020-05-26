@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="general.css" rel="stylesheet" type="text/css">
-    <link href="customer.css" rel="stylesheet" type="text/css">
+    <link href="form.css" rel="stylesheet" type="text/css">
     <title>NMR - Customer</title>
 </head>
 
@@ -16,8 +16,10 @@
     </a>
 </div>
 
-<button class="tablink" id="createCustomerTab" onclick="openPage('createcustomer', this, 'lightsalmon')">Create Customer</button>
-<button class="tablink" id="viewCustomerTab" onclick="openPage('viewcustomer', this, 'lightsalmon')">View Customers</button>
+<div class="tabs">
+    <button class="tablink" id="viewCustomerTab" onclick="openPage('viewcustomer', this, 'lightsalmon')" >View Customers</button>
+<button class="tablink" id="createCustomerTab" onclick="openPage('createcustomer', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Customer</button>
+</div>
 
 <div class="tabcontent" id="createcustomer">
     <div id="formular">
@@ -25,13 +27,13 @@
         <form action="customer" method="post">
 
             <div class="form__group field">
-                <input type="input" class="form__field" placeholder="First Name" name="firstName" id='firstName' required /> <br> <br>
-                <input type="input" class="form__field" placeholder="Last Name" name="lastName" id='lastName' required /> <br> <br>
-                <input type="input" class="form__field" placeholder="Phone Number" name="phoneNumber" id='phoneNumber' required /> <br> <br>
-                <input type="input" class="form__field" placeholder="Email" name="email" id='email' required /> <br> <br>
-                <input type="input" class="form__field" placeholder="Address" name="address" id='address' required /> <br> <br>
-                <input type="input" class="form__field" placeholder="Zip Code" name="zipCode" id='zipCode' required /><br> <br>
-                <input type="input" class="form__field" placeholder="Driver License Number" name="driverLicenceNumber" id='driverLicensenumber' required /> <br> <br>
+                <input type="text" class="form__field" placeholder="First Name" name="firstName" id='firstName' required /> <br> <br>
+                <input type="text" class="form__field" placeholder="Last Name" name="lastName" id='lastName' required /> <br> <br>
+                <input type="text" class="form__field" placeholder="Phone Number" name="phoneNumber" id='phoneNumber' required /> <br> <br>
+                <input type="text" class="form__field" placeholder="Email" name="email" id='email' required /> <br> <br>
+                <input type="text" class="form__field" placeholder="Address" name="address" id='address' required /> <br> <br>
+                <input type="text" class="form__field" placeholder="Zip Code" name="zipCode" id='zipCode' required /><br> <br>
+                <input type="text" class="form__field" placeholder="Driver License Number" name="driverLicenceNumber" id='driverLicensenumber' required /> <br> <br>
             </div>
 
 

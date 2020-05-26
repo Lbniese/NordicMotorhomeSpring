@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="general.css" rel="stylesheet" type="text/css">
-    <link href="customer.css" rel="stylesheet" type="text/css">
+    <link href="form.css" rel="stylesheet" type="text/css">
     <title>NMR - Motorhome</title>
 </head>
 <body>
@@ -14,38 +14,37 @@
     </a>
 </div>
 
-<button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'lightsalmon')">Create Motorhome</button>
-<button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'lightsalmon')">View Motorhomes</button>
+<div class="tabs">
+    <button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'lightsalmon')">View Motorhomes</button>
+<button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Motorhome</button>
+
+</div>
 
 <div class="tabcontent" id="createmotorhome">
     <div id="formular">
         <h1>Create Motorhome</h1>
         <form action="motorhome" method="post">
-            <label>Brand</label>
-            <input name="brand" type="text"><br>
 
-            <label>Model</label>
-            <input name="model" type="text"><br>
-
-            <label>Odometer</label>
-            <input name="odometer" type="text"><br>
-
-            <label>Size</label>
+            <input name="brand" type="text" class="form__field" placeholder="Brand">
 
 
-            <div class="wrapper">
-            <div class="selectSize">
-                <select id="slctSize" name="vehicleSize">
-                    <option label="Select .." value="NONE"></option>
+            <input name="model" type="text" class="form__field" placeholder="Model">
+
+
+            <input name="odometer" type="text" class="form__field" placeholder="Odometer">
+
+
+                <select id="slctSize" name="vehicleSize" class="form__field" required>
+                    <option label="Vehicle Size" value=""></option>
                     <option label="Small" value="Small"></option>
                     <option label="Large" value="Large"></option>
                 </select>
-            </div>
-                <br>
-            <label>Type</label>
-                <div class="selectType">
-                    <select id="slctType" name="vehicleType">
-                        <option label="Select .." value="NONE"></option>
+
+
+
+
+                    <select id="slctType" name="vehicleType" class="form__field" required>
+                        <option label="Vehicle Type" value=""></option>
                         <option label="Class A Motorhome" value="Class A Motorhome"></option>
                         <option label="Class B Motorhome" value="Class B Motorhome"></option>
                         <option label="Class C Motorhome" value="Class C Motorhome"></option>
@@ -56,15 +55,12 @@
                         <option label="Truck Camper" value="Truck Camper"></option>
                         <option label="Toy Hauler" value="Toy Hauler"></option>
                     </select>
-                </div>
-            </div>
-            <br>
 
-            <label>Price Per Day</label>
-            <input name="pricePerDay" type="text"><br>
 
-            <label>Service Notes</label>
-            <input name="serviceNote" type="text"><br>
+            <input name="pricePerDay" type="text" class="form__field" placeholder="Price Per Day">
+
+
+            <input name="serviceNote" type="text" class="form__field" placeholder="Service Note">
 
             <button id="createbutton" type="submit">Create Motorhome</button>
 

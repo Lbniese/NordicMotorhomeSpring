@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<link href="contract.css" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
     <link href="general.css" rel="stylesheet" type="text/css">
-    <link href="customer.css" rel="stylesheet" type="text/css">
+    <link href="form.css" rel="stylesheet" type="text/css">
     <title>NMR - Contract</title>
 </head>
 <body>
@@ -19,52 +18,44 @@
 
 <div id="errorBox" th:text="${message}" th:if="${message != null}"></div>
 
+<div class="tabs">
+    <button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'lightsalmon')">View Contract</button>
+<button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Contract</button>
 
-<button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'lightsalmon')">Create Contract</button>
-<button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'lightsalmon')">View Contract</button>
-
+</div>
 <div class="tabcontent" id="createcontract">
     <div id="formular">
         <h1>Create contract</h1>
         <form action="contract" method="post">
-            <label>Start Date</label>
-            <input name="rentalStartDate" type="text"><br>
 
-            <label>End Date</label>
-            <input name="rentalEndDate" type="text"><br><br>
+            <div class="form__group field">
+            <input name="rentalStartDate" type="text" class="form__field" placeholder="Start Date">
+            <input name="rentalEndDate" type="text" class="form__field" placeholder="End Date">
 
 
-            <div class="wrapper">
-            <label>Pick Up Points</label>
-                <div class="selectPickUpPoint" >
-                    <select id="slctPickUpPoint" name="pickUpPoint">
-                        <option label="Select .." value="NONE"></option>
+                    <select id="slctPickUpPoint" name="pickUpPoint" class="form__field" required>
+                        <option label="Pick Up Point" value="" disabled selected></option>
                         <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
                         <option label="Airport" value="Airport"></option>
                         <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
                     </select>
-                </div>
 
-                <br>
-            <label>Drop Off Points</label>
-            <div class="selectDropOffPoint" >
-                <select id="slctDropOffPoint" name="dropOffPoint">
-                    <option label="Select .." value="NONE"></option>
+
+
+
+                <select id="slctDropOffPoint" name="dropOffPoint" class="form__field" required>
+                    <option label="Drop Off Point" value="" disabled selected></option>
                     <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
                     <option label="Airport" value="Airport"></option>
                     <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
                 </select>
-            </div>
-            </div>
-            <br><br>
-            <label>Miscellaneous</label>
-            <input name="miscellaneous" type="text"><br><br>
 
-            <label>Customer ID</label>
-            <div class="wrapper">
-                <div class="selectCustomer">
-                    <select id="slctCustomer" name="customerId">
-                        <option label="Select .." value="NONE"></option>
+
+            <input name="miscellaneous" type="text" class="form__field" placeholder="Miscellaneous">
+
+
+                    <select id="slctCustomer" name="customerId" class="form__field" required>
+                        <option label="Customer ID" value="" disabled selected></option>
                         <tr th:each="customer: ${customers}">
                             <option th:value="${customer.id}">
                                 <td th:text="${customer.id}"/>
@@ -73,12 +64,11 @@
                             </option>
                         </tr>
                     </select>
-                </div><br>
 
-                <label>Motorhome ID</label>
-                <div class="selectMotorhome">
-                    <select id="slctMotorhome" name="motorhomeId">
-                        <option label="Select .." value="NONE"></option>
+
+
+                    <select id="slctMotorhome" name="motorhomeId" class="form__field" required>
+                        <option label="Motorhome ID" value="" disabled selected></option>
                         <tr th:each="motorhome: ${motorhomes}">
                             <option th:value="${motorhome.id}">
                                 <td th:text="${motorhome.id}"/>
@@ -87,12 +77,11 @@
                             </option>
                         </tr>
                     </select>
-                </div>
-                <br>
-                <label>Employee ID</label>
+
+
                 <div class="selectEmployee">
-                    <select id="slctEmployee" name="employeeId">
-                        <option label="Select .." value="NONE"></option>
+                    <select id="slctEmployee" name="employeeId" class="form__field" required>
+                        <option label="Employee ID" value="" disabled selected></option>
                         <tr th:each="employee: ${employees}">
                             <option th:value="${employee.id}">
                                 <td th:text="${employee.id}"/>
@@ -103,18 +92,12 @@
                         </tr>
                     </select>
                 </div>
-            </div>
-
-
-
-
-
-            <br>
 
             <button id="createbutton" type="submit">Create Contract</button>
 
         </form>
     </div>
+</div>
 </div>
 <div class="tabcontent" id="viewcontract">
     <h3>View Contracts</h3>

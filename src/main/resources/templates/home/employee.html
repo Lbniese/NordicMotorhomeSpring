@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="general.css" rel="stylesheet" type="text/css">
-    <link href="customer.css" rel="stylesheet" type="text/css">
+    <link href="form.css" rel="stylesheet" type="text/css">
     <title>NMR - Employee</title>
 </head>
 <body>
@@ -14,33 +14,37 @@
     </a>
 </div>
 
-<button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'lightsalmon')">Create Employee</button>
-<button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'lightsalmon')">View Employees</button>
+<div class="tabs">
+    <button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'lightsalmon')">View Employees</button>
+<button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Employee</button>
+
+</div>
 
 <div class="tabcontent" id="createemployee">
     <div id="formular">
         <h1>Create employee</h1>
         <form action="employee" method="post">
-            <label>First name</label>
-            <input name="firstName" type="text"><br>
 
-            <label>Last name</label>
-            <input name="lastName" type="text"><br>
 
-            <label>Phone number</label>
-            <input name="phoneNumber" type="text"><br>
+            <input name="firstName" type="text" class="form__field" placeholder="First Name">
 
-            <label>Email</label>
-            <input name="email" type="text"><br>
 
-            <label>Address</label>
-            <input name="address" type="text"><br>
+            <input name="lastName" type="text" class="form__field" placeholder="Last Name">
 
-            <label>Zip code</label>
-            <input name="zipCode" type="text"><br>
 
-            <label>Title</label>
-            <input name="title" type="text"><br>
+            <input name="phoneNumber" type="text" class="form__field" placeholder="Phone Number">
+
+
+            <input name="email" type="text" class="form__field" placeholder="Email">
+
+
+            <input name="address" type="text" class="form__field" placeholder="Address">
+
+
+            <input name="zipCode" type="text" class="form__field" placeholder="Zip Code">
+
+
+            <input name="title" type="text" class="form__field" placeholder="Title">
 
             <button id="createbutton" type="submit">Create employee</button>
 
@@ -48,6 +52,7 @@
     </div>
 </div>
 <div class="tabcontent" id="viewemployee">
+
     <h3>View Employees</h3>
     <table>
         <thead>
