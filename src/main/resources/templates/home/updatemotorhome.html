@@ -7,12 +7,12 @@
 <body>
 <div class="logo">
     <a href="/">
-        <img id="logo" alt="logo" src="..\logo.png"/>
+        <img alt="logo" id="logo" src="..\logo.png"/>
     </a>
 </div>
 <form action="/motorhome/updatemotorhome" method="post">
     <br><label>ID</label><br>
-    <input name="id" th:value="${motorhome.id}" type="text" readOnly tabindex="-1"><br>
+    <input name="id" readOnly tabindex="-1" th:value="${motorhome.id}" type="text"><br>
 
     <br><label>Brand</label><br>
     <input name="brand" th:value="${motorhome.brand}" type="text"><br>
@@ -24,10 +24,10 @@
     <input name="odometer" th:value="${motorhome.odometer}" type="text"><br>
 
     <br><label>Size</label><br>
-    <input name="vehicleSize" th:value="${motorhome.vehicleSize}" type="text" readOnly tabindex="-1"><br>
+    <input name="vehicleSize" readOnly tabindex="-1" th:value="${motorhome.vehicleSize}" type="text"><br>
 
     <br><label>Type</label><br>
-    <input name="vehicleType" th:value="${motorhome.vehicleType}" type="text" readOnly tabindex="-1"><br>
+    <input name="vehicleType" readOnly tabindex="-1" th:value="${motorhome.vehicleType}" type="text"><br>
 
     <br><label>Price Per Day</label><br>
     <input name="pricePerDay" th:value="${motorhome.pricePerDay}" type="text"><br>
