@@ -125,43 +125,7 @@ h1{
     margin-bottom: 30px;
 }
 
-.btnCancel{
-    background: darkorange;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70px;
-    height: 30px;
-    border-radius: 5px;
-    border: 0px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.btnDelete {
-    background: darkorange;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70px;
-    height: 30px;
-    border-radius: 5px;
-    border: 0px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.btnUpdate {
-    background: darkorange;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70px;
-    height: 30px;
-    border-radius: 5px;
-    border: 0px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.btnInvoice {
+.btnDelete, .btnCancel, .btnUpdate, .btnInvoice {
     background: darkorange;
     display: block;
     margin-left: auto;
