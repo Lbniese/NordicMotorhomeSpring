@@ -28,11 +28,11 @@ public class MotorhomeService {
         return motorhomeRepo.deleteMotorhome(id);
     }
 
-    public Motorhome updateMotorhome(int id, Motorhome motorhome){
+    public Motorhome updateMotorhome(int id, Motorhome motorhome) {
         return motorhomeRepo.updateMotorhome(id, motorhome);
     }
 
-    public Motorhome updateSeasonalPrice(int percentage){
+    public Motorhome updateSeasonalPrice(int percentage) {
         return null;
     }
 }

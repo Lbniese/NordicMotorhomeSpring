@@ -1,8 +1,6 @@
 package com.nmr.Service;
 
-import com.nmr.Model.Customer;
 import com.nmr.Model.Employee;
-import com.nmr.Repository.CustomerRepo;
 import com.nmr.Repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +28,7 @@ public class EmployeeService {
         return employeeRepo.deleteEmployee(id);
     }
 
-    public Employee updateEmployee(int id, Employee employee){
+    public Employee updateEmployee(int id, Employee employee) {
         return employeeRepo.updateEmployee(id, employee);
     }
 }
