@@ -251,24 +251,24 @@
 
             <td>
                 <a th:href="@{'/deletecontract/'+${contract.id}}">
-                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteContract">Delete</button>
+                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
                 </a>
             </td>
             <td>
                 <a th:href="@{'/updatecontract/'+${contract.id}}">
-                    <button class="btnUpdateContract">Update</button>
+                    <button class="btnUpdate">Update</button>
                 </a>
             </td>
             <td>
                 <div class="invoice">
                     <a th:href="@{'/invoice/'+${contract.id}}">
-                        <button>Invoice</button>
+                        <button class="btnInvoice">Invoice</button>
                     </a>
                 </div>
             </td>
             <td>
                 <a th:href="@{'/cancelcontract/'+${contract.id}}" th:if="${contract.active == true && contract.rentalStartDate.isAfter(localDateTime)}">
-                    <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancelContract">Cancel</button>
+                    <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancel">Cancel</button>
                 </a>
                 <span th:if="${contract.active == false}" style="color: red; font-weight: bold">Cancelled</span>
                 <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate)}"style="color: green; font-weight: bold">Active</span>
