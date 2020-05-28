@@ -129,6 +129,34 @@ public class PriceHandler {
         return fee;
     }
 
+    public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate){
+        double fee = 0;
+        if(active) {
+            return fee;
+        }
+
+        LocalDateTime today = LocalDateTime.now();
+        long days = DAYS.between(today, rentalStartDate);
+        if(days == 0){
+            fee = 5;
+        }
+        if(days < 15 && days >= 1){
+            fee = 20;
+        }
+        if(days <= 49 && days >= 15){
+            fee = 50;
+        }
+        if(days >= 50){
+            fee = 20;
+            /*
+            if(fee < 1500){
+                fee = 1500;
+            }
+             */
+        }
+        return fee;
+    }
+
 }
 
 

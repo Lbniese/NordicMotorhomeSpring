@@ -127,7 +127,7 @@
 
 
         <tr class="item last">
-            <td style="padding-bottom: 20px">
+            <td>
                 Drop Off Point
             </td>
 
@@ -137,8 +137,7 @@
             </td>
         </tr>
 
-        <tr class="heading" th:if="${contract.bikeRack > 0 || contract.bedLinen > 0 || contract.childSeat > 0 || contract.picnicTable > 0 ||
-        contract.chairs > 0 || contract.grill > 0 || contract.lantern > 0 || contract.firstAidKit > 0 || contract.toiletPaper > 0}">
+        <tr class="heading" th:if="${contract.bikeRack > 0 || contract.bedLinen > 0 || contract.childSeat > 0 || contract.picnicTable > 0 || contract.chairs > 0 || contract.grill > 0 || contract.lantern > 0 || contract.firstAidKit > 0 || contract.toiletPaper > 0}">
             <td>
                 Extras
             </td>
@@ -234,6 +233,14 @@
 
             <td>
                 <span th:text="${contract.toiletPaper * 2}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="discount" th:if="${addDiscount > 0}">
+            <td></td>
+
+            <td>
+                Cancellation Discount: <span th:text="${addDiscount.intValue()}"></span>%
             </td>
         </tr>
 

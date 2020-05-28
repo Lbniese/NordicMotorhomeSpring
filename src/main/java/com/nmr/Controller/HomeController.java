@@ -1,5 +1,6 @@
 package com.nmr.Controller;
 
+import com.nmr.Handler.PriceHandler;
 import com.nmr.Model.*;
 import com.nmr.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -226,6 +227,7 @@ public class HomeController {
         model.addAttribute("motorhome", motorhome);
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
+        model.addAttribute("addDiscount", PriceHandler.calculateCancellationFee(contract.isActive(),contract.getRentalStartDate()));
         return "home/invoice";
     }
 
