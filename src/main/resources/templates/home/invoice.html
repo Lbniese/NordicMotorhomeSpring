@@ -127,13 +127,113 @@
 
 
         <tr class="item last">
-            <td>
+            <td style="padding-bottom: 20px">
                 Drop Off Point
             </td>
 
             <td>
                 <span th:text="${contract.dropOffPoint}"></span> <span th:text="${contract.dropOffPrice}"></span> DKK
 
+            </td>
+        </tr>
+
+        <tr class="heading" th:if="${contract.bikeRack > 0 || contract.bedLinen > 0 || contract.childSeat > 0 || contract.picnicTable > 0 ||
+        contract.chairs > 0 || contract.grill > 0 || contract.lantern > 0 || contract.firstAidKit > 0 || contract.toiletPaper > 0}">
+            <td>
+                Extras
+            </td>
+
+            <td>
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.bikeRack > 0}">
+            <td>
+                <span th:text="${contract.bikeRack}"></span> * Bike Rack
+            </td>
+
+            <td>
+                <span th:text="${contract.bikeRack * 35}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.bedLinen > 0}">
+            <td>
+                <span th:text="${contract.bedLinen}"></span> * Bed Linen
+            </td>
+
+            <td>
+                <span th:text="${contract.bedLinen * 20}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.childSeat > 0}">
+            <td>
+                <span th:text="${contract.childSeat}"></span> * Child Seats
+            </td>
+
+            <td>
+                <span th:text="${contract.childSeat * 75}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.picnicTable > 0}">
+            <td>
+                <span th:text="${contract.picnicTable}"></span> * Picnic Tables
+            </td>
+
+            <td>
+                <span th:text="${contract.picnicTable * 50}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.chairs > 0}">
+            <td>
+                <span th:text="${contract.chairs}"></span> * Chairs
+            </td>
+
+            <td>
+                <span th:text="${contract.chairs * 10}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.grill > 0}">
+            <td>
+                <span th:text="${contract.grill}"></span> * Grill
+            </td>
+
+            <td>
+                <span th:text="${contract.grill * 100}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.lantern > 0}">
+            <td>
+                <span th:text="${contract.Lantern}"></span> * Lantern
+            </td>
+
+            <td>
+                <span th:text="${contract.lantern * 5}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.firstAidKit > 0}">
+            <td>
+                <span th:text="${contract.firstAidKit}"></span> * First Aid Kit
+            </td>
+
+            <td>
+                <span th:text="${contract.firstAidKit * 250}"></span> DKK
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.toiletPaper > 0}">
+            <td>
+                <span th:text="${contract.toiletPaper}"></span> * Toilet Paper
+            </td>
+
+            <td>
+                <span th:text="${contract.toiletPaper * 2}"></span> DKK
             </td>
         </tr>
 
