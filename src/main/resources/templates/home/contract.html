@@ -68,8 +68,14 @@
     </style>
 
 </head>
-<body>
-
+<script type="text/javascript">
+    function zoom() {
+        if (navigator.platform == 'MacIntel') {
+            document.body.style.zoom = "80%";
+        }
+    }
+</script>
+<body onload="zoom()">
 <div class="logo">
     <a href="/">
         <img id="logo" alt="logo" src="logo.png"/>
