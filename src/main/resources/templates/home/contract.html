@@ -249,7 +249,7 @@
             <td th:text="${contract.motorhomeId}"/>
             <td th:text="${contract.employeeId}"/>
 
-            <td>
+            <td style="border-left: 1px solid gray">
                 <a th:href="@{'/deletecontract/'+${contract.id}}">
                     <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
                 </a>
@@ -259,19 +259,20 @@
                     <button class="btnUpdate">Update</button>
                 </a>
             </td>
-            <td>
-                <div class="invoice">
+            <td style="border-left: 1px solid gray">
+                <div class="invoice" >
                     <a th:href="@{'/invoice/'+${contract.id}}">
                         <button class="btnInvoice">Invoice</button>
                     </a>
                 </div>
             </td>
             <td>
-                <a th:href="@{'/cancelcontract/'+${contract.id}}" th:if="${contract.active == true && contract.rentalStartDate.isAfter(localDateTime)}">
+                <a th:href="@{'/cancelcontract/'+${contract.id}}" th:if="${contract.active == true && contract.rentalStartDate.isAfter(localDateTime) && localDateTime.isBefore(contract.rentalEndDate)}">
                     <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancel">Cancel</button>
                 </a>
                 <span th:if="${contract.active == false}" style="color: red; font-weight: bold">Cancelled</span>
-                <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate)}"style="color: green; font-weight: bold">Active</span>
+                <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate) && contract.rentalEndDate.isAfter(localDateTime)}"style="color: green; font-weight: bold">Active</span>
+                <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate)}"style="color: darkgoldenrod; font-weight: bold">Completed</span>
             </td>
         </tr>
     </table>
