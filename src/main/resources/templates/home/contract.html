@@ -252,24 +252,24 @@
 
             <td>
                 <a th:href="@{'/deletecontract/'+${contract.id}}">
-                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteContract">Delete</button>
+                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
                 </a>
             </td>
             <td>
                 <a th:href="@{'/updatecontract/'+${contract.id}}">
-                    <button class="btnUpdateContract">Update</button>
+                    <button class="btnUpdate">Update</button>
                 </a>
             </td>
             <td>
                 <div class="invoice">
                     <a th:href="@{'/invoice/'+${contract.id}}">
-                        <button>Invoice</button>
+                        <button class="btnInvoice">Invoice</button>
                     </a>
                 </div>
             </td>
             <td>
                 <a th:href="@{'/cancelcontract/'+${contract.id}}">
-                    <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancelContract">Cancel</button>
+                    <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancel">Cancel</button>
                 </a>
             </td>
         </tr>
