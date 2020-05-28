@@ -35,6 +35,7 @@ public class Contract {
     private int lantern;
     private int firstAidKit = 0;
     private int toiletPaper;
+    private boolean active;
 
 
     public Contract() {
@@ -50,6 +51,14 @@ public class Contract {
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
         this.employeeId = employeeId;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public int getBikeRack() {

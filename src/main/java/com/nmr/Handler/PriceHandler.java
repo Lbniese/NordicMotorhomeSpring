@@ -3,6 +3,8 @@ package com.nmr.Handler;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 
 public class PriceHandler {
 
@@ -99,11 +101,33 @@ public class PriceHandler {
         extraPrice += 2 * toiletPaper;
         //combined 547 dkk
         return extraPrice;
-
-
-
     }
 
+    public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate, double fullPrice){
+        double fee = fullPrice;
+        if(active) {
+            return fee;
+        }
+
+        LocalDateTime today = LocalDateTime.now();
+        long days = DAYS.between(today, rentalStartDate);
+        if(days == 0){
+            fee = fullPrice * 0.95;
+        }
+        if(days < 15 && days >= 1){
+            fee = fullPrice * 0.80;
+        }
+        if(days <= 49 && days >= 15){
+            fee = fullPrice * 0.50;
+        }
+        if(days >= 50){
+            fee = fullPrice * 0.20;
+            if(fee < 1500){
+                fee = 1500;
+            }
+        }
+        return fee;
+    }
 
 }
 

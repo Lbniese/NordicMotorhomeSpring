@@ -261,9 +261,11 @@
                 </div>
             </td>
             <td>
-                <a th:href="@{'/cancelcontract/'+${contract.id}}">
+                <a th:href="@{'/cancelcontract/'+${contract.id}}" th:if="${contract.active == true && contract.rentalStartDate.isAfter(localDateTime)}">
                     <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancelContract">Cancel</button>
                 </a>
+                <span th:if="${contract.active == false}" style="color: red; font-weight: bold">Cancelled</span>
+                <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate)}"style="color: green; font-weight: bold">Active</span>
             </td>
         </tr>
     </table>

@@ -40,6 +40,12 @@ public class ContractRepo {
         return template.update(sql, id) > 0;
     }
 
+    public Boolean cancelContract(int id){
+        String sql = "UPDATE Contract SET active=? WHERE id=?";
+        return template.update(sql, 0, id) > 0;
+
+    }
+
     public Contract updateContract(int id, Contract contract){
         String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, miscellaneous=?, customerId=?, motorhomeId=?, employeeId=? WHERE id=?";
         template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), id);

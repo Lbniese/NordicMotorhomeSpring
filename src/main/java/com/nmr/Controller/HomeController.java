@@ -153,7 +153,12 @@ public class HomeController {
 
         List<Employee> employeeList = employeeService.fetchAll();
         model.addAttribute("employees", employeeList);
+
+        model.addAttribute("localDateTime", LocalDateTime.now());
+
         return "home/contract";
+
+
     }
 
     @PostMapping("/contract")
@@ -176,6 +181,16 @@ public class HomeController {
     public String deleteContract(@PathVariable("id") int id) {
         boolean deleted = contractService.deleteContract(id);
         if (deleted) {
+            return "redirect:/contract";
+        } else {
+            return "redirect:/contract";
+        }
+    }
+
+    @GetMapping("/cancelcontract/{id}")
+    public String cancelContract(@PathVariable("id") int id) {
+        boolean canceled = contractService.cancelContract(id);
+        if (canceled) {
             return "redirect:/contract";
         } else {
             return "redirect:/contract";
