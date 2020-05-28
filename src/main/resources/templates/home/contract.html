@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="general.css" rel="stylesheet" type="text/css">
     <link href="form.css" rel="stylesheet" type="text/css">
     <title>NMR - Contract</title>
@@ -205,7 +206,7 @@
                         </tr>
                     </select>
                 </div>
-
+            </div>
             <button id="createbutton" type="submit">Create Contract</button>
 
         </form>
@@ -258,6 +259,11 @@
                         <button>Invoice</button>
                     </a>
                 </div>
+            </td>
+            <td>
+                <a th:href="@{'/cancelcontract/'+${contract.id}}">
+                    <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancelContract">Cancel</button>
+                </a>
             </td>
         </tr>
     </table>
