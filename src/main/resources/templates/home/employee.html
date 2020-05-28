@@ -91,12 +91,12 @@
             <td th:text="${employee.country}"/>
             <td>
                 <a th:href="@{'/deleteemployee/'+${employee.id}}">
-                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
+                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDeleteEmployeer">Delete</button>
                 </a>
             </td>
             <td>
                 <a th:href="@{'/updateemployee/'+${employee.id}}">
-                    <button class="btnUpdate">Update</button>
+                    <button class="btnUpdateEmployee">Update</button>
                 </a>
             </td>
         </tr>
