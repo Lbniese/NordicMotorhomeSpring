@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -211,6 +212,11 @@ public class HomeController {
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
         return "home/invoice";
+    }
+
+    @GetMapping("/extras")
+    public String extras() {
+        return "home/extras";
     }
 
 }

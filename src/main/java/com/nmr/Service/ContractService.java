@@ -47,6 +47,7 @@ public class ContractService {
         double fullPrice = PriceHandler.calculateFullPrice(contract.getRentalStartDate(), contract.getRentalEndDate(), motorhome.getPricePerDay());
         fullPrice += PriceHandler.calculatePickUpPrice(contract.getPickUpPoint());
         fullPrice += PriceHandler.calculateDropOffPrice(contract.getDropOffPoint());
+        fullPrice += PriceHandler.calculateExtraPrice(contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper());
         contract.setFullPrice(fullPrice);
         return contract;
     }
@@ -55,5 +56,4 @@ public class ContractService {
         contract.setDropOffPrice(PriceHandler.calculateDropOffPrice(contract.getDropOffPoint()));
         return contract;
     }
-
 }

@@ -26,6 +26,16 @@ public class Contract {
     private double dropOffPrice;
     private int pickUpKm;
     private int dropOffKm;
+    private int bikeRack;
+    private int bedLinen;
+    private int childSeat;
+    private int picnicTable;
+    private int chairs;
+    private int grill;
+    private int lantern;
+    private int firstAidKit = 0;
+    private int toiletPaper;
+
 
     public Contract() {
     }
@@ -40,6 +50,78 @@ public class Contract {
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
         this.employeeId = employeeId;
+    }
+
+    public int getBikeRack() {
+        return bikeRack;
+    }
+
+    public void setBikeRack(int bikeRack) {
+        this.bikeRack = bikeRack;
+    }
+
+    public int getBedLinen() {
+        return bedLinen;
+    }
+
+    public void setBedLinen(int bedLinen) {
+        this.bedLinen = bedLinen;
+    }
+
+    public int getChildSeat() {
+        return childSeat;
+    }
+
+    public void setChildSeat(int childSeat) {
+        this.childSeat = childSeat;
+    }
+
+    public int getPicnicTable() {
+        return picnicTable;
+    }
+
+    public void setPicnicTable(int picnicTable) {
+        this.picnicTable = picnicTable;
+    }
+
+    public int getChairs() {
+        return chairs;
+    }
+
+    public void setChairs(int chairs) {
+        this.chairs = chairs;
+    }
+
+    public int getGrill() {
+        return grill;
+    }
+
+    public void setGrill(int grill) {
+        this.grill = grill;
+    }
+
+    public int getLantern() {
+        return lantern;
+    }
+
+    public void setLantern(int lantern) {
+        this.lantern = lantern;
+    }
+
+    public int getFirstAidKit() {
+        return firstAidKit;
+    }
+
+    public void setFirstAidKit(int firstAidKit) {
+        this.firstAidKit = firstAidKit;
+    }
+
+    public int getToiletPaper() {
+        return toiletPaper;
+    }
+
+    public void setToiletPaper(int toiletPaper) {
+        this.toiletPaper = toiletPaper;
     }
 
     public double getPickUpPrice() {

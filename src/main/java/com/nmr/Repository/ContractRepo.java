@@ -17,8 +17,8 @@ public class ContractRepo {
     JdbcTemplate template;
 
     public Contract createContract(Contract contract) {
-        String sql = "INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, miscellaneous, customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(),contract.getMotorhomeId() , contract.getEmployeeId());
+        String sql = "INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, bikeRack, bedLinen, childSeat, picnicTable, chairs, grill, lantern, firstAidKit, toiletPaper ,customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), contract.getCustomerId(),contract.getMotorhomeId() , contract.getEmployeeId());
         return null;
     }
 

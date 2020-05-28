@@ -84,4 +84,28 @@ public class PriceHandler {
         dropOffPrice = dropOffKm * 5;
         return dropOffPrice;
     }
+
+
+    public static double calculateExtraPrice(int bikeRack, int bedLinen, int childSeat, int picnicTable, int chairs, int grill, int lantern, int firstAidKit, int toiletPaper){
+        double extraPrice = 0;
+        extraPrice += 35 * bikeRack;
+        extraPrice += 20 * bedLinen;
+        extraPrice += 75 * childSeat;
+        extraPrice += 50 * picnicTable;
+        extraPrice += 10 * chairs;
+        extraPrice += 100 * grill;
+        extraPrice += 5 * lantern;
+        extraPrice += 250 * firstAidKit;
+        extraPrice += 2 * toiletPaper;
+        //combined 547 dkk
+        return extraPrice;
+
+
+
+    }
+
+
 }
+
+
+

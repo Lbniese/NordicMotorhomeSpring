@@ -31,7 +31,6 @@ select{
 }
 
 
-
 .form__label {
     position: absolute;
     top: 0;
@@ -47,6 +46,19 @@ thead {
 
 td {
     padding: 20px;
+}
+
+.extraItem{
+    width: 200px;
+    margin-top: -3px;
+    float: right;
+    margin-bottom: 0px;
+}
+
+.extraItemContainer{
+    height: 16px;
+    padding: 9px 0px;
+    margin-bottom: 30px;
 }
 
 
