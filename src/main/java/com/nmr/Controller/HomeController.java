@@ -1,8 +1,14 @@
 package com.nmr.Controller;
 
 import com.nmr.Handler.PriceHandler;
-import com.nmr.Model.*;
-import com.nmr.Service.*;
+import com.nmr.Model.Contract;
+import com.nmr.Model.Customer;
+import com.nmr.Model.Employee;
+import com.nmr.Model.Motorhome;
+import com.nmr.Service.ContractService;
+import com.nmr.Service.CustomerService;
+import com.nmr.Service.EmployeeService;
+import com.nmr.Service.MotorhomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -12,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -167,10 +172,9 @@ public class HomeController {
                            @RequestParam("rentalEndDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime rentalEndDate,
                            @ModelAttribute Contract contract, Model model) {
         boolean created = contractService.createContract(contract);
-        if(created){
+        if (created) {
             return "redirect:/contract";
-        }
-        else{
+        } else {
             model.addAttribute("message", "Error: Either the start date or end date is overlapping with an existing contract for the selected vehicle.");
             List<Contract> contractList = contractService.fetchAll();
             model.addAttribute("contracts", contractList);
@@ -211,7 +215,7 @@ public class HomeController {
     }
 
     @GetMapping("contract/invoice")
-    public String invoice(){
+    public String invoice() {
         return "home/invoice";
     }
 
@@ -227,7 +231,7 @@ public class HomeController {
         model.addAttribute("motorhome", motorhome);
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
-        model.addAttribute("addDiscount", PriceHandler.calculateCancellationFee(contract.isActive(),contract.getRentalStartDate()));
+        model.addAttribute("addDiscount", PriceHandler.calculateCancellationFee(contract.isActive(), contract.getRentalStartDate()));
         return "home/invoice";
     }
 
