@@ -39,7 +39,7 @@ public class MotorhomeRepo {
         return template.update(sql, id) > 0;
     }
 
-    public Motorhome updateMotorhome(int id, Motorhome motorhome){
+    public Motorhome updateMotorhome(int id, Motorhome motorhome) {
         String sql = "UPDATE Motorhome SET brand=?, model=?, odometer=?, vehicleSize=?, vehicleType=?, pricePerDay=?, serviceNote=? WHERE id=?";
         template.update(sql, motorhome.getBrand(), motorhome.getModel(), motorhome.getOdometer(), motorhome.getVehicleSize(), motorhome.getVehicleType(), motorhome.getPricePerDay(), motorhome.getServiceNote(), id);
         return null;

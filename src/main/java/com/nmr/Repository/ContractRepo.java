@@ -18,7 +18,7 @@ public class ContractRepo {
 
     public Contract createContract(Contract contract) {
         String sql = "INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, bikeRack, bedLinen, childSeat, picnicTable, chairs, grill, lantern, firstAidKit, toiletPaper ,customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), contract.getCustomerId(),contract.getMotorhomeId() , contract.getEmployeeId());
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId());
         return null;
     }
 
@@ -40,23 +40,21 @@ public class ContractRepo {
         return template.update(sql, id) > 0;
     }
 
-    public Boolean cancelContract(int id){
+    public Boolean cancelContract(int id) {
         String sql = "UPDATE Contract SET active=? WHERE id=?";
         return template.update(sql, 0, id) > 0;
 
     }
 
-    public Contract updateContract(int id, Contract contract){
+    public Contract updateContract(int id, Contract contract) {
         String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, miscellaneous=?, customerId=?, motorhomeId=?, employeeId=? WHERE id=?";
         template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), id);
         return null;
     }
 
-    public boolean rentalDateValidation(int motorhomeId, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate){
+    public boolean rentalDateValidation(int motorhomeId, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate) {
         String sql = "SELECT count(*) FROM Contract WHERE motorhomeId = ? AND rentalStartDate < ? AND rentalEndDate > ?";
-        int rowCount = template.queryForObject(sql, new Object[] { motorhomeId,rentalEndDate, rentalStartDate }, Integer.class);
-        if(rowCount == 0)
-            return true;
-        return false;
+        int rowCount = template.queryForObject(sql, new Object[]{motorhomeId, rentalEndDate, rentalStartDate}, Integer.class);
+        return rowCount == 0;
     }
 }

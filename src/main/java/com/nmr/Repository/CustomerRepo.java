@@ -38,7 +38,7 @@ public class CustomerRepo {
         return template.update(sql, id) > 0;
     }
 
-    public Customer updateCustomer(int id, Customer customer){
+    public Customer updateCustomer(int id, Customer customer) {
         String sql = "UPDATE Customer SET firstName=?, lastName=?, phoneNumber=?, email=?, address=?, driverLicenceNumber=?, zipCode=? WHERE id=?";
         template.update(sql, customer.getFirstName(), customer.getLastName(), customer.getPhoneNumber(), customer.getEmail(), customer.getAddress(), customer.getDriverLicenceNumber(), customer.getZipCode(), id);
         return null;
