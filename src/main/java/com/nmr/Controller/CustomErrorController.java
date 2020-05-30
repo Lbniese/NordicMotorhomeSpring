@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class CustomErrorController implements ErrorController {
 
+    /**
+     * handleError() display specific error pages for different error types.
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
@@ -28,6 +34,10 @@ public class CustomErrorController implements ErrorController {
         return "error";
     }
 
+    /**
+     * getErrorPath overrides the implemented ErrorController's method to return a custom path to cal lwhen an error occured.
+     * @return
+     */
     @Override
     public String getErrorPath() {
         return "/error";
