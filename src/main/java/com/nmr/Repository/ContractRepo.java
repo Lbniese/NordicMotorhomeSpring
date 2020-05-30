@@ -53,7 +53,7 @@ public class ContractRepo {
     }
 
     public boolean rentalDateValidation(int motorhomeId, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate) {
-        String sql = "SELECT count(*) FROM Contract WHERE motorhomeId = ? AND rentalStartDate < ? AND rentalEndDate > ?";
+        String sql = "SELECT count(*) FROM Contract WHERE motorhomeId = ? AND active = 1 AND rentalStartDate < ? AND rentalEndDate > ?";
         int rowCount = template.queryForObject(sql, new Object[]{motorhomeId, rentalEndDate, rentalStartDate}, Integer.class);
         return rowCount == 0;
     }
