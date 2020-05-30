@@ -11,7 +11,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 public class PriceHandler {
 
     /**
-     *
+     * calculateFullPrice() calculates the price for renting a motorhome based on the season it is in.
      * @param rentalStartDate
      * @param rentalEndDate
      * @param pricePerDay
@@ -65,7 +65,7 @@ public class PriceHandler {
     }
 
     /**
-     *
+     * calculatePickUpPrice() calculates the pickUpPrice based on pre-defined pickUpKm values based on pre-defined locations.
      * @param pickUpPoint
      * @return
      */
@@ -86,7 +86,7 @@ public class PriceHandler {
     }
 
     /**
-     *
+     * calculateDropOffPrice() calculates the dropOffPrice based on pre-defined dropOffKm values based on pre-defined locations.
      * @param dropOffPoint
      * @return
      */
@@ -107,7 +107,7 @@ public class PriceHandler {
     }
 
     /**
-     *
+     * calculateExtraPrice() calculates the total price for extra purchases for a contract.
      * @param bikeRack
      * @param bedLinen
      * @param childSeat
@@ -135,7 +135,7 @@ public class PriceHandler {
     }
 
     /**
-     *
+     * 
      * @param active
      * @param rentalStartDate
      * @param fullPrice
