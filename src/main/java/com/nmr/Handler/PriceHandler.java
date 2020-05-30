@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
- * PriceHandler contains all methods used to calculate prices shown in the invoice.
+ * PriceHandler contains all methods used to calculate prices shown on the contract and invoice page.
  */
 public class PriceHandler {
 
