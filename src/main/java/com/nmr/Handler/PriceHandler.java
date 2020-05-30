@@ -5,9 +5,18 @@ import java.time.format.DateTimeFormatter;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-
+/**
+ * PriceHandler contains all methods used to calculate prices shown in the invoice.
+ */
 public class PriceHandler {
 
+    /**
+     *
+     * @param rentalStartDate
+     * @param rentalEndDate
+     * @param pricePerDay
+     * @return
+     */
     public static double calculateFullPrice(LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, int pricePerDay){
 
         double fullPrice = 0;
@@ -55,6 +64,11 @@ public class PriceHandler {
         return fullPrice;
     }
 
+    /**
+     *
+     * @param pickUpPoint
+     * @return
+     */
     public static double calculatePickUpPrice(String pickUpPoint){
         double pickUpPrice = 0;
         int pickUpKm = 0;
@@ -71,6 +85,11 @@ public class PriceHandler {
         return pickUpPrice;
     }
 
+    /**
+     *
+     * @param dropOffPoint
+     * @return
+     */
     public static double calculateDropOffPrice(String dropOffPoint){
         double dropOffPrice = 0;
         int dropOffKm = 0;
@@ -87,7 +106,19 @@ public class PriceHandler {
         return dropOffPrice;
     }
 
-
+    /**
+     *
+     * @param bikeRack
+     * @param bedLinen
+     * @param childSeat
+     * @param picnicTable
+     * @param chairs
+     * @param grill
+     * @param lantern
+     * @param firstAidKit
+     * @param toiletPaper
+     * @return
+     */
     public static double calculateExtraPrice(int bikeRack, int bedLinen, int childSeat, int picnicTable, int chairs, int grill, int lantern, int firstAidKit, int toiletPaper){
         double extraPrice = 0;
         extraPrice += 35 * bikeRack;
@@ -103,6 +134,13 @@ public class PriceHandler {
         return extraPrice;
     }
 
+    /**
+     *
+     * @param active
+     * @param rentalStartDate
+     * @param fullPrice
+     * @return
+     */
     public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate, double fullPrice){
         double fee = fullPrice;
         if(active) {
@@ -129,6 +167,12 @@ public class PriceHandler {
         return fee;
     }
 
+    /**
+     *
+     * @param active
+     * @param rentalStartDate
+     * @return
+     */
     public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate){
         double fee = 0;
         if(active) {
@@ -148,11 +192,6 @@ public class PriceHandler {
         }
         if(days >= 50){
             fee = 20;
-            /*
-            if(fee < 1500){
-                fee = 1500;
-            }
-             */
         }
         return fee;
     }
