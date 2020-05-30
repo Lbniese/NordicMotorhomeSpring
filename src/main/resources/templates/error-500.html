@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link href="error.css" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,10 @@
         <img alt="logo" id="logo" src="logo.png"/>
     </a>
 </div>
-<h1> Sorry, something went wrong! </h1>
-
-<h2>We're fixing it.</h2><br><br>
+<h2>There was a problem with your request. Please contact an administrator.</h2>
+<br>
+<p>The complete error message is provided below:</p><br>
+<div id="errorBox" th:text="${errorMessage}"></div>
 <p><a href="/">Go Home</a></p>
 </body>
 </html>
