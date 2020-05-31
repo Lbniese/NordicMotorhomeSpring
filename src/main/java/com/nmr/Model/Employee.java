@@ -3,6 +3,10 @@ package com.nmr.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Entity annotation specifies that the class is an entity and is mapped to a database table.
+ * Id annotation specifies the primary key for the table.
+ */
 @Entity
 public class Employee {
     @Id

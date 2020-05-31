@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+/**
+ * Entity annotation specifies that the class is an entity and is mapped to a database table.
+ * Id annotation specifies the primary key for the table.
+ * DateTimeFormat annotation lets us set a preferred date format.
+ */
 @Entity
 public class Contract {
     @Id

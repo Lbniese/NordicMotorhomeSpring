@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Indicates that this class is a service class
+ */
 @Service
 public class ContractService {
-
     @Autowired
     ContractRepo contractRepo;
 
@@ -45,6 +47,12 @@ public class ContractService {
         return contractRepo.cancelContract(id);
     }
 
+    /**
+     * Method: 'calculateFullPrice' calls several methods from the PriceHandler class which all calculates parts of the full price.
+     * @param contract
+     * @param motorhome
+     * @return contract
+     */
     public Contract calculateFullPrice(Contract contract, Motorhome motorhome) {
         double fullPrice = PriceHandler.calculateFullPrice(contract.getRentalStartDate(), contract.getRentalEndDate(), motorhome.getPricePerDay());
         fullPrice += PriceHandler.calculatePickUpPrice(contract.getPickUpPoint());
@@ -54,6 +62,11 @@ public class ContractService {
         return contract;
     }
 
+    /**
+     * Method 'calculatePickUpAndDropOff' calls methods from the PriceHandler class i order to calculate pickup and dropoff price.
+     * @param contract
+     * @return
+     */
     public Contract calculatePickUpAndDropOff(Contract contract) {
         contract.setPickUpPrice(PriceHandler.calculatePickUpPrice(contract.getPickUpPoint()));
         contract.setDropOffPrice(PriceHandler.calculateDropOffPrice(contract.getDropOffPoint()));

@@ -17,7 +17,7 @@ import java.util.List;
 public class ContractRepo {
 
     /**
-     * Annotating the autowired makes it possible for us to use the JDBC template, which is a class in the spring framework that gives us an easy way to connect to our database and execute SQL queries.
+     * Annotating the autowired and autowiring to the JdbcTemplate makes it possible for us to use the a class in the spring framework that gives us an easy way to connect to our database and execute SQL queries.
      */
     @Autowired
     JdbcTemplate template;
