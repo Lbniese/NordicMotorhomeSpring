@@ -43,6 +43,11 @@ public class CustomerRepo {
         return template.query(sql, rowMapper);
     }
 
+    /**
+     * Method: 'FindCustomerById' makes an SQL call which selects a specific customer from the database. It uses the Spring rowMapper to map the attributes of the object and creates a customer object.
+     * @param id - The method takes an id given by the pathVariable annotation in our HomeController.
+     * @return - The method returns the specific customer which is used when updating a customer and when retrieving specific customer information for an invoice.
+     */
     public Customer findCustomerById(int id) {
         String sql = "SELECT * FROM Customer WHERE id = ?";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
@@ -50,11 +55,22 @@ public class CustomerRepo {
         return customer;
     }
 
+    /**
+     * Method: 'deleteCustomer' makes an SQL call which deletes a specific customer from the database.
+     * @param id
+     * @return
+     */
     public Boolean deleteCustomer(int id) {
         String sql = "DELETE FROM Customer WHERE id = ?";
         return template.update(sql, id) > 0;
     }
 
+    /**
+     * Method: 'updateCustomer' makes an SQL call which updates the information for a specific customer
+     * @param id
+     * @param customer
+     * @return null
+     */
     public Customer updateCustomer(int id, Customer customer) {
         String sql = "UPDATE Customer SET firstName=?, lastName=?, phoneNumber=?, email=?, address=?, driverLicenceNumber=?, zipCode=? WHERE id=?";
         template.update(sql, customer.getFirstName(), customer.getLastName(), customer.getPhoneNumber(), customer.getEmail(), customer.getAddress(), customer.getDriverLicenceNumber(), customer.getZipCode(), id);
