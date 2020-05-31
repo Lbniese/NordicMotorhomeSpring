@@ -33,7 +33,7 @@ public class Contract {
     private int chairs;
     private int grill;
     private int lantern;
-    private int firstAidKit = 0;
+    private int firstAidKit;
     private int toiletPaper;
     private boolean active;
 
