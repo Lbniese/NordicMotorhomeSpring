@@ -34,24 +34,65 @@ public class HomeController {
     @Autowired
     ContractService contractService;
 
+    /*
+    Get- and Postmapping is reused in every method in the homecontroller. Therefore, a global note is written for all mappings below.
+
+    GetMapping: handles the HTTP (Hyper Text Transfer Protocol) "GET" request which is matched with the given URL expression.
+    This means, it is used when u want to SHOW information.
+
+    PostMapping: handles the HTTP "POST" request which is matched with the given URL expression.
+    This means, it is used when u want to WRITE information.
+
+   @Get- PostMapping is a shortcut for: @RequestMapping(method = RequestMethod.GET/POST)
+    */
+
+    /**
+     * This is the method for the homepage.
+     * It is using Getmapping with the parameter "/". This means the html page will return to first page, which is index, when used.
+     * The method returns:
+     * @return "home/index"
+     * Home is the directory where the html index lies within.
+     */
 
     @GetMapping("/")
     public String index() {
         return "home/index";
     }
 
+
+    /**
+     * Defines the path with "/customer"
+     * @param model gets the list of customers.
+     * @return "home/customer"
+     */
+
     @GetMapping("/customer")
     public String customer(Model model) {
+        //Takes and show the customer list by using the fetch all method in the customerService class.
         List<Customer> customerList = customerService.fetchAll();
         model.addAttribute("customers", customerList);
         return "home/customer";
     }
 
+
+    /**
+     * Defines the path with "/customer".
+     * @param customer gets the object as parameter.
+     * Call the create customer method from the customer service class.
+     * @return "redirect:/customer".
+     */
     @PostMapping("/customer")
     public String customer(@ModelAttribute Customer customer) {
         customerService.createCustomer(customer);
         return "redirect:/customer";
     }
+
+
+    /**
+     * Defines the path with "/deletecustomer/{id}
+     * @param id
+     * @return "direct:/customer"
+     */
 
     @GetMapping("/deletecustomer/{id}")
     public String deleteCustomer(@PathVariable("id") int id) {
