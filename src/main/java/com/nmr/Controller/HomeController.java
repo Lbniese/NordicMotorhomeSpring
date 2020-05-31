@@ -272,7 +272,7 @@ public class HomeController {
         model.addAttribute("motorhome", motorhome);
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
-        model.addAttribute("addDiscount", PriceHandler.calculateCancellationFee(contract.isActive(), contract.getRentalStartDate()));
+        model.addAttribute("addDiscount", PriceHandler.calculateCancellationPrice(contract.isActive(), contract.getRentalStartDate()));
         return "home/invoice";
     }
 

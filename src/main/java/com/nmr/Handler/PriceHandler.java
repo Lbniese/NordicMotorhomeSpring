@@ -135,13 +135,19 @@ public class PriceHandler {
     }
 
     /**
-     * 
+     * calculateCancellationFee() is calculating the discount the customer gets upon cancelling an order.
+     * In case of cancellation following charges become due:
+     * Up to 50 days prior to the start of the term of rental: 20% of the rental price, minimum 200€
+     * Between 49 and 15 days prior to the start of the term of rental: 50% of the rental price
+     * Less than 15 days prior to the start of the term of rental: 80% of the rental price
+     * On the day of renting: 95% of the rental price
+     * This method will return the full price deducted by the fee.
      * @param active
      * @param rentalStartDate
      * @param fullPrice
      * @return
      */
-    public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate, double fullPrice){
+    public static double calculateCancellationPrice(boolean active, LocalDateTime rentalStartDate, double fullPrice){
         double fee = fullPrice;
         if(active) {
             return fee;
@@ -168,12 +174,18 @@ public class PriceHandler {
     }
 
     /**
-     *
+     * calculateCancellationFee() is calculating the discount the customer gets upon cancelling an order.
+     * In case of cancellation following charges become due:
+     * Up to 50 days prior to the start of the term of rental: 20% of the rental price, minimum 200€
+     * Between 49 and 15 days prior to the start of the term of rental: 50% of the rental price
+     * Less than 15 days prior to the start of the term of rental: 80% of the rental price
+     * On the day of renting: 95% of the rental price
+     * This method will return the discounted amount.
      * @param active
      * @param rentalStartDate
      * @return
      */
-    public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate){
+    public static double calculateCancellationPrice(boolean active, LocalDateTime rentalStartDate){
         double fee = 0;
         if(active) {
             return fee;

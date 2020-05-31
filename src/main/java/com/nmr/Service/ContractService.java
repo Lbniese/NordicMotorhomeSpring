@@ -50,7 +50,7 @@ public class ContractService {
         fullPrice += PriceHandler.calculatePickUpPrice(contract.getPickUpPoint());
         fullPrice += PriceHandler.calculateDropOffPrice(contract.getDropOffPoint());
         fullPrice += PriceHandler.calculateExtraPrice(contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper());
-        contract.setFullPrice(PriceHandler.calculateCancellationFee(contract.isActive(), contract.getRentalStartDate(), fullPrice));
+        contract.setFullPrice(PriceHandler.calculateCancellationPrice(contract.isActive(), contract.getRentalStartDate(), fullPrice));
         return contract;
     }
 
