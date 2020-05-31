@@ -9,11 +9,24 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * The spring annotation 'repository' indicates that this is a repository class, and that it can be used for encapsulating, storage, retrieval and search behavior.
+ */
 @Repository
 public class EmployeeRepo {
+
+    /**
+     * Annotating the autowired makes it possible for us to use the JDBC template, which is a class in the spring framework that gives us an easy way to connect to our database and execute SQL queries.
+     */
     @Autowired
     JdbcTemplate template;
 
+    /**
+     * Method: 'createEmployee' makes an SQL call and inserts the employee information given in the HTML 'create employee' tab into the MySQL database.
+     * Uses the JDBC template to execute the SQL query.
+     * @param employee
+     * @return null
+     */
     public Employee createEmployee(Employee employee) {
         String sql = "INSERT INTO Employee (firstName, lastName, phoneNumber, email, address, title, zipCode) VALUES(?, ?, ?, ?, ?, ?, ?)";
         template.update(sql, employee.getFirstName(), employee.getLastName(), employee.getPhoneNumber(), employee.getEmail(), employee.getAddress(), employee.getTitle(), employee.getZipCode());

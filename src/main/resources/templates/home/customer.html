@@ -78,7 +78,7 @@
                 <td th:text="${customer.country}"/>
                 <td th:text="${customer.driverLicenceNumber}"/>
                 <td>
-                    <a th:href="@{'/deleteCustomer/'+${customer.id}}">
+                    <a th:href="@{'/deletecustomer/'+${customer.id}}">
                         <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
                     </a>
                 </td>

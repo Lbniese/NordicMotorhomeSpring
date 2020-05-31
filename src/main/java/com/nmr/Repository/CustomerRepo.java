@@ -9,17 +9,34 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * The spring annotation 'repository' indicates that this is a repository class, and that it can be used for encapsulating, storage, retrieval and search behavior.
+ */
 @Repository
 public class CustomerRepo {
+
+    /**
+     * Annotating the autowired makes it possible for us to use the JDBC template, which is a class in the spring framework that gives us an easy way to connect to our database and execute SQL queries.
+     */
     @Autowired
     JdbcTemplate template;
 
+    /**
+     * Method: 'createCustomer' makes an SQL call and inserts the customer information given in the HTML 'create customer' tab into the MySQL database.
+     * Uses the JDBC template to execute the SQL query.
+     * @param customer
+     * @return null
+     */
     public Customer createCustomer(Customer customer) {
         String sql = "INSERT INTO Customer (firstName, lastName, phoneNumber, email, address, driverLicenceNumber, zipCode) VALUES(?, ?, ?, ?, ?, ?, ?)";
         template.update(sql, customer.getFirstName(), customer.getLastName(), customer.getPhoneNumber(), customer.getEmail(), customer.getAddress(), customer.getDriverLicenceNumber(), customer.getZipCode());
         return null;
     }
 
+    /**
+     * Method: 'fetchAll' makes an SQL call which selects everything from the customer table. The method uses the Spring RowMapper which automatically maps the attributes of our customer objects.
+     * @return JDBC template
+     */
     public List<Customer> fetchAll() {
         String sql = "SELECT * FROM Customer c JOIN Zipcode z ON c.zipCode = z.zipCode";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);

@@ -10,11 +10,24 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * The spring annotation 'repository' indicates that this is a repository class, and that it can be used for encapsulating, storage, retrieval and search behavior.
+ */
 @Repository
 public class MotorhomeRepo {
+
+    /**
+     * Annotating the autowired makes it possible for us to use the JDBC template, which is a class in the spring framework that gives us an easy way to connect to our database and execute SQL queries.
+     */
     @Autowired
     JdbcTemplate template;
 
+    /**
+     * Method: 'createMotorhome' makes an SQL call and inserts the motorhome information given in the HTML 'create motorhome' tab into the MySQL database.
+     * Uses the JDBC template to execute the SQL query.
+     * @param motorhome
+     * @return null
+     */
     public Motorhome createMotorhome(Motorhome motorhome) {
         String sql = "INSERT INTO Motorhome (brand, model, odometer, vehicleSize, vehicleType, pricePerDay, serviceNote) VALUES(?, ?, ?, ?, ?, ?, ?)";
         template.update(sql, motorhome.getBrand(), motorhome.getModel(), motorhome.getOdometer(), motorhome.getVehicleSize(), motorhome.getVehicleType(), motorhome.getPricePerDay(), motorhome.getServiceNote());
