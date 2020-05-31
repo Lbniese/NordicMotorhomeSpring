@@ -185,7 +185,7 @@ public class PriceHandler {
      * @param rentalStartDate
      * @return
      */
-    public static double calculateCancellationPrice(boolean active, LocalDateTime rentalStartDate){
+    public static double calculateCancellationFee(boolean active, LocalDateTime rentalStartDate){
         double fee = 0;
         if(active) {
             return fee;
