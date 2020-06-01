@@ -26,50 +26,64 @@
            th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
 
     <br><label>Pick Up Point</label><br>
-    <input name="pickUpPoint" th:value="${contract.pickUpPoint}" type="text"><br>
+    <select class="form__field" id="slctPickUpPoint" name="pickUpPoint">
+        <option disabled label="Pick Up Point" selected th:value="${contract.pickUpPoint}"></option>
+        <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
+        <option label="Airport" value="Airport"></option>
+        <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
+    </select>
 
-    <br><label>Drop Off Point</label><br>
-    <input name="dropOffPoint" th:value="${contract.dropOffPoint}" type="text"><br>
+    <br><br><label>Drop Off Point</label><br>
+    <select class="form__field" id="slctDropOffPoint" name="dropOffPoint">
+        <option disabled label="Drop Off Point" selected value=""></option>
+        <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
+        <option label="Airport" value="Airport"></option>
+        <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
+    </select>
 
-    <br><label>Customer ID</label><br>
-    <input name="customerId" th:value="${contract.customerId}" type="text"><br>
+    <br><br><label>Customer ID</label><br>
+    <input name="customerId" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${contract.customerId}"
+           type="text"><br>
 
     <br><label>Motorhome ID</label><br>
-    <input name="motorhomeId" th:value="${contract.motorhomeId}" type="text"><br>
+    <input name="motorhomeId" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${contract.motorhomeId}"
+           type="text"><br>
 
     <br><label>Employee ID</label><br>
-    <input name="employeeId" th:value="${contract.employeeId}" type="text"><br>
+    <input name="employeeId" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${contract.employeeId}"
+           type="text"><br>
 
-    <br><br><br><label>Extras</label><br>
+    <br><br><label>Extras</label><br>
 
     <br><label>Bike Rack</label><br>
-    <input name="bikeRack" th:value="${contract.bikeRack}" type="text"><br>
+    <input name="bikeRack" pattern="^[0-9]+" required th:value="${contract.bikeRack}" type="text"><br>
 
     <br><label>Bed Linen</label><br>
-    <input name="bedLinen" th:value="${contract.bedLinen}" type="text"><br>
+    <input name="bedLinen" pattern="^[0-9]+" required th:value="${contract.bedLinen}" type="text"><br>
 
     <br><label>Child Seat</label><br>
-    <input name="childSeat" th:value="${contract.childSeat}" type="text"><br>
+    <input name="childSeat" pattern="^[0-9]+" required th:value="${contract.childSeat}" type="text"><br>
 
     <br><label>Picnic Table</label><br>
-    <input name="picnicTable" th:value="${contract.picnicTable}" type="text"><br>
+    <input name="picnicTable" pattern="^[0-9]+" required th:value="${contract.picnicTable}" type="text"><br>
 
     <br><label>Chairs</label><br>
-    <input name="chairs" th:value="${contract.chairs}" type="text"><br>
+    <input name="chairs" pattern="^[0-9]+" required th:value="${contract.chairs}" type="text"><br>
 
     <br><label>Grill</label><br>
-    <input name="grill" th:value="${contract.grill}" type="text"><br>
+    <input name="grill" pattern="^[0-9]+" required th:value="${contract.grill}" type="text"><br>
 
     <br><label>Lantern</label><br>
-    <input name="lantern" th:value="${contract.lantern}" type="text"><br>
+    <input name="lantern" pattern="^[0-9]+" required th:value="${contract.lantern}" type="text"><br>
 
     <br><label>First Aid Kit</label><br>
-    <input name="firstAidKit" th:value="${contract.firstAidKit}" type="text"><br>
+    <input name="firstAidKit" pattern="^[0-9]+" required th:value="${contract.firstAidKit}" type="text"><br>
 
     <br><label>Toilet Paper</label><br>
-    <input name="toiletPaper" th:value="${contract.toiletPaper}" type="text"><br>
+    <input name="toiletPaper" pattern="^[0-9]+" required th:value="${contract.toiletPaper}" type="text"><br>
 
-    <br><button id="updateButton" type="submit">Update contract</button>
+    <br><br>
+    <button id="updateButton" type="submit">Update contract</button>
 </form>
 </body>
 </html>
