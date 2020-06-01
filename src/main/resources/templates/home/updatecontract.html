@@ -15,7 +15,7 @@
     <br><label>Contract Information</label><br>
 
     <br><label>ID</label><br>
-    <input name="id" readOnly tabindex="-1" th:value="${contract.id}" type="text"><br>
+    <input name="id" pattern="^[0-9]+" readOnly tabindex="-1" th:value="${contract.id}" type="text"><br>
 
     <br><label>Start Date</label><br>
     <input name="rentalStartDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"

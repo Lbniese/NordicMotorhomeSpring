@@ -12,28 +12,29 @@
 </div>
 <form action="/employee/updateemployee" method="post">
     <br><label>ID</label><br>
-    <input name="id" readOnly tabindex="-1" th:value="${employee.id}" type="text"><br>
+    <input name="id" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${employee.id}" type="text"><br>
 
     <br><label>First name</label><br>
-    <input name="firstName" th:value="${employee.firstName}" type="text"><br>
+    <input name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${employee.firstName}" type="text"><br>
 
     <br><label>Last name</label><br>
-    <input name="lastName" th:value="${employee.lastName}" type="text"><br>
+    <input name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${employee.lastName}"
+           type="text"><br>
 
     <br><label>Phone number</label><br>
-    <input name="phoneNumber" th:value="${employee.phoneNumber}" type="text"><br>
+    <input name="phoneNumber" pattern="^[0-9]{8}" required th:value="${employee.phoneNumber}" type="text"><br>
 
     <br><label>Email</label><br>
-    <input name="email" th:value="${employee.email}" type="text"><br>
+    <input name="email" required th:value="${employee.email}" type="email"><br>
 
     <br><label>Address</label><br>
-    <input name="address" th:value="${employee.address}" type="text"><br>
+    <input name="address" pattern="^[0-9a-zæøåA-Z\s,-.]+$" required th:value="${employee.address}" type="text"><br>
 
     <br><label>Title</label><br>
-    <input name="title" th:value="${employee.title}" type="text"><br>
+    <input name="title" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${employee.title}" type="text"><br>
 
     <br><label>Zipcode</label><br>
-    <input name="zipCode" th:value="${employee.zipCode}" type="text"><br>
+    <input name="zipCode" pattern="[1-24-9]\d{3}|3[0-8]\d{2}$" required th:value="${employee.zipCode}" type="text"><br>
 
     <button id="updateButton" type="submit">Update employee</button>
 </form>

@@ -12,28 +12,28 @@
 </div>
 <form action="/motorhome/updatemotorhome" method="post">
     <br><label>ID</label><br>
-    <input name="id" readOnly tabindex="-1" th:value="${motorhome.id}" type="text"><br>
+    <input name="id" readOnly required tabindex="-1" th:value="${motorhome.id}" type="text"><br>
 
     <br><label>Brand</label><br>
-    <input name="brand" th:value="${motorhome.brand}" type="text"><br>
+    <input name="brand" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${motorhome.brand}" type="text"><br>
 
     <br><label>Model</label><br>
-    <input name="model" th:value="${motorhome.model}" type="text"><br>
+    <input name="model" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${motorhome.model}" type="text"><br>
 
     <br><label>Odometer</label><br>
-    <input name="odometer" th:value="${motorhome.odometer}" type="text"><br>
+    <input name="odometer" required th:value="${motorhome.odometer}" type="text"><br>
 
     <br><label>Size</label><br>
-    <input name="vehicleSize" readOnly tabindex="-1" th:value="${motorhome.vehicleSize}" type="text"><br>
+    <input name="vehicleSize" readOnly required tabindex="-1" th:value="${motorhome.vehicleSize}" type="text"><br>
 
     <br><label>Type</label><br>
-    <input name="vehicleType" readOnly tabindex="-1" th:value="${motorhome.vehicleType}" type="text"><br>
+    <input name="vehicleType" readOnly required tabindex="-1" th:value="${motorhome.vehicleType}" type="text"><br>
 
     <br><label>Price Per Day</label><br>
-    <input name="pricePerDay" th:value="${motorhome.pricePerDay}" type="text"><br>
+    <input name="pricePerDay" required th:value="${motorhome.pricePerDay}" type="text"><br>
 
     <br><label>Service Note</label><br>
-    <input name="serviceNote" th:value="${motorhome.serviceNote}" type="text"><br>
+    <input name="serviceNote" required th:value="${motorhome.serviceNote}" type="text"><br>
 
     <button id="updateButton" type="submit">Update Motorhome</button>
 </form>

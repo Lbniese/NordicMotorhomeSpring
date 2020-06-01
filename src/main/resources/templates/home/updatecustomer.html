@@ -12,28 +12,30 @@
 </div>
 <form action="/customer/updatecustomer" method="post">
     <br><label>ID</label><br>
-    <input name="id" readOnly tabindex="-1" th:value="${customer.id}" type="text"><br>
+    <input name="id" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${customer.id}" type="text"><br>
 
     <br><label>First name</label><br>
-    <input name="firstName" th:value="${customer.firstName}" type="text"><br>
+    <input name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${customer.firstName}" type="text"><br>
 
     <br><label>Last name</label><br>
-    <input name="lastName" th:value="${customer.lastName}" type="text"><br>
+    <input name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${customer.lastName}"
+           type="text"><br>
 
     <br><label>Phone number</label><br>
-    <input name="phoneNumber" th:value="${customer.phoneNumber}" type="text"><br>
+    <input name="phoneNumber" pattern="^[0-9]{8}" required th:value="${customer.phoneNumber}" type="text"><br>
 
     <br><label>Email</label><br>
-    <input name="email" th:value="${customer.email}" type="text"><br>
+    <input name="email" required th:value="${customer.email}" type="email"><br>
 
     <br><label>Address</label><br>
-    <input name="address" th:value="${customer.address}" type="text"><br>
+    <input name="address" pattern="^[0-9a-zæøåA-Z\s,-.]+$" required th:value="${customer.address}" type="text"><br>
 
     <br><label>Driver licence number</label><br>
-    <input name="driverLicenceNumber" th:value="${customer.driverLicenceNumber}" type="text"><br>
+    <input name="driverLicenceNumber" pattern="^[0-9]{7,8}$" required th:value="${customer.driverLicenceNumber}"
+           type="text"><br>
 
     <br><label>Zipcode</label><br>
-    <input name="zipCode" th:value="${customer.zipCode}" type="text"><br>
+    <input name="zipCode" pattern="[1-24-9]\d{3}|3[0-8]\d{2}$" required th:value="${customer.zipCode}" type="text"><br>
 
     <button id="updateButton" type="submit">Update customer</button>
 </form>
