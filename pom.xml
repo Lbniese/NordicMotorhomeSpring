@@ -11,6 +11,7 @@
     <groupId>com</groupId>
     <artifactId>nmr</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>nmr</name>
     <description>Nordic Motorhome Rental</description>
 
