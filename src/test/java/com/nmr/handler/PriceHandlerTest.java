@@ -1,4 +1,4 @@
-package com.nmr.Handler;
+package com.nmr.handler;
 
 import org.junit.jupiter.api.Test;
 

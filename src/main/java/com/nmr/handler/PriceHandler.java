@@ -1,4 +1,4 @@
-package com.nmr.Handler;
+package com.nmr.handler;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

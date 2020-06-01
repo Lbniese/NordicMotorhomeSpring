@@ -1,14 +1,14 @@
-package com.nmr.Controller;
+package com.nmr.controller;
 
-import com.nmr.Handler.PriceHandler;
-import com.nmr.Model.Contract;
-import com.nmr.Model.Customer;
-import com.nmr.Model.Employee;
-import com.nmr.Model.Motorhome;
-import com.nmr.Service.ContractService;
-import com.nmr.Service.CustomerService;
-import com.nmr.Service.EmployeeService;
-import com.nmr.Service.MotorhomeService;
+import com.nmr.handler.PriceHandler;
+import com.nmr.model.Contract;
+import com.nmr.model.Customer;
+import com.nmr.model.Employee;
+import com.nmr.model.Motorhome;
+import com.nmr.service.ContractService;
+import com.nmr.service.CustomerService;
+import com.nmr.service.EmployeeService;
+import com.nmr.service.MotorhomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;

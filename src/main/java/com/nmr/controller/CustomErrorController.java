@@ -1,4 +1,4 @@
-package com.nmr.Controller;
+package com.nmr.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -43,7 +43,7 @@ public class CustomErrorController implements ErrorController {
     }
 
     /**
-     * getErrorPath overrides the implemented ErrorController's method to return a custom path to call when an error occured.
+     * getErrorPath overrides the implemented ErrorController's method to return a custom path to call when an error occurred.
      *
      * @return
      */

@@ -1,7 +1,7 @@
-package com.nmr.Service;
+package com.nmr.service;
 
-import com.nmr.Model.Employee;
-import com.nmr.Repository.EmployeeRepo;
+import com.nmr.model.Employee;
+import com.nmr.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

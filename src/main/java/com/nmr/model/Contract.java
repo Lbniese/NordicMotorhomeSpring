@@ -1,4 +1,4 @@
-package com.nmr.Model;
+package com.nmr.model;
 
 
 import org.springframework.format.annotation.DateTimeFormat;

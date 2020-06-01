@@ -1,7 +1,7 @@
-package com.nmr.Service;
+package com.nmr.service;
 
-import com.nmr.Model.Customer;
-import com.nmr.Repository.CustomerRepo;
+import com.nmr.model.Customer;
+import com.nmr.repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

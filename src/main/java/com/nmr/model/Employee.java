@@ -1,4 +1,4 @@
-package com.nmr.Model;
+package com.nmr.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,30 +8,30 @@ import javax.persistence.Id;
  * Id annotation specifies the primary key for the table.
  */
 @Entity
-public class Customer {
+public class Employee {
     @Id
     private int id;
     private String firstName;
     private String lastName;
+    private String title;
     private String address;
     private String phoneNumber;
     private String email;
-    private String driverLicenceNumber;
     private String zipCode;
     private String city;
     private String country;
 
-    public Customer() {
+    public Employee() {
     }
 
-    public Customer(int id, String firstName, String lastName, String address, String phoneNumber, String email, String driverLicenceNumber, String zipCode, String city, String country) {
+    public Employee(int id, String firstName, String lastName, String title, String address, String phoneNumber, String email, String zipCode, String city, String country) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.title = title;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.driverLicenceNumber = driverLicenceNumber;
         this.zipCode = zipCode;
         this.city = city;
         this.country = country;
@@ -61,6 +61,14 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -83,14 +91,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDriverLicenceNumber() {
-        return driverLicenceNumber;
-    }
-
-    public void setDriverLicenceNumber(String driverLicenceNumber) {
-        this.driverLicenceNumber = driverLicenceNumber;
     }
 
     public String getZipCode() {

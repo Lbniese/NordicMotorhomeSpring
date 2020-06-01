@@ -1,7 +1,7 @@
-package com.nmr.Service;
+package com.nmr.service;
 
-import com.nmr.Model.Motorhome;
-import com.nmr.Repository.MotorhomeRepo;
+import com.nmr.model.Motorhome;
+import com.nmr.repository.MotorhomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

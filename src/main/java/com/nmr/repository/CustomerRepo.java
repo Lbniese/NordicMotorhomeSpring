@@ -1,6 +1,6 @@
-package com.nmr.Repository;
+package com.nmr.repository;
 
-import com.nmr.Model.Customer;
+import com.nmr.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

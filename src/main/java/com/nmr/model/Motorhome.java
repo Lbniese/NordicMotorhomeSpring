@@ -1,4 +1,4 @@
-package com.nmr.Model;
+package com.nmr.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

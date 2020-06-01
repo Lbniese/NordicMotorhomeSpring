@@ -1,10 +1,10 @@
-package com.nmr.Service;
+package com.nmr.service;
 
 
-import com.nmr.Handler.PriceHandler;
-import com.nmr.Model.Contract;
-import com.nmr.Model.Motorhome;
-import com.nmr.Repository.ContractRepo;
+import com.nmr.handler.PriceHandler;
+import com.nmr.model.Contract;
+import com.nmr.model.Motorhome;
+import com.nmr.repository.ContractRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
