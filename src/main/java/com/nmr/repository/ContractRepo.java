@@ -30,8 +30,12 @@ public class ContractRepo {
      * @return
      */
     public Contract createContract(Contract contract) {
-        String sql = "INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, bikeRack, bedLinen, childSeat, picnicTable, chairs, grill, lantern, firstAidKit, toiletPaper ,customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId());
+        String sql = "INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, bikeRack, bedLinen, childSeat, picnicTable, " +
+                "chairs, grill, lantern, firstAidKit, toiletPaper ,customerId, motorhomeId, employeeId) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(),
+                contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(),
+                contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), contract.getCustomerId(), contract.getMotorhomeId(),
+                contract.getEmployeeId());
         return null;
     }
 
@@ -90,8 +94,12 @@ public class ContractRepo {
      * @return
      */
     public Contract updateContract(int id, Contract contract) {
-        String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, customerId=?, motorhomeId=?, employeeId=?, bikeRack=?, bedLinen=?, childSeat=?, picnicTable=?, chairs=?, grill=?, lantern=?, firstAidKit=?, toiletPaper=? WHERE id=?";
-        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), id);
+        String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, customerId=?, motorhomeId=?, employeeId=?, " +
+                "bikeRack=?, bedLinen=?, childSeat=?, picnicTable=?, chairs=?, grill=?, lantern=?, firstAidKit=?, toiletPaper=? WHERE id=?";
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(),
+                contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), contract.getBikeRack(), contract.getBedLinen(),
+                contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(),
+                contract.getFirstAidKit(), contract.getToiletPaper(), id);
         return null;
     }
 
@@ -104,8 +112,9 @@ public class ContractRepo {
      * @return - The method returns rowCount == 0 which is either true or false. If it is true, it means that there are no active contracts with the specific motorhome in the specific rental period. This us used to make sure the same motorhome is not rented out twice in the same period.
      */
     public boolean rentalDateValidation(int motorhomeId, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate) {
-        String sql = "SELECT count(*) FROM Contract WHERE motorhomeId = ? AND active = 1 AND rentalStartDate < ? AND rentalEndDate > ?";
-        int rowCount = template.queryForObject(sql, new Object[]{motorhomeId, rentalEndDate, rentalStartDate}, Integer.class);
-        return rowCount == 0;
+        String sql = "SELECT * FROM Contract WHERE motorhomeId = ? AND active = 1 AND rentalStartDate < ? AND rentalEndDate > ?";
+        RowMapper<Contract> rowMapper = new BeanPropertyRowMapper<>(Contract.class);
+        List<Contract> listContracts = template.query(sql, rowMapper, motorhomeId, rentalEndDate, rentalStartDate);
+        return listContracts.isEmpty();
     }
 }

@@ -23,7 +23,8 @@ public class ContractService {
     }
 
     public boolean createContract(Contract contract) {
-        if (contractRepo.rentalDateValidation(contract.getMotorhomeId(), contract.getRentalStartDate(), contract.getRentalEndDate())) {
+        boolean noOverlap = contractRepo.rentalDateValidation(contract.getMotorhomeId(), contract.getRentalStartDate(), contract.getRentalEndDate());
+        if (noOverlap) {
             contractRepo.createContract(contract);
             return true;
         } else {

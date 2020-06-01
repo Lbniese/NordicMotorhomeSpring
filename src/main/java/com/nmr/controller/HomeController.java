@@ -326,6 +326,17 @@ public class HomeController {
             model.addAttribute("message", "Error: Either the start date or end date is overlapping with an existing contract for the selected vehicle.");
             List<Contract> contractList = contractService.fetchAll();
             model.addAttribute("contracts", contractList);
+
+            List<Customer> customerList = customerService.fetchAll();
+            model.addAttribute("customers", customerList);
+
+            List<Motorhome> motorhomeList = motorhomeService.fetchAll();
+            model.addAttribute("motorhomes", motorhomeList);
+
+            List<Employee> employeeList = employeeService.fetchAll();
+            model.addAttribute("employees", employeeList);
+
+            model.addAttribute("localDateTime", LocalDateTime.now());
             return "home/contract";
         }
     }
