@@ -16,80 +16,92 @@
 <body onload="zoom()">
 <div class="logo">
     <a href="/">
-        <img id="logo" alt="logo" src="logo.png"/>
+        <img alt="logo" id="logo" src="logo.png"/>
     </a>
 </div>
 
 <div class="tabs">
-    <button class="tablink" id="viewCustomerTab" onclick="openPage('viewcustomer', this, 'lightsalmon')" >View Customers</button>
-<button class="tablink" id="createCustomerTab" onclick="openPage('createcustomer', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Customer</button>
+    <button class="tablink" id="viewCustomerTab" onclick="openPage('viewcustomer', this, 'lightsalmon')">View
+        Customers
+    </button>
+    <button class="tablink" id="createCustomerTab" onclick="openPage('createcustomer', this, 'lightsalmon')"
+            style="float: left; margin-right: 20px">Create Customer
+    </button>
 </div>
 
 <div class="tabcontent" id="createcustomer">
     <div id="formular">
-    <h1>Create customer</h1>
+        <h1>Create customer</h1>
         <form action="customer" method="post">
 
             <div class="form__group field">
-                <input type="text" class="form__field" placeholder="First Name" name="firstName" id='firstName' pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required />
-                <input type="text" class="form__field" placeholder="Last Name" name="lastName" id='lastName' pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required />
-                <input type="text" class="form__field" placeholder="Phone Number" name="phoneNumber" id='phoneNumber' pattern="^[0-9]+" required />
-                <input type="text" class="form__field" placeholder="Email" name="email" id='email' pattern="^(.+)@(.+)$" required />
-                <input type="text" class="form__field" placeholder="Address" name="address" id='address' pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" required />
-                <input type="text" class="form__field" placeholder="Zip Code" name="zipCode" id='zipCode' pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" required />
-                <input type="text" class="form__field" placeholder="Driver License Number" name="driverLicenceNumber" id='driverLicensenumber' pattern="^[0-9]{7,8}$" required />
+                <input class="form__field" id='firstName' name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="First Name"
+                       required type="text"/>
+                <input class="form__field" id='lastName' name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Last Name"
+                       required type="text"/>
+                <input class="form__field" id='phoneNumber' name="phoneNumber" pattern="^[0-9]+" placeholder="Phone Number"
+                       required type="text"/>
+                <input class="form__field" id='email' name="email" pattern="^(.+)@(.+)$" placeholder="Email" required
+                       type="text"/>
+                <input class="form__field" id='address' name="address" pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" placeholder="Address"
+                       required type="text"/>
+                <input class="form__field" id='zipCode' name="zipCode" pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" placeholder="Zip Code"
+                       required type="text"/>
+                <input class="form__field" id='driverLicensenumber' name="driverLicenceNumber" pattern="^[0-9]{7,8}$"
+                       placeholder="Driver License Number" required type="text"/>
             </div>
 
 
-    <button id="createbutton" type="submit">Create Customer</button>
+            <button id="createbutton" type="submit">Create Customer</button>
 
         </form>
     </div>
 </div>
 <div class="tabcontent" id="viewcustomer">
-        <h3>View Customers</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Phone number</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Zip code</th>
-                <th>City</th>
-                <th>Country</th>
-                <th>Driver licence number</th>
-                <th>Delete</th>
-                <th>Update</th>
+    <h3>View Customers</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Zip code</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Driver licence number</th>
+            <th>Delete</th>
+            <th>Update</th>
 
-            </tr>
-            </thead>
-            <tr th:each="customer: ${customers}">
-                <td th:text="${customer.id}"/>
-                <td th:text="${customer.firstName}"/>
-                <td th:text="${customer.lastName}"/>
-                <td th:text="${customer.phoneNumber}"/>
-                <td th:text="${customer.email}"/>
-                <td th:text="${customer.address}"/>
-                <td th:text="${customer.zipCode}"/>
-                <td th:text="${customer.city}"/>
-                <td th:text="${customer.country}"/>
-                <td th:text="${customer.driverLicenceNumber}"/>
-                <td>
-                    <a th:href="@{'/deletecustomer/'+${customer.id}}">
-                        <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
-                    </a>
-                </td>
-                <td>
-                    <a th:href="@{'/updatecustomer/'+${customer.id}}">
-                        <button class="btnUpdate">Update</button>
-                    </a>
-                </td>
-            </tr>
-        </table>
-    </div>
+        </tr>
+        </thead>
+        <tr th:each="customer: ${customers}">
+            <td th:text="${customer.id}"/>
+            <td th:text="${customer.firstName}"/>
+            <td th:text="${customer.lastName}"/>
+            <td th:text="${customer.phoneNumber}"/>
+            <td th:text="${customer.email}"/>
+            <td th:text="${customer.address}"/>
+            <td th:text="${customer.zipCode}"/>
+            <td th:text="${customer.city}"/>
+            <td th:text="${customer.country}"/>
+            <td th:text="${customer.driverLicenceNumber}"/>
+            <td>
+                <a th:href="@{'/deletecustomer/'+${customer.id}}">
+                    <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
+                    </button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/updatecustomer/'+${customer.id}}">
+                    <button class="btnUpdate">Update</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
 
 <script>
     function openPage(pageName, elmnt, color) {

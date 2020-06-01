@@ -7,18 +7,20 @@
 <body>
 <div class="logo">
     <a href="/">
-        <img id="logo" alt="logo" src="..\logo.png"/>
+        <img alt="logo" id="logo" src="..\logo.png"/>
     </a>
 </div>
 <form action="/contract/updatecontract" method="post">
     <br><label>ID</label><br>
-    <input name="id" th:value="${contract.id}" type="text" readOnly tabindex="-1"><br>
+    <input name="id" readOnly tabindex="-1" th:value="${contract.id}" type="text"><br>
 
     <br><label>Start Date</label><br>
-    <input name="rentalStartDate" th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required><br>
+    <input name="rentalStartDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"
+           required th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
 
     <br><label>End Date</label><br>
-    <input name="rentalEndDate" th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required><br>
+    <input name="rentalEndDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required
+           th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
 
     <br><label>Pick Up Point</label><br>
     <input name="pickUpPoint" th:value="${contract.pickUpPoint}" type="text"><br>

@@ -16,13 +16,17 @@
 <body onload="zoom()">
 <div class="logo">
     <a href="/">
-        <img id="logo" alt="logo" src="logo.png"/>
+        <img alt="logo" id="logo" src="logo.png"/>
     </a>
 </div>
 
 <div class="tabs">
-    <button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'lightsalmon')">View Employees</button>
-<button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Employee</button>
+    <button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'lightsalmon')">View
+        Employees
+    </button>
+    <button class="tablink" id="createEmployeeTab" onclick="openPage('createemployee', this, 'lightsalmon')"
+            style="float: left; margin-right: 20px">Create Employee
+    </button>
 
 </div>
 
@@ -32,25 +36,31 @@
         <form action="employee" method="post">
 
 
-            <input name="firstName" type="text" class="form__field" placeholder="First Name" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
+            <input class="form__field" name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="First Name"
+                   required type="text">
 
 
-            <input name="lastName" type="text" class="form__field" placeholder="Last Name" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
+            <input class="form__field" name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Last Name"
+                   required type="text">
 
 
-            <input name="phoneNumber" type="text" class="form__field" placeholder="Phone Number" pattern="^[0-9]+" required>
+            <input class="form__field" name="phoneNumber" pattern="^[0-9]+" placeholder="Phone Number" required
+                   type="text">
 
 
-            <input name="email" type="text" class="form__field" placeholder="Email" pattern="^(.+)@(.+)$" required>
+            <input class="form__field" name="email" pattern="^(.+)@(.+)$" placeholder="Email" required type="text">
 
 
-            <input name="address" type="text" class="form__field" placeholder="Address" pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" required>
+            <input class="form__field" name="address" pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" placeholder="Address"
+                   required type="text">
 
 
-            <input name="zipCode" type="text" class="form__field" placeholder="Zip Code" pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" required>
+            <input class="form__field" name="zipCode" pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" placeholder="Zip Code"
+                   required type="text">
 
 
-            <input name="title" type="text" class="form__field" placeholder="Title" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
+            <input class="form__field" name="title" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Title"
+                   required type="text">
 
             <button id="createbutton" type="submit">Create employee</button>
 
@@ -91,7 +101,8 @@
             <td th:text="${employee.country}"/>
             <td>
                 <a th:href="@{'/deleteemployee/'+${employee.id}}">
-                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
+                    <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
+                    </button>
                 </a>
             </td>
             <td>

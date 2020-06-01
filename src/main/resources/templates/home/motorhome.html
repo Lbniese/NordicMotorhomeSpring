@@ -10,13 +10,17 @@
 
 <div class="logo">
     <a href="/">
-        <img id="logo" alt="logo" src="logo.png"/>
+        <img alt="logo" id="logo" src="logo.png"/>
     </a>
 </div>
 
 <div class="tabs">
-    <button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'lightsalmon')">View Motorhomes</button>
-<button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Motorhome</button>
+    <button class="tablink" id="viewMotorhomeTab" onclick="openPage('viewMotorhomes', this, 'lightsalmon')">View
+        Motorhomes
+    </button>
+    <button class="tablink" id="createMotorhomeTab" onclick="openPage('createmotorhome', this, 'lightsalmon')"
+            style="float: left; margin-right: 20px">Create Motorhome
+    </button>
 
 </div>
 
@@ -25,42 +29,42 @@
         <h1>Create Motorhome</h1>
         <form action="motorhome" method="post">
 
-            <input name="brand" type="text" class="form__field" placeholder="Brand" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
+            <input class="form__field" name="brand" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Brand"
+                   required type="text">
 
 
-            <input name="model" type="text" class="form__field" placeholder="Model" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
+            <input class="form__field" name="model" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Model"
+                   required type="text">
 
 
-            <input name="odometer" type="text" class="form__field" placeholder="Odometer" pattern="^[0-9]+" required>
+            <input class="form__field" name="odometer" pattern="^[0-9]+" placeholder="Odometer" required type="text">
 
 
-                <select id="slctSize" name="vehicleSize" class="form__field" required>
-                    <option label="Vehicle Size" value=""></option>
-                    <option label="Small" value="Small"></option>
-                    <option label="Large" value="Large"></option>
-                </select>
+            <select class="form__field" id="slctSize" name="vehicleSize" required>
+                <option label="Vehicle Size" value=""></option>
+                <option label="Small" value="Small"></option>
+                <option label="Large" value="Large"></option>
+            </select>
 
 
+            <select class="form__field" id="slctType" name="vehicleType" required>
+                <option label="Vehicle Type" value=""></option>
+                <option label="Class A Motorhome" value="Class A Motorhome"></option>
+                <option label="Class B Motorhome" value="Class B Motorhome"></option>
+                <option label="Class C Motorhome" value="Class C Motorhome"></option>
+                <option label="Travel Trailer" value="Travel Trailer"></option>
+                <option label="Fifth Wheel Trailer" value="Fifth Wheel Trailer"></option>
+                <option label="Hybrid Travel Trailer" value="Hybrid Travel Trailer"></option>
+                <option label="Pop-up Trailer" value="Pop-up Travel Trailer"></option>
+                <option label="Truck Camper" value="Truck Camper"></option>
+                <option label="Toy Hauler" value="Toy Hauler"></option>
+            </select>
 
 
-                    <select id="slctType" name="vehicleType" class="form__field" required>
-                        <option label="Vehicle Type" value=""></option>
-                        <option label="Class A Motorhome" value="Class A Motorhome"></option>
-                        <option label="Class B Motorhome" value="Class B Motorhome"></option>
-                        <option label="Class C Motorhome" value="Class C Motorhome"></option>
-                        <option label="Travel Trailer" value="Travel Trailer"></option>
-                        <option label="Fifth Wheel Trailer" value="Fifth Wheel Trailer"></option>
-                        <option label="Hybrid Travel Trailer" value="Hybrid Travel Trailer"></option>
-                        <option label="Pop-up Trailer" value="Pop-up Travel Trailer"></option>
-                        <option label="Truck Camper" value="Truck Camper"></option>
-                        <option label="Toy Hauler" value="Toy Hauler"></option>
-                    </select>
+            <input class="form__field" name="pricePerDay" placeholder="Price Per Day" type="text">
 
 
-            <input name="pricePerDay" type="text" class="form__field" placeholder="Price Per Day">
-
-
-            <input name="serviceNote" type="text" class="form__field" placeholder="Service Note">
+            <input class="form__field" name="serviceNote" placeholder="Service Note" type="text">
 
             <button id="createbutton" type="submit">Create Motorhome</button>
 
@@ -98,7 +102,8 @@
 
             <td>
                 <a th:href="@{'/deletemotorhome/'+${motorhome.id}}">
-                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
+                    <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
+                    </button>
                 </a>
             </td>
             <td>

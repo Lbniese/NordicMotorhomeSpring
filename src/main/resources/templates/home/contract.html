@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="general.css" rel="stylesheet" type="text/css">
     <link href="form.css" rel="stylesheet" type="text/css">
     <title>NMR - Contract</title>
@@ -62,7 +62,7 @@
             content: "\f078";
         }
 
-        .accordion{
+        .accordion {
             margin-bottom: 20px;
         }
     </style>
@@ -78,17 +78,19 @@
 <body onload="zoom()">
 <div class="logo">
     <a href="/">
-        <img id="logo" alt="logo" src="logo.png"/>
+        <img alt="logo" id="logo" src="logo.png"/>
     </a>
 </div>
 
 
-
-<div id="errorBox" th:text="${message}" th:if="${message != null}"></div>
+<div id="errorBox" th:if="${message != null}" th:text="${message}"></div>
 
 <div class="tabs">
-    <button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'lightsalmon')">View Contract</button>
-<button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'lightsalmon')" style="float: left; margin-right: 20px">Create Contract</button>
+    <button class="tablink" id="viewContractTab" onclick="openPage('viewcontract', this, 'lightsalmon')">View Contract
+    </button>
+    <button class="tablink" id="createContractTab" onclick="openPage('createcontract', this, 'lightsalmon')"
+            style="float: left; margin-right: 20px">Create Contract
+    </button>
 
 </div>
 <div class="tabcontent" id="createcontract">
@@ -97,111 +99,119 @@
         <form action="contract" method="post">
 
             <div class="form__group field">
-            <input name="rentalStartDate" type="text" class="form__field" placeholder="yyyy-MM-dd HH:mm" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required>
-            <input name="rentalEndDate" type="text" class="form__field" placeholder="yyyy-MM-dd HH:mm" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required>
+                <input class="form__field" name="rentalStartDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" placeholder="yyyy-MM-dd HH:mm"
+                       required type="text">
+                <input class="form__field" name="rentalEndDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" placeholder="yyyy-MM-dd HH:mm"
+                       required type="text">
 
 
-                    <select id="slctPickUpPoint" name="pickUpPoint" class="form__field">
-                        <option label="Pick Up Point" value="" disabled selected></option>
-                        <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
-                        <option label="Airport" value="Airport"></option>
-                        <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
-                    </select>
+                <select class="form__field" id="slctPickUpPoint" name="pickUpPoint">
+                    <option disabled label="Pick Up Point" selected value=""></option>
+                    <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
+                    <option label="Airport" value="Airport"></option>
+                    <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
+                </select>
 
 
-
-
-                <select id="slctDropOffPoint" name="dropOffPoint" class="form__field">
-                    <option label="Drop Off Point" value="" disabled selected></option>
+                <select class="form__field" id="slctDropOffPoint" name="dropOffPoint">
+                    <option disabled label="Drop Off Point" selected value=""></option>
                     <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
                     <option label="Airport" value="Airport"></option>
                     <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
                 </select>
 
                 <section class="accordion">
-                    <input type="checkbox" name="collapse2" id="handle2">
+                    <input id="handle2" name="collapse2" type="checkbox">
                     <h2 class="handle">
                         <label for="handle2">Select Extras</label>
                     </h2>
                     <div class="content">
-                        <div style="margin-bottom: 20px; display: block" >Choose desired amount below:</div>
+                        <div style="margin-bottom: 20px; display: block">Choose desired amount below:</div>
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Bike Racks:</span>
-                            <input type="number" class="form__field extraItem"  name="bikeRack" id='bikeRack' value="0" required min="0" max="5"/>
-                            </div>
+                            <input class="form__field extraItem" id='bikeRack' max="5" min="0" name="bikeRack"
+                                   required type="number" value="0"/>
+                        </div>
 
                         <div class="extraItemContainer">
-                            <input type="number" class="form__field extraItem" name="bedLinen" id='bedLinen' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='bedLinen' max="5" min="0" name="bedLinen"
+                                   required type="number" value="0"/>
                             <span style="font-size: 13.333px">Bed Linens:</span>
 
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Child Seats:</span>
-                            <input type="number" class="form__field extraItem" name="childSeat" id='childSeat' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='childSeat' max="5" min="0" name="childSeat"
+                                   required type="number" value="0"/>
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Picnic Tables:</span>
-                            <input type="number" class="form__field extraItem" name="picnicTable" id='picnicTable' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='picnicTable' max="5" min="0"
+                                   name="picnicTable" required type="number" value="0"/>
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Chairs:</span>
-                            <input type="number" class="form__field extraItem" name="chairs" id='chairs' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='chairs' max="5" min="0" name="chairs"
+                                   required type="number" value="0"/>
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Grills:</span>
-                            <input type="number" class="form__field extraItem" name="grill" id='grill' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='grill' max="5" min="0" name="grill"
+                                   required type="number" value="0"/>
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Lanterns:</span>
-                            <input type="number" class="form__field extraItem" name="lantern" id='lantern' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='lantern' max="5" min="0" name="lantern"
+                                   required type="number" value="0"/>
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">First Aid Kits:</span>
-                            <input type="number" class="form__field extraItem" name="firstAidKit" id='firstAidKit' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='firstAidKit' max="5" min="0"
+                                   name="firstAidKit" required type="number" value="0"/>
                         </div>
 
                         <div class="extraItemContainer">
                             <span style="font-size: 13.333px">Toilet Paper:</span>
-                            <input type="number" class="form__field extraItem" name="toiletPaper" id='toiletPaper' value="0" required min="0" max="5"/>
+                            <input class="form__field extraItem" id='toiletPaper' max="5" min="0"
+                                   name="toiletPaper" required type="number" value="0"/>
                         </div>
                     </div>
                 </section>
 
 
-                    <select id="slctCustomer" name="customerId" class="form__field">
-                        <option label="Customer ID" value="" disabled selected></option>
-                        <tr th:each="customer: ${customers}">
-                            <option th:value="${customer.id}">
-                                <td th:text="${customer.id}"/>
-                                <td th:text="${customer.firstName}"/>
-                                <td th:text="${customer.lastName}"/>
-                            </option>
-                        </tr>
-                    </select>
+                <select class="form__field" id="slctCustomer" name="customerId">
+                    <option disabled label="Customer ID" selected value=""></option>
+                    <tr th:each="customer: ${customers}">
+                        <option th:value="${customer.id}">
+                            <td th:text="${customer.id}"/>
+                            <td th:text="${customer.firstName}"/>
+                            <td th:text="${customer.lastName}"/>
+                        </option>
+                    </tr>
+                </select>
 
 
-
-                    <select id="slctMotorhome" name="motorhomeId" class="form__field">
-                        <option label="Motorhome ID" value="" disabled selected></option>
-                        <tr th:each="motorhome: ${motorhomes}">
-                            <option th:value="${motorhome.id}">
-                                <td th:text="${motorhome.id}"/>
-                                <td th:text="${motorhome.brand}"/>
-                                <td th:text="${motorhome.model}"/>
-                            </option>
-                        </tr>
-                    </select>
+                <select class="form__field" id="slctMotorhome" name="motorhomeId">
+                    <option disabled label="Motorhome ID" selected value=""></option>
+                    <tr th:each="motorhome: ${motorhomes}">
+                        <option th:value="${motorhome.id}">
+                            <td th:text="${motorhome.id}"/>
+                            <td th:text="${motorhome.brand}"/>
+                            <td th:text="${motorhome.model}"/>
+                        </option>
+                    </tr>
+                </select>
 
 
                 <div class="selectEmployee">
-                    <select id="slctEmployee" name="employeeId" class="form__field">
-                        <option label="Employee ID" value="" disabled selected></option>
+                    <select class="form__field" id="slctEmployee" name="employeeId">
+                        <option disabled label="Employee ID" selected value=""></option>
                         <tr th:each="employee: ${employees}">
                             <option th:value="${employee.id}">
                                 <td th:text="${employee.id}"/>
@@ -251,7 +261,8 @@
 
             <td style="border-left: 1px solid gray">
                 <a th:href="@{'/deletecontract/'+${contract.id}}">
-                    <button onclick="return confirm('Are you sure you want to delete?')" class="btnDelete">Delete</button>
+                    <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
+                    </button>
                 </a>
             </td>
             <td>
@@ -260,19 +271,23 @@
                 </a>
             </td>
             <td style="border-left: 1px solid gray">
-                <div class="invoice" >
+                <div class="invoice">
                     <a th:href="@{'/invoice/'+${contract.id}}">
                         <button class="btnInvoice">Invoice</button>
                     </a>
                 </div>
             </td>
             <td>
-                <a th:href="@{'/cancelcontract/'+${contract.id}}" th:if="${contract.active == true && contract.rentalStartDate.isAfter(localDateTime) && localDateTime.isBefore(contract.rentalEndDate)}">
-                    <button onclick="return confirm('Are you sure you want to cancel?')" class="btnCancel">Cancel</button>
+                <a th:href="@{'/cancelcontract/'+${contract.id}}"
+                   th:if="${contract.active == true && contract.rentalStartDate.isAfter(localDateTime) && localDateTime.isBefore(contract.rentalEndDate)}">
+                    <button class="btnCancel" onclick="return confirm('Are you sure you want to cancel?')">Cancel
+                    </button>
                 </a>
-                <span th:if="${contract.active == false}" style="color: red; font-weight: bold">Cancelled</span>
-                <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate) && contract.rentalEndDate.isAfter(localDateTime)}"style="color: green; font-weight: bold">Active</span>
-                <span th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate)}"style="color: darkgoldenrod; font-weight: bold">Completed</span>
+                <span style="color: red; font-weight: bold" th:if="${contract.active == false}">Cancelled</span>
+                <span style="color: green; font-weight: bold"
+                      th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate) && contract.rentalEndDate.isAfter(localDateTime)}">Active</span>
+                <span style="color: darkgoldenrod; font-weight: bold"
+                      th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate)}">Completed</span>
             </td>
         </tr>
     </table>
