@@ -15,10 +15,10 @@
     <input name="id" th:value="${contract.id}" type="text" readOnly tabindex="-1"><br>
 
     <br><label>Start Date</label><br>
-    <input name="rentalStartDate" th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
+    <input name="rentalStartDate" th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required><br>
 
     <br><label>End Date</label><br>
-    <input name="rentalEndDate" th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
+    <input name="rentalEndDate" th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required><br>
 
     <br><label>Pick Up Point</label><br>
     <input name="pickUpPoint" th:value="${contract.pickUpPoint}" type="text"><br>

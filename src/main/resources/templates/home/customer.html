@@ -31,13 +31,13 @@
         <form action="customer" method="post">
 
             <div class="form__group field">
-                <input type="text" class="form__field" placeholder="First Name" name="firstName" id='firstName' required />
-                <input type="text" class="form__field" placeholder="Last Name" name="lastName" id='lastName' required />
-                <input type="text" class="form__field" placeholder="Phone Number" name="phoneNumber" id='phoneNumber' required />
-                <input type="text" class="form__field" placeholder="Email" name="email" id='email' required />
-                <input type="text" class="form__field" placeholder="Address" name="address" id='address' required />
-                <input type="text" class="form__field" placeholder="Zip Code" name="zipCode" id='zipCode' required />
-                <input type="text" class="form__field" placeholder="Driver License Number" name="driverLicenceNumber" id='driverLicensenumber' required />
+                <input type="text" class="form__field" placeholder="First Name" name="firstName" id='firstName' pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required />
+                <input type="text" class="form__field" placeholder="Last Name" name="lastName" id='lastName' pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required />
+                <input type="text" class="form__field" placeholder="Phone Number" name="phoneNumber" id='phoneNumber' pattern="^[0-9]+" required />
+                <input type="text" class="form__field" placeholder="Email" name="email" id='email' pattern="^(.+)@(.+)$" required />
+                <input type="text" class="form__field" placeholder="Address" name="address" id='address' pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" required />
+                <input type="text" class="form__field" placeholder="Zip Code" name="zipCode" id='zipCode' pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" required />
+                <input type="text" class="form__field" placeholder="Driver License Number" name="driverLicenceNumber" id='driverLicensenumber' pattern="^[0-9]{7,8}$" required />
             </div>
 
 

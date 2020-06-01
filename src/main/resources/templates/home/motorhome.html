@@ -25,13 +25,13 @@
         <h1>Create Motorhome</h1>
         <form action="motorhome" method="post">
 
-            <input name="brand" type="text" class="form__field" placeholder="Brand">
+            <input name="brand" type="text" class="form__field" placeholder="Brand" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
 
 
-            <input name="model" type="text" class="form__field" placeholder="Model">
+            <input name="model" type="text" class="form__field" placeholder="Model" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
 
 
-            <input name="odometer" type="text" class="form__field" placeholder="Odometer">
+            <input name="odometer" type="text" class="form__field" placeholder="Odometer" pattern="^[0-9]+" required>
 
 
                 <select id="slctSize" name="vehicleSize" class="form__field" required>

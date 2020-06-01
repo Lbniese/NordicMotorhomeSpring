@@ -97,8 +97,8 @@
         <form action="contract" method="post">
 
             <div class="form__group field">
-            <input name="rentalStartDate" type="text" class="form__field" placeholder="Start Date">
-            <input name="rentalEndDate" type="text" class="form__field" placeholder="End Date">
+            <input name="rentalStartDate" type="text" class="form__field" placeholder="yyyy-MM-dd HH:mm" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required>
+            <input name="rentalEndDate" type="text" class="form__field" placeholder="yyyy-MM-dd HH:mm" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required>
 
 
                     <select id="slctPickUpPoint" name="pickUpPoint" class="form__field">

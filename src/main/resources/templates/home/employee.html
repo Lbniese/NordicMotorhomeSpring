@@ -32,25 +32,25 @@
         <form action="employee" method="post">
 
 
-            <input name="firstName" type="text" class="form__field" placeholder="First Name">
+            <input name="firstName" type="text" class="form__field" placeholder="First Name" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
 
 
-            <input name="lastName" type="text" class="form__field" placeholder="Last Name">
+            <input name="lastName" type="text" class="form__field" placeholder="Last Name" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
 
 
-            <input name="phoneNumber" type="text" class="form__field" placeholder="Phone Number">
+            <input name="phoneNumber" type="text" class="form__field" placeholder="Phone Number" pattern="^[0-9]+" required>
 
 
-            <input name="email" type="text" class="form__field" placeholder="Email">
+            <input name="email" type="text" class="form__field" placeholder="Email" pattern="^(.+)@(.+)$" required>
 
 
-            <input name="address" type="text" class="form__field" placeholder="Address">
+            <input name="address" type="text" class="form__field" placeholder="Address" pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" required>
 
 
-            <input name="zipCode" type="text" class="form__field" placeholder="Zip Code">
+            <input name="zipCode" type="text" class="form__field" placeholder="Zip Code" pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" required>
 
 
-            <input name="title" type="text" class="form__field" placeholder="Title">
+            <input name="title" type="text" class="form__field" placeholder="Title" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required>
 
             <button id="createbutton" type="submit">Create employee</button>
 
