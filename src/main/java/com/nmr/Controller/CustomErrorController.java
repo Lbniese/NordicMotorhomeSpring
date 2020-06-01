@@ -15,6 +15,7 @@ public class CustomErrorController implements ErrorController {
     /**
      * handleError() displays specific error pages for different error types.
      * handleError() models the exception as errorMessage to display on the error page.
+     *
      * @param request
      * @return
      */
@@ -32,10 +33,9 @@ public class CustomErrorController implements ErrorController {
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
 
-            if(statusCode == HttpStatus.NOT_FOUND.value()) {
+            if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 return "error-404";
-            }
-            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
+            } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                 return "error-500";
             }
         }
@@ -44,6 +44,7 @@ public class CustomErrorController implements ErrorController {
 
     /**
      * getErrorPath overrides the implemented ErrorController's method to return a custom path to call when an error occured.
+     *
      * @return
      */
     @Override

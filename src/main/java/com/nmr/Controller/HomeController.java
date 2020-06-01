@@ -50,6 +50,7 @@ public class HomeController {
      * This is the method for the homepage.
      * It is using Getmapping with the parameter "/". This means the html page will return to first page, which is index, when used.
      * The method returns:
+     *
      * @return "home/index"
      * Home is the directory where the html index lies within.
      */
@@ -62,6 +63,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/customer"
+     *
      * @param model gets the list of customers.
      * @return "home/customer"
      */
@@ -77,8 +79,9 @@ public class HomeController {
 
     /**
      * Defines the path with "/customer".
+     *
      * @param customer gets the object as parameter.
-     * Call the create customer method from the customer service class.
+     *                 Call the create customer method from the customer service class.
      * @return "redirect:/customer".
      */
     @PostMapping("/customer")
@@ -88,9 +91,9 @@ public class HomeController {
     }
 
 
-    
     /**
      * Defines the path with "/deletecustomer/{id}
+     *
      * @param id
      * @return "direct:/customer"
      */

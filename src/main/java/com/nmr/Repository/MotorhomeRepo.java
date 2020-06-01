@@ -25,6 +25,7 @@ public class MotorhomeRepo {
     /**
      * Method: 'createMotorhome' makes an SQL call and inserts the motorhome information given in the HTML 'create motorhome' tab into the MySQL database.
      * Uses the JDBC template to execute the SQL query.
+     *
      * @param motorhome
      * @return null
      */
@@ -37,6 +38,7 @@ public class MotorhomeRepo {
 
     /**
      * Method: 'fetchAll' makes an SQL call which selects everything from the motorhome table. The method uses the Spring RowMapper which automatically maps the attributes of our motorhome objects.
+     *
      * @return JDBC template
      */
     public List<Motorhome> fetchAll() {
@@ -47,6 +49,7 @@ public class MotorhomeRepo {
 
     /**
      * Method: 'FindMotorhomeById' makes an SQL call which selects a specific motorhome from the database. It uses the Spring rowMapper to map the attributes of the object and creates a motorhome object.
+     *
      * @param id - The method takes an id given by the pathVariable annotation in our HomeController.
      * @return - The method returns the specific motorhome which is used when updating a motorhome and when retrieving specific motorhome information for an invoice.
      */
@@ -59,6 +62,7 @@ public class MotorhomeRepo {
 
     /**
      * Method: 'deleteMotorhome' makes an SQL call which deletes a specific motorhome the from database.
+     *
      * @param id
      * @return
      */
@@ -69,6 +73,7 @@ public class MotorhomeRepo {
 
     /**
      * Method: 'updateMotorhome' makes an SQL call which updates the information for a specific motorhome
+     *
      * @param id
      * @param motorhome
      * @return null
