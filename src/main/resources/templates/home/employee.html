@@ -36,31 +36,70 @@
         <form action="employee" method="post">
 
 
-            <input class="form__field" name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="First Name"
-                   required type="text">
+            <input
+                    class="form__field"
+                    name="firstName"
+                    pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                    placeholder="First Name"
+                    required
+                    type="text">
 
 
-            <input class="form__field" name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Last Name"
-                   required type="text">
+            <input
+                    class="form__field"
+                    name="lastName"
+                    pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                    placeholder="Last Name"
+                    required
+                    type="text">
 
 
-            <input class="form__field" name="phoneNumber" pattern="^[0-9]+" placeholder="Phone Number" required
-                   type="text">
+            <input
+                    class="form__field"
+                    name="phoneNumber"
+                    pattern="^[0-9]{8}"
+                    placeholder="Phone Number"
+                    required
+                    title="Must contain exactly 8 numbers [0-9]"
+                    type="text">
 
 
-            <input class="form__field" name="email" placeholder="Email" required type="email">
+            <input
+                    class="form__field"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    type="email">
 
 
-            <input class="form__field" name="address" placeholder="Address"
-                   required type="text">
+            <input
+                    class="form__field"
+                    name="address"
+                    pattern="^[0-9a-zæøåA-Z\s,-.]+$"
+                    placeholder="Address"
+                    required
+                    title="Enter a valid address"
+                    type="text">
 
 
-            <input class="form__field" name="zipCode" placeholder="Zip Code"
-                   required type="text">
+
+            <input
+                    class="form__field"
+                    name="zipCode"
+                    pattern="[1-24-9]\d{3}|3[0-8]\d{2}$"
+                    placeholder="Zip Code"
+                    required
+                    title="Enter a valid zipcode"
+                    type="text">
 
 
-            <input class="form__field" name="title" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Title"
-                   required type="text">
+            <input
+                    class="form__field"
+                    name="title"
+                    pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                    placeholder="Title"
+                    required
+                    type="text">
 
             <button id="createbutton" type="submit">Create employee</button>
 

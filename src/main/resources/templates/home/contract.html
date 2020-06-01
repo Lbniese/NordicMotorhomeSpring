@@ -99,11 +99,23 @@
         <form action="contract" method="post">
 
             <div class="form__group field">
-                <input class="form__field" name="rentalStartDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" placeholder="yyyy-MM-dd HH:mm"
-                       required type="text">
-                <input class="form__field" name="rentalEndDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" placeholder="yyyy-MM-dd HH:mm"
-                       required type="text">
+                <input
+                        class="form__field"
+                        name="rentalStartDate"
+                        pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"
+                        placeholder="yyyy-MM-dd HH:mm"
+                        required
+                        title="Enter a valid rental start date (yyyy-MM-dd HH:mm)"
+                        type="text">
 
+                <input
+                        class="form__field"
+                        name="rentalEndDate"
+                        pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"
+                        placeholder="yyyy-MM-dd HH:mm"
+                        required
+                        title="Enter a valid rental end date (yyyy-MM-dd HH:mm)"
+                        type="text">
 
                 <select class="form__field" id="slctPickUpPoint" name="pickUpPoint">
                     <option disabled label="Pick Up Point" selected value=""></option>

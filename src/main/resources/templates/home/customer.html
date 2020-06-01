@@ -33,27 +33,72 @@
     <div id="formular">
         <h1>Create customer</h1>
         <form action="customer" method="post">
-
             <div class="form__group field">
-                <input class="form__field" id='firstName' name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="First Name"
-                       required type="text"/>
-                <input class="form__field" id='lastName' name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" placeholder="Last Name"
-                       required type="text"/>
-                <input class="form__field" id='phoneNumber' name="phoneNumber" pattern="^[0-9]+" placeholder="Phone Number"
-                       required type="text"/>
-                <input class="form__field" id='email' name="email" pattern="^(.+)@(.+)$" placeholder="Email" required
-                       type="text"/>
-                <input class="form__field" id='address' name="address" pattern="^([A-zæøåA-ZÆØÅ]{2,40}\\.?\\s)+([0-9]){1,5}\\w?(\\s.*)?$" placeholder="Address"
-                       required type="text"/>
-                <input class="form__field" id='zipCode' name="zipCode" pattern="^(?:[1-24-9]\\d{3}|3[0-8]\\d{2})$" placeholder="Zip Code"
-                       required type="text"/>
-                <input class="form__field" id='driverLicensenumber' name="driverLicenceNumber" pattern="^[0-9]{7,8}$"
-                       placeholder="Driver License Number" required type="text"/>
+                <input
+                        class="form__field"
+                        id='firstName'
+                        name="firstName"
+                        pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                        placeholder="First Name"
+                        required
+                        type="text"/>
+
+                <input
+                        class="form__field"
+                        id='lastName' name="lastName"
+                        pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                        placeholder="Last Name"
+                        required
+                        type="text"/>
+
+                <input
+                        class="form__field"
+                        id='phoneNumber'
+                        name="phoneNumber"
+                        pattern="^[0-9]{8}"
+                        placeholder="Phone Number"
+                        required
+                        title="Must contain exactly 8 numbers [0-9]"
+                        type="text"/>
+
+                <input
+                        class="form__field"
+                        id='email'
+                        name="email"
+                        pattern="^(.+)@(.+)$"
+                        placeholder="Email"
+                        required
+                        type="text"/>
+
+                <input
+                        class="form__field"
+                        id='address'
+                        name="address"
+                        pattern="^[0-9a-zæøåA-Z\s,-.]+$"
+                        placeholder="Address"
+                        required
+                        title="Enter a valid address"
+                        type="text"/>
+                <input
+                        class="form__field"
+                        id='zipCode'
+                        name="zipCode"
+                        pattern="[1-24-9]\d{3}|3[0-8]\d{2}$"
+                        placeholder="Zip Code"
+                        required
+                        title="Enter a valid zipcode"
+                        type="text"/>
+                <input
+                        class="form__field"
+                        id='driverLicensenumber'
+                        name="driverLicenceNumber"
+                        pattern="^[0-9]{7,8}$"
+                        placeholder="Driver License Number"
+                        required
+                        type="text"/>
             </div>
 
-
             <button id="createbutton" type="submit">Create Customer</button>
-
         </form>
     </div>
 </div>
