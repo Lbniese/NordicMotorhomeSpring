@@ -79,9 +79,8 @@ public class HomeController {
 
     /**
      * Defines the path with "/customer".
-     *
      * @param customer gets the object as parameter.
-     *                 Call the create customer method from the customer service class.
+     * Call the create customer method from the customer service class.
      * @return "redirect:/customer".
      */
     @PostMapping("/customer")
@@ -93,8 +92,8 @@ public class HomeController {
 
     /**
      * Defines the path with "/deletecustomer/{id}
-     *
-     * @param id
+     * @param id is used so that u can delete the specific customer by id with the deleteCustomer method in the customerService class
+     * @PathVariable annotation indicates that a method parameter should be bound to a URL template variable. In this case {id} is bound to /deletecustomer/
      * @return "direct:/customer"
      */
 
@@ -108,11 +107,24 @@ public class HomeController {
         }
     }
 
+    /**
+     * Defines the path with "/updatecustomer/{id}"
+     * @param id is used so that u can update the specific customer by id with the findCustomerById method in the customerService class
+     * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "customer"
+     * @return "home/updatecustomer"
+     */
+
     @GetMapping("/updatecustomer/{id}")
     public String updateCustomer(@PathVariable("id") int id, Model model) {
         model.addAttribute("customer", customerService.findCustomerById(id));
         return "home/updatecustomer";
     }
+
+    /**
+     * Defines the path with "/customer/updatecustomer"
+     * @param customer gets the object as parameter.
+     * @return redirect:/customer
+     */
 
     @PostMapping("/customer/updatecustomer")
     public String updateCustomer(@ModelAttribute Customer customer) {
@@ -121,6 +133,12 @@ public class HomeController {
     }
 
 
+    /**
+     * Defines the path with "/employee"
+     * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "employees"
+     * @return "home/employee"
+     */
+
     @GetMapping("/employee")
     public String employee(Model model) {
         List<Employee> employeeList = employeeService.fetchAll();
@@ -128,11 +146,25 @@ public class HomeController {
         return "home/employee";
     }
 
+
+    /**
+     * Defines the path with "/employee"
+     * @param employee gets the object as parameter.
+     * @return "redirect:/employee"
+     */
+
     @PostMapping("/employee")
     public String employee(@ModelAttribute Employee employee) {
         employeeService.createEmployee(employee);
         return "redirect:/employee";
     }
+
+
+    /**
+     * Defines the path with "/deleteemployee/{id}"
+     * @param id is used so that u can delete the specific employee by id with the deleteEmployee method in the employeeService class
+     * @return "redirect:/employee"
+     */
 
     @GetMapping("/deleteemployee/{id}")
     public String deleteEmployeer(@PathVariable("id") int id) {
@@ -144,17 +176,40 @@ public class HomeController {
         }
     }
 
+
+    /**
+     * Defines the path with "/updateemployee/{id}"
+     * @param id is used so that u can update the specific employee by id with the findEmployeeById method in the employeeService class
+     * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "employee"
+     * @return "home/updateemployee"
+     */
+
     @GetMapping("/updateemployee/{id}")
     public String updateEmployee(@PathVariable("id") int id, Model model) {
         model.addAttribute("employee", employeeService.findEmployeeById(id));
         return "home/updateemployee";
     }
 
+
+    /**
+     * Defines the path with "/employee/updateemployee"
+     * @param employee gets the object as parameter.
+     * @return "redirect:/employee"
+     */
+
     @PostMapping("/employee/updateemployee")
     public String updateEmployee(@ModelAttribute Employee employee) {
         employeeService.updateEmployee(employee.getId(), employee);
         return "redirect:/employee";
     }
+
+
+    /**
+     * Defines the path with "/motorhome"
+     * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "motorhomes"
+     * @return "home/motorhome"
+     */
+
 
     @GetMapping("/motorhome")
     public String motorhome(Model model) {
@@ -163,11 +218,26 @@ public class HomeController {
         return "home/motorhome";
     }
 
+
+    /**
+     * Defines the path with "/motorhome"
+     * @param motorhome gets the object as parameter.
+     * Call the create motorhome method from the motorhome service class.
+     * @return "redirect:/motorhome"
+     */
+
     @PostMapping("/motorhome")
     public String motorhome(@ModelAttribute Motorhome motorhome) {
         motorhomeService.createMotorhome(motorhome);
         return "redirect:/motorhome";
     }
+
+
+    /**
+     * Defines the path with "/deletemotorhome/{id}"
+     * @param id is used so that u can delete the specific motorhome by id with the deleteMotorhome method in the motorhomeService class
+     * @return "redirect:/motorhome"
+     */
 
     @GetMapping("/deletemotorhome/{id}")
     public String deleteMotorhome(@PathVariable("id") int id) {
@@ -179,17 +249,41 @@ public class HomeController {
         }
     }
 
+
+    /**
+     * Defines the path with "/updatemotorhome/{id}"
+     * @param id is used so that u can update the specific motorhome by id with the findMotorhomeById method in the motorhomeService class
+     * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "motorhome"
+     * @return "home/updatemotorhome"
+     */
+
     @GetMapping("/updatemotorhome/{id}")
     public String updateMotorhome(@PathVariable("id") int id, Model model) {
         model.addAttribute("motorhome", motorhomeService.findMotorhomeById(id));
         return "home/updatemotorhome";
     }
 
+
+    /**
+     * Defines the path with "/motorhome/updatemotorhome"
+     * @param motorhome gets the object as parameter.
+     * @return "redirect:/motorhome"
+     */
+
     @PostMapping("/motorhome/updatemotorhome")
     public String updateMotorhome(@ModelAttribute Motorhome motorhome) {
         motorhomeService.updateMotorhome(motorhome.getId(), motorhome);
         return "redirect:/motorhome";
     }
+
+
+    /**
+     * Defines the path with "/contract"
+     * @param model binds a method parameter or method return to a named model attribute. This one is a little different though.
+     * The reason why everything gets fetched, its because we want to be able to make a dropdown select menu in the contract html.
+     * Also the model which name is "localDateTime", is being used to type a date.
+     * @return "home/contract"
+     */
 
     @GetMapping("/contract")
     public String contract(Model model) {
@@ -208,9 +302,18 @@ public class HomeController {
         model.addAttribute("localDateTime", LocalDateTime.now());
 
         return "home/contract";
-
-
     }
+
+
+    /**
+     * Defines the path with "/contract"
+     * To get the correct format, a @RequestParam is being used together with @DateTimeFormat
+     * @param rentalStartDate
+     * @param rentalEndDate
+     * @param contract
+     * @param model
+     * @return
+     */
 
     @PostMapping("/contract")
     public String contract(@RequestParam("rentalStartDate") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime rentalStartDate,
