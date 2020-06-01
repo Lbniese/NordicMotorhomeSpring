@@ -22,7 +22,6 @@ public class Contract {
     private LocalDateTime rentalEndDate;
     private String pickUpPoint;
     private String dropOffPoint;
-    private String miscellaneous;
     private int customerId;
     private int motorhomeId;
     private int employeeId;
@@ -46,13 +45,12 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(int id, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, String pickUpPoint, String dropOffPoint, String miscellaneous, int customerId, int motorhomeId, int employeeId) {
+    public Contract(int id, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, String pickUpPoint, String dropOffPoint, int customerId, int motorhomeId, int employeeId) {
         this.id = id;
         this.rentalStartDate = rentalStartDate;
         this.rentalEndDate = rentalEndDate;
         this.pickUpPoint = pickUpPoint;
         this.dropOffPoint = dropOffPoint;
-        this.miscellaneous = miscellaneous;
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
         this.employeeId = employeeId;
@@ -216,14 +214,6 @@ public class Contract {
 
     public void setDropOffPoint(String dropOffPoint) {
         this.dropOffPoint = dropOffPoint;
-    }
-
-    public String getMiscellaneous() {
-        return miscellaneous;
-    }
-
-    public void setMiscellaneous(String miscellaneous) {
-        this.miscellaneous = miscellaneous;
     }
 
     public int getCustomerId() {

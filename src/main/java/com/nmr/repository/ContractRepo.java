@@ -90,8 +90,8 @@ public class ContractRepo {
      * @return
      */
     public Contract updateContract(int id, Contract contract) {
-        String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, miscellaneous=?, customerId=?, motorhomeId=?, employeeId=? WHERE id=?";
-        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getMiscellaneous(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), id);
+        String sql = "UPDATE Contract SET rentalStartDate=?, rentalEndDate=?, pickUpPoint=?, dropOffPoint=?, customerId=?, motorhomeId=?, employeeId=?, bikeRack=?, bedLinen=?, childSeat=?, picnicTable=?, chairs=?, grill=?, lantern=?, firstAidKit=?, toiletPaper=? WHERE id=?";
+        template.update(sql, contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getPickUpPoint(), contract.getDropOffPoint(), contract.getCustomerId(), contract.getMotorhomeId(), contract.getEmployeeId(), contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper(), id);
         return null;
     }
 
