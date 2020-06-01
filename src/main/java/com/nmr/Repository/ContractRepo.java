@@ -25,6 +25,7 @@ public class ContractRepo {
     /**
      * Method: 'createContract' makes an SQL call and inserts the contract information given in the HTML 'create contract' tab into the MySQL database.
      * Uses the JDBC template to execute the SQL query.
+     *
      * @param contract
      * @return
      */
@@ -36,6 +37,7 @@ public class ContractRepo {
 
     /**
      * Method: 'fetchAll' makes an SQL call which selects everything from the contract table. The method uses the Spring RowMapper which automatically maps the attributes of our contract objects.
+     *
      * @return JDBC template
      */
     public List<Contract> fetchAll() {
@@ -46,6 +48,7 @@ public class ContractRepo {
 
     /**
      * Method: 'FindContractById' makes an SQL call which selects a specific contract from the database. It uses the Spring rowMapper to map the attributes of the object and creates a contract object.
+     *
      * @param id - The method takes an id given by the pathVariable annotation in our HomeController.
      * @return - The method returns the specific contract which is used when updating a contract and when retrieving specific contract information for an invoice.
      */
@@ -58,6 +61,7 @@ public class ContractRepo {
 
     /**
      * Method: 'deleteContract' makes an SQL call which deletes a specific contract from database.
+     *
      * @param id
      * @return
      */
@@ -68,6 +72,7 @@ public class ContractRepo {
 
     /**
      * Method: 'cancelContract' makes an SQL call which updates the active field to 0, which, since it is a boolean, means it is now false. This is used in the PriceHandler class when calculating the cancellation fee.
+     *
      * @param id
      * @return
      */
@@ -79,6 +84,7 @@ public class ContractRepo {
 
     /**
      * Method: 'updateContract' makes an SQL call which updates the information in a specific contract
+     *
      * @param id
      * @param contract
      * @return
@@ -91,6 +97,7 @@ public class ContractRepo {
 
     /**
      * Method: 'rentalDateValidation' makes an SQL call which counts how many active contracts there is with a specific motorhome in specific rental period.
+     *
      * @param motorhomeId
      * @param rentalStartDate
      * @param rentalEndDate

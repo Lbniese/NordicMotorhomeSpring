@@ -24,6 +24,7 @@ public class EmployeeRepo {
     /**
      * Method: 'createEmployee' makes an SQL call and inserts the employee information given in the HTML 'create employee' tab into the MySQL database.
      * Uses the JDBC template to execute the SQL query.
+     *
      * @param employee
      * @return null
      */
@@ -36,6 +37,7 @@ public class EmployeeRepo {
 
     /**
      * Method: 'fetchAll' makes an SQL call which selects everything from the employee table. The method uses the Spring RowMapper which automatically maps the attributes of our employee objects.
+     *
      * @return JDBC template
      */
     public List<Employee> fetchAll() {
@@ -46,6 +48,7 @@ public class EmployeeRepo {
 
     /**
      * Method: 'FindEmployeeById' makes an SQL call which selects a specific employee from the database. It uses the Spring rowMapper to map the attributes of the object and creates a employee object.
+     *
      * @param id - The method takes an id given by the pathVariable annotation in our HomeController.
      * @return - The method returns the specific employee which is used when updating a employee and when retrieving specific employee information for an invoice.
      */
@@ -58,6 +61,7 @@ public class EmployeeRepo {
 
     /**
      * Method: 'deleteEmployee' makes an SQL call which deletes a specific employee from the database.
+     *
      * @param id
      * @return
      */
@@ -68,6 +72,7 @@ public class EmployeeRepo {
 
     /**
      * Method: 'updateEmployee' makes an SQL call which updates the information for a specific employee
+     *
      * @param id
      * @param employee
      * @return null

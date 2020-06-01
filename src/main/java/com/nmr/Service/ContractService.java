@@ -49,6 +49,7 @@ public class ContractService {
 
     /**
      * Method: 'calculateFullPrice' calls several methods from the PriceHandler class which all calculates parts of the full price.
+     *
      * @param contract
      * @param motorhome
      * @return contract
@@ -64,6 +65,7 @@ public class ContractService {
 
     /**
      * Method 'calculatePickUpAndDropOff' calls methods from the PriceHandler class i order to calculate pickup and dropoff price.
+     *
      * @param contract
      * @return
      */
