@@ -14,7 +14,7 @@
 }
 
 .tablink {
-    background-color: darkorange;
+    background-color: #ec8434;
     color: #000000;
     border: none;
     cursor: pointer;
@@ -74,7 +74,7 @@ h1{
 }
 
 #createbutton {
-    background: darkorange;
+    background: #ec8434;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -141,7 +141,7 @@ h1{
 }
 
 .btnUpdate, .btnDelete{
-    background-color: darkorange;
+    background-color: #ec8434;
 }
 
 a{

@@ -10,7 +10,7 @@
     font-family: 'Poppins', sans-serif;
     width: 350px;
     border: 0;
-    border-bottom: 2px solid darkorange;
+    border-bottom: 2px solid #ec8434;
     outline: 0;
     color: black;
     padding: 7px 0;
@@ -36,11 +36,11 @@ select{
     top: 0;
     display: block;
     font-size: 1rem;
-    color: darkorange;
+    color: #ec8434;
 }
 
 thead {
-    background-color: darkorange;
+    background-color: #ec8434;
     border-radius: 2px;
 }
 
