@@ -10,6 +10,14 @@ import static java.time.temporal.ChronoUnit.DAYS;
  */
 public class PriceHandler {
 
+    /**
+     * calculateSeasonalCharge() calculates the seasonal charge for a contract.
+     * The method is based on calculateFullPrice().
+     * @param rentalStartDate
+     * @param rentalEndDate
+     * @param pricePerDay
+     * @return
+     */
     public static double calculateSeasonalCharge(LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, int pricePerDay) {
         double fullPriceWithSeasonal = 0;
         double fullPrice = 0;
