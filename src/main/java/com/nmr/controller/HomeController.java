@@ -364,6 +364,14 @@ public class HomeController {
     @GetMapping("/updatecontract/{id}")
     public String updateContract(@PathVariable("id") int id, Model model) {
         model.addAttribute("contract", contractService.findContractById(id));
+        List<Customer> customerList = customerService.fetchAll();
+        model.addAttribute("customers", customerList);
+
+        List<Motorhome> motorhomeList = motorhomeService.fetchAll();
+        model.addAttribute("motorhomes", motorhomeList);
+
+        List<Employee> employeeList = employeeService.fetchAll();
+        model.addAttribute("employees", employeeList);
         return "home/updatecontract";
     }
 

@@ -2,6 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link href="../general.css" rel="stylesheet" type="text/css">
+    <link href="../form.css" rel="stylesheet" type="text/css">
+    <script src="https://use.fontawesome.com/8a5c9ad142.js"></script>
     <title>NMR - Update</title>
 </head>
 <body>
@@ -10,32 +13,36 @@
         <img alt="logo" id="logo" src="..\logo.png"/>
     </a>
 </div>
-<form action="/motorhome/updatemotorhome" method="post">
-    <br><label>ID</label><br>
-    <input name="id" readOnly required tabindex="-1" th:value="${motorhome.id}" type="text"><br>
+<form action="/customer/updatecustomer" method="post">
+
+    <div style="width: 350px; margin-left: auto; margin-right: auto">
+        <h2 style="text-align: center">Motorhome Information</h2><br>
+        <br><label>ID</label><br>
+    <input name="id" readOnly required tabindex="-1" th:value="${motorhome.id}" type="text" class="form__field"><br>
 
     <br><label>Brand</label><br>
-    <input name="brand" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${motorhome.brand}" type="text"><br>
+    <input name="brand" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${motorhome.brand}" type="text" class="form__field"><br>
 
     <br><label>Model</label><br>
-    <input name="model" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${motorhome.model}" type="text"><br>
+    <input name="model" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${motorhome.model}" type="text" class="form__field"><br>
 
     <br><label>Odometer</label><br>
-    <input name="odometer" required th:value="${motorhome.odometer}" type="text"><br>
+    <input name="odometer" required th:value="${motorhome.odometer}" type="text" class="form__field"><br>
 
     <br><label>Size</label><br>
-    <input name="vehicleSize" readOnly required tabindex="-1" th:value="${motorhome.vehicleSize}" type="text"><br>
+    <input name="vehicleSize" readOnly required tabindex="-1" th:value="${motorhome.vehicleSize}" type="text" class="form__field"><br>
 
     <br><label>Type</label><br>
-    <input name="vehicleType" readOnly required tabindex="-1" th:value="${motorhome.vehicleType}" type="text"><br>
+    <input name="vehicleType" readOnly required tabindex="-1" th:value="${motorhome.vehicleType}" type="text" class="form__field"><br>
 
     <br><label>Price Per Day</label><br>
-    <input name="pricePerDay" required th:value="${motorhome.pricePerDay}" type="text"><br>
+    <input name="pricePerDay" required th:value="${motorhome.pricePerDay}" type="text" class="form__field"><br>
 
     <br><label>Service Note</label><br>
-    <input name="serviceNote" required th:value="${motorhome.serviceNote}" type="text"><br>
+    <input name="serviceNote" required th:value="${motorhome.serviceNote}" type="text" class="form__field"><br>
 
-    <button id="updateButton" type="submit">Update Motorhome</button>
+    </div>
+    <button id="createbutton" type="submit">Update Motorhome</button>
 </form>
 </body>
 </html>

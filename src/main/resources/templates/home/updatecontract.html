@@ -2,7 +2,68 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link href="../general.css" rel="stylesheet" type="text/css">
+    <link href="../form.css" rel="stylesheet" type="text/css">
+    <script src="https://use.fontawesome.com/8a5c9ad142.js"></script>
     <title>NMR - Update</title>
+    <style>
+        .accordion > input[type="checkbox"] {
+            position: absolute;
+            left: -100vw;
+        }
+
+        .accordion .content {
+            overflow-y: hidden;
+            height: 0;
+            transition: height 2000ms ease;
+        }
+
+        .accordion > input[type="checkbox"]:checked ~ .content {
+            height: auto;
+            overflow: visible;
+        }
+
+        .accordion > input[type="checkbox"]:checked ~ .content {
+            border-bottom: 1px solid #e8e8e8;
+            width: 350px;
+            border-top: 0;
+        }
+
+        .accordion label {
+            display: block;
+            font-size: 15px;
+            color: black;
+            cursor: pointer;
+            font-weight: normal;
+            width: 320px;
+            padding: 15px;
+            background: #ec8434;
+            border-radius: 10px;
+        }
+
+        .accordion label:hover,
+        .accordion label:focus {
+            background: orange;
+        }
+
+        .accordion .handle label:before {
+            font-family: 'fontawesome';
+            content: "\f054";
+            display: inline-block;
+            margin-right: 10px;
+            font-size: .58em;
+            line-height: 1.556em;
+            vertical-align: middle;
+        }
+
+        .accordion > input[type="checkbox"]:checked ~ .handle label:before {
+            content: "\f078";
+        }
+
+        .accordion {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="logo">
@@ -12,78 +73,172 @@
 </div>
 <form action="/contract/updatecontract" method="post">
 
-    <br><label>Contract Information</label><br>
+    <div style="width: 350px; margin-left: auto; margin-right: auto">
+        <h2 style="text-align: center">Contract Information</h2><br>
 
-    <br><label>ID</label><br>
-    <input name="id" pattern="^[0-9]+" readOnly tabindex="-1" th:value="${contract.id}" type="text"><br>
+        <div class="form__group field">
+            Contract Id <br>
+            <input name="id" readOnly tabindex="-1" th:value="${contract.id}" type="text" class="form__field"><br>
 
-    <br><label>Start Date</label><br>
-    <input name="rentalStartDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"
-           required th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
+            Rental Start Date <br>
+            <input
+                    class="form__field"
+                    name="rentalStartDate"
+                    pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"
+                    required
+                    placeholder="yyyy-MM-dd HH:mm"
+                    title="Enter a valid rental start date (yyyy-MM-dd HH:mm)"
+                    type="text"
+                    th:value="${#temporals.format(contract.rentalStartDate, 'yyyy-MM-dd HH:mm')}"><br>
 
-    <br><label>End Date</label><br>
-    <input name="rentalEndDate" pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$" required
-           th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}" type="text"><br>
+            Rental End Date <br>
+            <input
+                    class="form__field"
+                    name="rentalEndDate"
+                    pattern="^(\d{4,})-(\d{2})-(\d{2})[ ](\d{2}):(\d{2})(?::(\d{2}(?:\.\d+)?))?$"
+                    placeholder="yyyy-MM-dd HH:mm"
+                    required
+                    title="Enter a valid rental end date (yyyy-MM-dd HH:mm)"
+                    type="text"
+                    th:value="${#temporals.format(contract.rentalEndDate, 'yyyy-MM-dd HH:mm')}"><br>
 
-    <br><label>Pick Up Point</label><br>
-    <select class="form__field" id="slctPickUpPoint" name="pickUpPoint">
-        <option disabled label="Pick Up Point" selected th:value="${contract.pickUpPoint}"></option>
-        <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
-        <option label="Airport" value="Airport"></option>
-        <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
-    </select>
 
-    <br><br><label>Drop Off Point</label><br>
-    <select class="form__field" id="slctDropOffPoint" name="dropOffPoint">
-        <option disabled label="Drop Off Point" selected value=""></option>
-        <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
-        <option label="Airport" value="Airport"></option>
-        <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
-    </select>
+            Pick Up Point <br>
+            <select class="form__field" id="slctPickUpPoint" name="pickUpPoint">
+                <option th:text="${contract.pickUpPoint}"></option>
+                <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
+                <option label="Airport" value="Airport"></option>
+                <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
+            </select><br>
 
-    <br><br><label>Customer ID</label><br>
-    <input name="customerId" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${contract.customerId}"
-           type="text"><br>
+            Drop Off Point <br>
+            <select class="form__field" id="slctDropOffPoint" name="dropOffPoint">
+                <option th:text="${contract.dropOffPoint}"></option>
+                <option label="NMR - Headquarters" value="NMR - Headquarters"></option>
+                <option label="Airport" value="Airport"></option>
+                <option label="Copenhagen Central Station" value="Copenhagen Central Station"></option>
+            </select><br>
 
-    <br><label>Motorhome ID</label><br>
-    <input name="motorhomeId" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${contract.motorhomeId}"
-           type="text"><br>
+            <section class="accordion">
+                <input id="handle2" name="collapse2" type="checkbox">
+                <h2 class="handle">
+                    <label for="handle2">Select Extras</label>
+                </h2>
+                <div class="content">
+                    <div style="margin-bottom: 20px; display: block">Choose desired amount below:</div>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Bike Racks:</span>
+                        <input class="form__field extraItem" id='bikeRack' max="5" min="0" name="bikeRack"
+                               required type="number" pattern="^[0-9]+" value="0" th:value="${contract.bikeRack}"/>
+                    </div>
 
-    <br><label>Employee ID</label><br>
-    <input name="employeeId" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${contract.employeeId}"
-           type="text"><br>
+                    <div class="extraItemContainer">
+                        <input class="form__field extraItem" id='bedLinen' max="5" min="0" name="bedLinen"
+                               required type="number" pattern="^[0-9]+" value="0" th:value="${contract.bedLinen}"/>
+                        <span style="font-size: 13.333px">Bed Linens:</span>
 
-    <br><br><label>Extras</label><br>
+                    </div>
 
-    <br><label>Bike Rack</label><br>
-    <input name="bikeRack" pattern="^[0-9]+" required th:value="${contract.bikeRack}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Child Seats:</span>
+                        <input class="form__field extraItem" id='childSeat' max="5" min="0" name="childSeat"
+                               required type="number" pattern="^[0-9]+" value="0" th:value="${contract.childSeat}"/>
+                    </div>
 
-    <br><label>Bed Linen</label><br>
-    <input name="bedLinen" pattern="^[0-9]+" required th:value="${contract.bedLinen}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Picnic Tables:</span>
+                        <input class="form__field extraItem" id='picnicTable' max="5" min="0"
+                               name="picnicTable" pattern="^[0-9]+" required type="number" value="0" th:value="${contract.picnicTable}"/>
+                    </div>
 
-    <br><label>Child Seat</label><br>
-    <input name="childSeat" pattern="^[0-9]+" required th:value="${contract.childSeat}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Chairs:</span>
+                        <input class="form__field extraItem" id='chairs' max="5" min="0" name="chairs"
+                               required type="number" pattern="^[0-9]+" value="0" th:value="${contract.chairs}"/>
+                    </div>
 
-    <br><label>Picnic Table</label><br>
-    <input name="picnicTable" pattern="^[0-9]+" required th:value="${contract.picnicTable}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Grills:</span>
+                        <input class="form__field extraItem" id='grill' max="5" min="0" name="grill"
+                               required type="number" pattern="^[0-9]+" value="0" th:value="${contract.grill}"/>
+                    </div>
 
-    <br><label>Chairs</label><br>
-    <input name="chairs" pattern="^[0-9]+" required th:value="${contract.chairs}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Lanterns:</span>
+                        <input class="form__field extraItem" id='lantern' max="5" min="0" name="lantern"
+                               required type="number" pattern="^[0-9]+" value="0" th:value="${contract.lantern}"/>
+                    </div>
 
-    <br><label>Grill</label><br>
-    <input name="grill" pattern="^[0-9]+" required th:value="${contract.grill}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">First Aid Kits:</span>
+                        <input class="form__field extraItem" id='firstAidKit' max="5" min="0"
+                               name="firstAidKit" pattern="^[0-9]+" required type="number" value="0" th:value="${contract.firstAidKit}"/>
+                    </div>
 
-    <br><label>Lantern</label><br>
-    <input name="lantern" pattern="^[0-9]+" required th:value="${contract.lantern}" type="text"><br>
+                    <div class="extraItemContainer">
+                        <span style="font-size: 13.333px">Toilet Paper:</span>
+                        <input class="form__field extraItem" id='toiletPaper' max="5" min="0"
+                               name="toiletPaper" pattern="^[0-9]+" required type="number" value="0" th:value="${contract.toiletPaper}"/>
+                    </div>
+                </div>
+            </section>
 
-    <br><label>First Aid Kit</label><br>
-    <input name="firstAidKit" pattern="^[0-9]+" required th:value="${contract.firstAidKit}" type="text"><br>
+            Customer Id <br>
+            <select class="form__field" id="slctCustomer" name="customerId">
+                <tr th:each="customer: ${customers}">
+                    <option th:if="${contract.customerId == customer.id}" th:value="${customer.id}" selected>
+                        <td th:text="${customer.id}"/>
+                        <td th:text="${customer.firstName}"/>
+                        <td th:text="${customer.lastName}"/>
+                    </option>
+                    <option th:if="${contract.customerId != customer.id}" th:value="${customer.id}">
+                        <td th:text="${customer.id}"/>
+                        <td th:text="${customer.firstName}"/>
+                        <td th:text="${customer.lastName}"/>
+                    </option>
+                </tr>
+            </select><br>
 
-    <br><label>Toilet Paper</label><br>
-    <input name="toiletPaper" pattern="^[0-9]+" required th:value="${contract.toiletPaper}" type="text"><br>
+            Motorhome Id <br>
+            <select class="form__field" id="slctMotorhome" name="motorhomeId">
+                <tr th:each="motorhome: ${motorhomes}">
+                    <option th:if="${contract.motorhomeId == motorhome.id}" th:value="${motorhome.id}" selected>
+                        <td th:text="${motorhome.id}"/>
+                        <td th:text="${motorhome.brand}"/>
+                        <td th:text="${motorhome.model}"/>
+                    </option>
+                    <option th:if="${contract.motorhomeId != motorhome.id}" th:value="${motorhome.id}">
+                        <td th:text="${motorhome.id}"/>
+                        <td th:text="${motorhome.brand}"/>
+                        <td th:text="${motorhome.model}"/>
+                    </option>
+                </tr>
+            </select><br>
 
-    <br><br>
-    <button id="updateButton" type="submit">Update contract</button>
+
+            <div class="selectEmployee">
+                Employee Id <br>
+                <select class="form__field" id="slctEmployee" name="employeeId">
+                    <tr th:each="employee: ${employees}">
+                        <option th:if="${employeeId == employee.id}" th:value="${employee.id}" selected>
+                            <td th:text="${employee.id}"/>
+                            <td th:text="${employee.firstName}"/>
+                            <td th:text="${employee.lastName}"/>
+                            <td th:text="${employee.title}"/>
+                        </option>
+                        <option th:if="${employeeId != employee.id}" th:value="${employee.id}">
+                            <td th:text="${employee.id}"/>
+                            <td th:text="${employee.firstName}"/>
+                            <td th:text="${employee.lastName}"/>
+                            <td th:text="${employee.title}"/>
+                        </option>
+                    </tr>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br><button id="createbutton" type="submit">Update Contract</button>
+
 </form>
 </body>
 </html>
