@@ -115,6 +115,16 @@
             </td>
         </tr>
 
+        <tr class="item" th:if="${seasonalCharge > 0}">
+            <td>
+                Seasonal Fee
+            </td>
+
+            <td>
+                <span th:text="${seasonalCharge}"></span> DKK
+            </td>
+        </tr>
+
         <tr class="item">
             <td>
                 Pick Up Point
@@ -126,7 +136,7 @@
         </tr>
 
 
-        <tr class="item last">
+        <tr class="item">
             <td>
                 Drop Off Point
             </td>
@@ -134,6 +144,26 @@
             <td>
                 <span th:text="${contract.dropOffPoint}"></span> <span th:text="${contract.dropOffPrice}"></span> DKK
 
+            </td>
+        </tr>
+
+        <tr class="item" th:if="${contract.fuelCharge}">
+            <td>
+                Fuel Fee
+            </td>
+
+            <td>
+                525 DKK
+            </td>
+        </tr>
+
+        <tr class="item last" th:if="${kmDrivenPrice > 0}">
+            <td>
+                Extra KM Driven Fee
+            </td>
+
+            <td>
+                <span th:text="${kmDrivenPrice}"></span> DKK
             </td>
         </tr>
 

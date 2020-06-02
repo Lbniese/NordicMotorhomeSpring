@@ -399,6 +399,8 @@ public class HomeController {
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
         model.addAttribute("addDiscount", PriceHandler.calculateCancellationFee(contract.isActive(), contract.getRentalStartDate()));
+        model.addAttribute("kmDrivenPrice", PriceHandler.calculateDrivenPrice(contract.getRentalStartDate(),contract.getRentalEndDate(),contract.getKmDriven()));
+        model.addAttribute("seasonalCharge", PriceHandler.calculateSeasonalCharge(contract.getRentalStartDate(), contract.getRentalEndDate(), motorhome.getPricePerDay()));
         return "home/invoice";
     }
 

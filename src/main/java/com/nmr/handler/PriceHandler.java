@@ -10,6 +10,48 @@ import static java.time.temporal.ChronoUnit.DAYS;
  */
 public class PriceHandler {
 
+    public static double calculateSeasonalCharge(LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, int pricePerDay) {
+        double fullPriceWithSeasonal = 0;
+        double fullPrice = 0;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime peakSeasonStartDate = LocalDateTime.parse("2020-06-01 00:00", formatter);
+        LocalDateTime peakSeasonEndDate = LocalDateTime.parse("2020-08-31 23:59", formatter);
+
+        LocalDateTime midSeasonStartDate = LocalDateTime.parse("2020-03-01 00:00", formatter);
+        LocalDateTime midSeasonEndDate = LocalDateTime.parse("2020-05-31 23:59", formatter);
+
+        LocalDateTime currentDate = rentalStartDate;
+        boolean addPrice = false;
+
+        while (currentDate.isBefore(rentalEndDate) || currentDate.isEqual(rentalEndDate)) {
+            if (currentDate.getMonthValue() >= peakSeasonStartDate.getMonthValue() && currentDate.getMonthValue() <= peakSeasonEndDate.getMonthValue()) {
+                addPrice = currentDate.getMonthValue() != peakSeasonStartDate.getMonthValue() || currentDate.getDayOfMonth() >= peakSeasonStartDate.getDayOfMonth();
+                if (currentDate.getMonthValue() == peakSeasonEndDate.getMonthValue() && currentDate.getDayOfMonth() > peakSeasonEndDate.getDayOfMonth()) {
+                    addPrice = false;
+                }
+                if (addPrice) {
+                    fullPriceWithSeasonal += pricePerDay * 1.6;
+                }
+            }
+            if (currentDate.getMonthValue() >= midSeasonStartDate.getMonthValue() && currentDate.getMonthValue() <= midSeasonEndDate.getMonthValue()) {
+                addPrice = currentDate.getMonthValue() != midSeasonStartDate.getMonthValue() || currentDate.getDayOfMonth() >= midSeasonStartDate.getDayOfMonth();
+                if (currentDate.getMonthValue() == midSeasonEndDate.getMonthValue() && currentDate.getDayOfMonth() > midSeasonEndDate.getDayOfMonth()) {
+                    addPrice = false;
+                }
+                if (addPrice) {
+                    fullPriceWithSeasonal += pricePerDay * 1.3;
+                }
+            }
+            if (!addPrice) {
+                fullPriceWithSeasonal += pricePerDay * 1.0;
+            }
+            fullPrice += pricePerDay;
+            currentDate = currentDate.plusDays(1);
+            addPrice = false;
+        }
+        return (fullPriceWithSeasonal - fullPrice);
+    }
+
     /**
      * calculateFullPrice() calculates the price for renting a motorhome based on the season it is in.
      *
