@@ -208,6 +208,26 @@ public class PriceHandler {
         return fee;
     }
 
+    public static double calculateDrivenPrice(LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, int kmDriven){
+        long days = DAYS.between(rentalStartDate, rentalEndDate);
+        int maxKmDriven = 400 * ((int)days + 1);
+        int kmDrivenDiff = kmDriven - maxKmDriven;
+        double price = 0;
+        if(kmDrivenDiff > 0){
+            price = Math.ceil(kmDrivenDiff * 7.5);
+        }
+        return price;
+    }
+
+    public static double calculateFuelFee(boolean fuelCharge){
+        if(fuelCharge){
+            return 525;
+        }else{
+            return 0;
+        }
+
+    }
+
 }
 
 

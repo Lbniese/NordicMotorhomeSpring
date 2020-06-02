@@ -257,7 +257,7 @@
             <th>Delete</th>
             <th>Update</th>
             <th>Invoice</th>
-            <th>Cancel</th>
+            <th>Status</th>
 
         </tr>
         </thead>
@@ -299,7 +299,12 @@
                 <span style="color: green; font-weight: bold"
                       th:if="${contract.active == true && localDateTime.isAfter(contract.rentalStartDate) && contract.rentalEndDate.isAfter(localDateTime)}">Active</span>
                 <span style="color: darkgoldenrod; font-weight: bold"
-                      th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate)}">Completed</span>
+                      th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate) && contract.kmDriven > 0 }">Completed</span>
+                <a th:href="@{'/completecontract/'+${contract.id}}"
+                   th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate) && contract.kmDriven == 0 }">
+                    <button class="btnCancel" style="width: auto" >Complete
+                    </button>
+                </a>
             </td>
         </tr>
     </table>

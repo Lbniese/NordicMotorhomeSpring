@@ -84,4 +84,10 @@ public class MotorhomeRepo {
         return null;
     }
 
+    public Motorhome updateOdometer(int id, Motorhome motorhome) {
+        String sql = "UPDATE Motorhome SET odometer = ? WHERE id=?";
+        template.update(sql, motorhome.getOdometer(), id);
+        return null;
+    }
+
 }

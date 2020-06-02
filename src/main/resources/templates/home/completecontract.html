@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="../general.css" rel="stylesheet" type="text/css">
+    <link href="../form.css" rel="stylesheet" type="text/css">
+    <title>NMR - Complete Contract</title>
+</head>
+<body>
+<div class="logo">
+    <a href="/">
+        <img alt="logo" id="logo" src="..\logo.png"/>
+    </a>
+</div>
+<form action="/contract/completecontract" method="post">
+
+    <div style="width: 350px; margin-left: auto; margin-right: auto">
+        <h2 style="text-align: center">Complete Contract</h2><br>
+        <input name="id" type="hidden" th:value="${contract.id}">
+        <input name="motorhomeId" type="hidden" th:value="${contract.motorhomeId}">
+        Kilometers Driven
+        <input name="kmDriven" type="text" min="0" class="form__field" value="0" pattern="^[0-9]+" required><br>
+        Fuel Tank Under 50%
+        <input name="fuelCharge" type="checkbox"> <br>
+       <br>  <button type="submit" id="createbutton">Completed</button>
+    </div>
+</form>
+</body>
+</html>

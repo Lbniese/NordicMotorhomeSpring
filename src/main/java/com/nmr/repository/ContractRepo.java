@@ -117,4 +117,10 @@ public class ContractRepo {
         List<Contract> listContracts = template.query(sql, rowMapper, motorhomeId, rentalEndDate, rentalStartDate);
         return listContracts.isEmpty();
     }
+
+    public Contract completeContract(int id, Contract contract) {
+        String sql = "UPDATE Contract SET kmDriven = ?, fuelCharge = ? WHERE id = ?";
+        template.update(sql, contract.getKmDriven(), contract.isFuelCharge(), id);
+        return null;
+    }
 }

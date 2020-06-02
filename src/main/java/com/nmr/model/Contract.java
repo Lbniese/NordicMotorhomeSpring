@@ -40,6 +40,8 @@ public class Contract {
     private int firstAidKit;
     private int toiletPaper;
     private boolean active;
+    private int kmDriven;
+    private boolean fuelCharge;
 
 
     public Contract() {
@@ -54,6 +56,22 @@ public class Contract {
         this.customerId = customerId;
         this.motorhomeId = motorhomeId;
         this.employeeId = employeeId;
+    }
+
+    public int getKmDriven() {
+        return kmDriven;
+    }
+
+    public void setKmDriven(int kmDriven) {
+        this.kmDriven = kmDriven;
+    }
+
+    public boolean isFuelCharge() {
+        return fuelCharge;
+    }
+
+    public void setFuelCharge(boolean fuelCharge) {
+        this.fuelCharge = fuelCharge;
     }
 
     public boolean isActive() {

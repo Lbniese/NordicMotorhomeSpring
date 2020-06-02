@@ -407,4 +407,15 @@ public class HomeController {
         return "home/extras";
     }
 
+    @GetMapping("completecontract/{id}")
+    public String completeContract(@PathVariable("id") int id, Model model) {
+        model.addAttribute("contract", contractService.findContractById(id));
+        return "home/completecontract";
+    }
+
+    @PostMapping("/contract/completecontract")
+    public String completeContract(@ModelAttribute Contract contract) {
+        contractService.completeContract(contract.getId(), contract);
+        return "redirect:/contract";
+    }
 }

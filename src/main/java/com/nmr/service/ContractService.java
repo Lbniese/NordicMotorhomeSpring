@@ -5,6 +5,7 @@ import com.nmr.handler.PriceHandler;
 import com.nmr.model.Contract;
 import com.nmr.model.Motorhome;
 import com.nmr.repository.ContractRepo;
+import com.nmr.repository.MotorhomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ import java.util.List;
 public class ContractService {
     @Autowired
     ContractRepo contractRepo;
+
+    @Autowired
+    MotorhomeService motorhomeService;
 
     public List<Contract> fetchAll() {
         return contractRepo.fetchAll();
@@ -60,6 +64,8 @@ public class ContractService {
         fullPrice += PriceHandler.calculatePickUpPrice(contract.getPickUpPoint());
         fullPrice += PriceHandler.calculateDropOffPrice(contract.getDropOffPoint());
         fullPrice += PriceHandler.calculateExtraPrice(contract.getBikeRack(), contract.getBedLinen(), contract.getChildSeat(), contract.getPicnicTable(), contract.getChairs(), contract.getGrill(), contract.getLantern(), contract.getFirstAidKit(), contract.getToiletPaper());
+        fullPrice += PriceHandler.calculateFuelFee(contract.isFuelCharge());
+        fullPrice += PriceHandler.calculateDrivenPrice(contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getKmDriven());
         contract.setFullPrice(PriceHandler.calculateCancellationPrice(contract.isActive(), contract.getRentalStartDate(), fullPrice));
         return contract;
     }
@@ -75,4 +81,12 @@ public class ContractService {
         contract.setDropOffPrice(PriceHandler.calculateDropOffPrice(contract.getDropOffPoint()));
         return contract;
     }
+
+    public Contract completeContract(int id, Contract contract) {
+        contractRepo.completeContract(id, contract);
+        motorhomeService.addKilometersToOdometer(contract.getMotorhomeId(), contract.getKmDriven());
+        return contract;
+    }
+
+
 }
