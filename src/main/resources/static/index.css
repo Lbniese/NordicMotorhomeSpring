@@ -8,23 +8,76 @@ body {
     margin-right: auto;
 }
 
-#customerPicture, #contractPicture, #employeePicture, #motorhomePicture {
-    max-height: 25%;
-    max-width: 25%;
-    float: left;
+#menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:80%;
+    height:50%;
+}
+
+#outerContainer {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.imgCaption {
+    font-size:1.3em;
     text-align: center;
-    align-content: center;
+    width: 50%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin:0 30px;
 }
 
-
-.customerText {
-    font-family: 'Poppins', sans-serif;
-    font-size: xx-large;
-    text-align: left;
-    float: bottom;
+.imgCaption:active {
+    color: black;
 }
 
+.imgCaption:hover {
+    color: #ec8434;
+}
 
+#customerPicture img, #contractPicture img, #employeePicture img, #motorhomePicture img {
+    max-height: auto;
+    max-width: 100%;
+}
+
+#employeePicture {
+    margin-bottom:-5%;
+}
+
+#motorhomePicture {
+    margin-bottom:-5%;
+}
+
+#contractPicture {
+    margin-bottom:-5%;
+}
+
+#customerPicture {
+    margin-bottom:-5%;
+}
+
+#contractPicture img {
+    max-width: 60%;
+}
+
+#customerPicture img {
+    max-width:73%;
+}
+
+.creators {
+    width:100%;
+    position:fixed;
+    bottom:0px;
+    text-align:center;
+    z-index:9999;
+}
+
+/*
 #creators {
     text-align: center;
     bottom: 0;
@@ -33,4 +86,4 @@ body {
     left: 50%;
     margin-left: -150px;
 }
-
+*/
