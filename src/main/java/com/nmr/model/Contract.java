@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
  */
 @Entity
 public class Contract {
+    /**
+     * Fields
+     */
     @Id
     private int id;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -43,10 +46,23 @@ public class Contract {
     private int kmDriven;
     private boolean fuelCharge;
 
-
+    /**
+     * Empty Constructor
+     */
     public Contract() {
     }
 
+    /**
+     * Default Constructor
+     * @param id
+     * @param rentalStartDate
+     * @param rentalEndDate
+     * @param pickUpPoint
+     * @param dropOffPoint
+     * @param customerId
+     * @param motorhomeId
+     * @param employeeId
+     */
     public Contract(int id, LocalDateTime rentalStartDate, LocalDateTime rentalEndDate, String pickUpPoint, String dropOffPoint, int customerId, int motorhomeId, int employeeId) {
         this.id = id;
         this.rentalStartDate = rentalStartDate;
@@ -58,6 +74,9 @@ public class Contract {
         this.employeeId = employeeId;
     }
 
+    /**
+     * Getters & Setters
+     */
     public int getKmDriven() {
         return kmDriven;
     }
