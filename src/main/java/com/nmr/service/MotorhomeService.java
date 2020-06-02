@@ -1,6 +1,5 @@
 package com.nmr.service;
 
-import com.nmr.model.Contract;
 import com.nmr.model.Motorhome;
 import com.nmr.repository.MotorhomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +37,7 @@ public class MotorhomeService {
     }
 
 
-    public void addKilometersToOdometer(int id, int kmDriven){
+    public void addKilometersToOdometer(int id, int kmDriven) {
         Motorhome motorhome = motorhomeRepo.findMotorhomeById(id);
         int newOdometer = motorhome.getOdometer();
         newOdometer += kmDriven;

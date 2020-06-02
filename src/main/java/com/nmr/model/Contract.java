@@ -54,6 +54,7 @@ public class Contract {
 
     /**
      * Default Constructor
+     *
      * @param id
      * @param rentalStartDate
      * @param rentalEndDate

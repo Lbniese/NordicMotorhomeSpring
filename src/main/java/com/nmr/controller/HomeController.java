@@ -79,8 +79,9 @@ public class HomeController {
 
     /**
      * Defines the path with "/customer".
+     *
      * @param customer gets the object as parameter.
-     * Call the create customer method from the customer service class.
+     *                 Call the create customer method from the customer service class.
      * @return "redirect:/customer".
      */
     @PostMapping("/customer")
@@ -92,9 +93,10 @@ public class HomeController {
 
     /**
      * Defines the path with "/deletecustomer/{id}
+     *
      * @param id is used so that u can delete the specific customer by id with the deleteCustomer method in the customerService class
-     * @PathVariable annotation indicates that a method parameter should be bound to a URL template variable. In this case {id} is bound to /deletecustomer/
      * @return "direct:/customer"
+     * @PathVariable annotation indicates that a method parameter should be bound to a URL template variable. In this case {id} is bound to /deletecustomer/
      */
 
     @GetMapping("/deletecustomer/{id}")
@@ -109,7 +111,8 @@ public class HomeController {
 
     /**
      * Defines the path with "/updatecustomer/{id}"
-     * @param id is used so that u can update the specific customer by id with the findCustomerById method in the customerService class
+     *
+     * @param id    is used so that u can update the specific customer by id with the findCustomerById method in the customerService class
      * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "customer"
      * @return "home/updatecustomer"
      */
@@ -122,6 +125,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/customer/updatecustomer"
+     *
      * @param customer gets the object as parameter.
      * @return redirect:/customer
      */
@@ -135,6 +139,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/employee"
+     *
      * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "employees"
      * @return "home/employee"
      */
@@ -149,6 +154,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/employee"
+     *
      * @param employee gets the object as parameter.
      * @return "redirect:/employee"
      */
@@ -162,6 +168,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/deleteemployee/{id}"
+     *
      * @param id is used so that u can delete the specific employee by id with the deleteEmployee method in the employeeService class
      * @return "redirect:/employee"
      */
@@ -179,7 +186,8 @@ public class HomeController {
 
     /**
      * Defines the path with "/updateemployee/{id}"
-     * @param id is used so that u can update the specific employee by id with the findEmployeeById method in the employeeService class
+     *
+     * @param id    is used so that u can update the specific employee by id with the findEmployeeById method in the employeeService class
      * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "employee"
      * @return "home/updateemployee"
      */
@@ -193,6 +201,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/employee/updateemployee"
+     *
      * @param employee gets the object as parameter.
      * @return "redirect:/employee"
      */
@@ -206,6 +215,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/motorhome"
+     *
      * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "motorhomes"
      * @return "home/motorhome"
      */
@@ -221,8 +231,9 @@ public class HomeController {
 
     /**
      * Defines the path with "/motorhome"
+     *
      * @param motorhome gets the object as parameter.
-     * Call the create motorhome method from the motorhome service class.
+     *                  Call the create motorhome method from the motorhome service class.
      * @return "redirect:/motorhome"
      */
 
@@ -235,6 +246,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/deletemotorhome/{id}"
+     *
      * @param id is used so that u can delete the specific motorhome by id with the deleteMotorhome method in the motorhomeService class
      * @return "redirect:/motorhome"
      */
@@ -252,7 +264,8 @@ public class HomeController {
 
     /**
      * Defines the path with "/updatemotorhome/{id}"
-     * @param id is used so that u can update the specific motorhome by id with the findMotorhomeById method in the motorhomeService class
+     *
+     * @param id    is used so that u can update the specific motorhome by id with the findMotorhomeById method in the motorhomeService class
      * @param model binds a method parameter or method return to a named model attribute. The name of this attribute is "motorhome"
      * @return "home/updatemotorhome"
      */
@@ -266,6 +279,7 @@ public class HomeController {
 
     /**
      * Defines the path with "/motorhome/updatemotorhome"
+     *
      * @param motorhome gets the object as parameter.
      * @return "redirect:/motorhome"
      */
@@ -279,9 +293,10 @@ public class HomeController {
 
     /**
      * Defines the path with "/contract"
+     *
      * @param model binds a method parameter or method return to a named model attribute. This one is a little different though.
-     * The reason why everything gets fetched, its because we want to be able to make a dropdown select menu in the contract html.
-     * Also the model which name is "localDateTime", is being used to type a date.
+     *              The reason why everything gets fetched, its because we want to be able to make a dropdown select menu in the contract html.
+     *              Also the model which name is "localDateTime", is being used to type a date.
      * @return "home/contract"
      */
 
@@ -308,6 +323,7 @@ public class HomeController {
     /**
      * Defines the path with "/contract"
      * To get the correct format, a @RequestParam is being used together with @DateTimeFormat
+     *
      * @param rentalStartDate
      * @param rentalEndDate
      * @param contract
@@ -399,7 +415,7 @@ public class HomeController {
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
         model.addAttribute("addDiscount", PriceHandler.calculateCancellationFee(contract.isActive(), contract.getRentalStartDate()));
-        model.addAttribute("kmDrivenPrice", PriceHandler.calculateDrivenPrice(contract.getRentalStartDate(),contract.getRentalEndDate(),contract.getKmDriven()));
+        model.addAttribute("kmDrivenPrice", PriceHandler.calculateDrivenPrice(contract.getRentalStartDate(), contract.getRentalEndDate(), contract.getKmDriven()));
         model.addAttribute("seasonalCharge", PriceHandler.calculateSeasonalCharge(contract.getRentalStartDate(), contract.getRentalEndDate(), motorhome.getPricePerDay()));
         return "home/invoice";
     }

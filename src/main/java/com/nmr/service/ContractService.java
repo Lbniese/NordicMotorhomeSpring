@@ -5,7 +5,6 @@ import com.nmr.handler.PriceHandler;
 import com.nmr.model.Contract;
 import com.nmr.model.Motorhome;
 import com.nmr.repository.ContractRepo;
-import com.nmr.repository.MotorhomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
