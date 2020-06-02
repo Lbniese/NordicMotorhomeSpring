@@ -407,10 +407,11 @@ public class HomeController {
         Contract contract = contractService.findContractById(id);
         Motorhome motorhome = motorhomeService.findMotorhomeById(contract.getMotorhomeId());
         Employee employee = employeeService.findEmployeeById(contract.getEmployeeId());
+        Customer customer = customerService.findCustomerById(contract.getCustomerId());
         contract = contractService.calculateFullPrice(contract, motorhome);
         contract = contractService.calculatePickUpAndDropOff(contract);
         model.addAttribute("contract", contract);
-        model.addAttribute("customer", customerService.findCustomerById(contract.getCustomerId()));
+        model.addAttribute("customer", customer);
         model.addAttribute("motorhome", motorhome);
         model.addAttribute("employee", employee);
         model.addAttribute("localDate", LocalDate.now());
