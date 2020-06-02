@@ -9,6 +9,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class Motorhome {
+    /**
+     * Fields
+     */
     @Id
     private int id;
     private String brand;
@@ -19,9 +22,24 @@ public class Motorhome {
     private int pricePerDay;
     private String serviceNote;
 
+    /**
+     * Empty Constructor
+     */
     public Motorhome() {
     }
 
+    /**
+     * Default Constructor
+     *
+     * @param id
+     * @param brand
+     * @param model
+     * @param odometer
+     * @param vehicleSize
+     * @param vehicleType
+     * @param pricePerDay
+     * @param serviceNotes
+     */
     public Motorhome(int id, String brand, String model, int odometer, String vehicleSize, String vehicleType, int pricePerDay, String serviceNotes) {
         this.id = id;
         this.brand = brand;
@@ -33,6 +51,9 @@ public class Motorhome {
         this.serviceNote = serviceNotes;
     }
 
+    /**
+     * Getters & Setters
+     */
     public int getId() {
         return id;
     }

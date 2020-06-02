@@ -9,6 +9,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class Employee {
+    /**
+     * Fields
+     */
     @Id
     private int id;
     private String firstName;
@@ -21,9 +24,26 @@ public class Employee {
     private String city;
     private String country;
 
+    /**
+     * Empty Constructor
+     */
     public Employee() {
     }
 
+    /**
+     * Default Constructor
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param title
+     * @param address
+     * @param phoneNumber
+     * @param email
+     * @param zipCode
+     * @param city
+     * @param country
+     */
     public Employee(int id, String firstName, String lastName, String title, String address, String phoneNumber, String email, String zipCode, String city, String country) {
         this.id = id;
         this.firstName = firstName;
@@ -37,6 +57,9 @@ public class Employee {
         this.country = country;
     }
 
+    /**
+     * Getters & Setters
+     */
     public int getId() {
         return id;
     }
