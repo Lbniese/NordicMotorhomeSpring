@@ -118,6 +118,12 @@ public class ContractRepo {
         return listContracts.isEmpty();
     }
 
+    /**
+     * completeContract()
+     * @param id
+     * @param contract
+     * @return
+     */
     public Contract completeContract(int id, Contract contract) {
         String sql = "UPDATE Contract SET kmDriven = ?, fuelCharge = ? WHERE id = ?";
         template.update(sql, contract.getKmDriven(), contract.isFuelCharge(), id);

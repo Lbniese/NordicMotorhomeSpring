@@ -21,10 +21,19 @@ public class ContractService {
     @Autowired
     MotorhomeService motorhomeService;
 
+    /**
+     * fetchAll()
+     * @return
+     */
     public List<Contract> fetchAll() {
         return contractRepo.fetchAll();
     }
 
+    /**
+     * createContract()
+     * @param contract
+     * @return
+     */
     public boolean createContract(Contract contract) {
         boolean noOverlap = contractRepo.rentalDateValidation(contract.getMotorhomeId(), contract.getRentalStartDate(), contract.getRentalEndDate());
         if (noOverlap) {
@@ -35,18 +44,39 @@ public class ContractService {
         }
     }
 
+    /**
+     * findContractById()
+     * @param id
+     * @return
+     */
     public Contract findContractById(int id) {
         return contractRepo.findContractById(id);
     }
 
+    /**
+     * deleteContract()
+     * @param id
+     * @return
+     */
     public Boolean deleteContract(int id) {
         return contractRepo.deleteContract(id);
     }
 
+    /**
+     * updateContract()
+     * @param id
+     * @param contract
+     * @return
+     */
     public Contract updateContract(int id, Contract contract) {
         return contractRepo.updateContract(id, contract);
     }
 
+    /**
+     * cancelContract()
+     * @param id
+     * @return
+     */
     public Boolean cancelContract(int id) {
         return contractRepo.cancelContract(id);
     }
@@ -81,6 +111,12 @@ public class ContractService {
         return contract;
     }
 
+    /**
+     * completeContract()
+     * @param id
+     * @param contract
+     * @return
+     */
     public Contract completeContract(int id, Contract contract) {
         contractRepo.completeContract(id, contract);
         motorhomeService.addKilometersToOdometer(contract.getMotorhomeId(), contract.getKmDriven());

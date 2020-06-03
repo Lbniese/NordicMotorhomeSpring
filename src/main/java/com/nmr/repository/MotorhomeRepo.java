@@ -84,6 +84,12 @@ public class MotorhomeRepo {
         return null;
     }
 
+    /**
+     * updateOdometer()
+     * @param id
+     * @param motorhome
+     * @return
+     */
     public Motorhome updateOdometer(int id, Motorhome motorhome) {
         String sql = "UPDATE Motorhome SET odometer = ? WHERE id=?";
         template.update(sql, motorhome.getOdometer(), id);

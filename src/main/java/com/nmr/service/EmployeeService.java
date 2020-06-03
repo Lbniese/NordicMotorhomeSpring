@@ -13,6 +13,11 @@ public class EmployeeService {
     @Autowired
     EmployeeRepo employeeRepo;
 
+    /**
+     * createEmployee()
+     * @param employee
+     * @return
+     */
     public String createEmployee(Employee employee) {
         try {
             boolean validEmail = employeeRepo.emailValidation(employee.getEmail());
@@ -30,14 +35,28 @@ public class EmployeeService {
         }
     }
 
+    /**
+     * fetchAll()
+     * @return
+     */
     public List<Employee> fetchAll() {
         return employeeRepo.fetchAll();
     }
 
+    /**
+     * findEmployeeById()
+     * @param id
+     * @return
+     */
     public Employee findEmployeeById(int id) {
         return employeeRepo.findEmployeeById(id);
     }
 
+    /**
+     * deleteEmployee()
+     * @param id
+     * @return
+     */
     public Boolean deleteEmployee(int id) {
         try {
             return employeeRepo.deleteEmployee(id);
@@ -46,6 +65,12 @@ public class EmployeeService {
         }
     }
 
+    /**
+     * updateEmployee()
+     * @param id
+     * @param employee
+     * @return
+     */
     public Employee updateEmployee(int id, Employee employee) {
         return employeeRepo.updateEmployee(id, employee);
     }

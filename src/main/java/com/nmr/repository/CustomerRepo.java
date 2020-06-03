@@ -81,7 +81,11 @@ public class CustomerRepo {
         template.update(sql, customer.getFirstName(), customer.getLastName(), customer.getPhoneNumber(), customer.getEmail(), customer.getAddress(), customer.getDriverLicenceNumber(), customer.getZipCode(), id);
         return null;
     }
-
+    /**
+     * emailValidation()
+     * @param email
+     * @return
+     */
     public boolean emailValidation(String email) {
         String sql = "SELECT * FROM Customer WHERE email = ?";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
@@ -89,6 +93,11 @@ public class CustomerRepo {
         return listCustomers.isEmpty();
     }
 
+    /**
+     * phoneNumberValidation()
+     * @param phoneNumber
+     * @return
+     */
     public boolean phoneNumberValidation(String phoneNumber) {
         String sql = "SELECT * FROM Customer WHERE phoneNumber = ?";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);

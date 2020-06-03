@@ -13,6 +13,11 @@ public class CustomerService {
     @Autowired
     CustomerRepo customerRepo;
 
+    /**
+     * createCustomer()
+     * @param customer
+     * @return
+     */
     public String createCustomer(Customer customer) {
         try {
             boolean validEmail = customerRepo.emailValidation(customer.getEmail());
@@ -30,14 +35,28 @@ public class CustomerService {
         }
     }
 
+    /**
+     * fetchAll()
+     * @return
+     */
     public List<Customer> fetchAll() {
         return customerRepo.fetchAll();
     }
 
+    /**
+     * findCustomerById()
+     * @param id
+     * @return
+     */
     public Customer findCustomerById(int id) {
         return customerRepo.findCustomerById(id);
     }
 
+    /**
+     * deleteCustomer()
+     * @param id
+     * @return
+     */
     public Boolean deleteCustomer(int id) {
         try {
             return customerRepo.deleteCustomer(id);
@@ -46,6 +65,12 @@ public class CustomerService {
         }
     }
 
+    /**
+     * updateCustomer()
+     * @param id
+     * @param customer
+     * @return
+     */
     public Customer updateCustomer(int id, Customer customer) {
         return customerRepo.updateCustomer(id, customer);
     }

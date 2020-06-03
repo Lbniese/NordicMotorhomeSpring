@@ -83,6 +83,11 @@ public class EmployeeRepo {
         return null;
     }
 
+    /**
+     * emailValidation()
+     * @param email
+     * @return
+     */
     public boolean emailValidation(String email) {
         String sql = "SELECT * FROM Employee WHERE email = ?";
         RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<>(Employee.class);
@@ -90,6 +95,11 @@ public class EmployeeRepo {
         return listEmployees.isEmpty();
     }
 
+    /**
+     * phoneNumberValidation()
+     * @param phoneNumber
+     * @return
+     */
     public boolean phoneNumberValidation(String phoneNumber) {
         String sql = "SELECT * FROM Employee WHERE phoneNumber = ?";
         RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<>(Employee.class);
