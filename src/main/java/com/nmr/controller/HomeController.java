@@ -86,15 +86,19 @@ public class HomeController {
      */
     @PostMapping("/customer")
     public String customer(@ModelAttribute Customer customer, Model model) {
-        boolean created = customerService.createCustomer(customer);
-        if (created) {
+        String status = customerService.createCustomer(customer);
+        if (status == "success") {
             return "redirect:/customer";
-        } else {
+        } else if (status == "zipError") {
             model.addAttribute("message", "Error: The entered zipcode does not exist in our database!");
-            List<Customer> customerList = customerService.fetchAll();
-            model.addAttribute("customers", customerList);
-            return "home/customer";
+        } else if (status == "emailError") {
+            model.addAttribute("message", "Error: The entered email does already exist in our database!");
+        } else if (status == "phoneNumberError") {
+            model.addAttribute("message", "Error: The entered phone number does already exist in our database!");
         }
+        List<Customer> customerList = customerService.fetchAll();
+        model.addAttribute("customers", customerList);
+        return "home/customer";
     }
 
 
@@ -171,15 +175,19 @@ public class HomeController {
 
     @PostMapping("/employee")
     public String employee(@ModelAttribute Employee employee, Model model) {
-        boolean created = employeeService.createEmployee(employee);
-        if (created) {
+        String status = employeeService.createEmployee(employee);
+        if (status == "success") {
             return "redirect:/employee";
-        } else {
+        } else if (status == "zipError") {
             model.addAttribute("message", "Error: The entered zipcode does not exist in our database!");
-            List<Employee> employeeList = employeeService.fetchAll();
-            model.addAttribute("employees", employeeList);
-            return "home/employee";
+        } else if (status == "emailError") {
+            model.addAttribute("message", "Error: The entered email does already exist in our database!");
+        } else if (status == "phoneNumberError") {
+            model.addAttribute("message", "Error: The entered phone number does already exist in our database!");
         }
+        List<Employee> employeeList = employeeService.fetchAll();
+        model.addAttribute("employees", employeeList);
+        return "home/employee";
     }
 
 

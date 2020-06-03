@@ -82,4 +82,19 @@ public class EmployeeRepo {
         template.update(sql, employee.getFirstName(), employee.getLastName(), employee.getPhoneNumber(), employee.getEmail(), employee.getAddress(), employee.getTitle(), employee.getZipCode(), id);
         return null;
     }
+
+    public boolean emailValidation(String email) {
+        String sql = "SELECT * FROM Employee WHERE email = ?";
+        RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<>(Employee.class);
+        List<Employee> listEmployees = template.query(sql, rowMapper, email);
+        return listEmployees.isEmpty();
+    }
+
+    public boolean phoneNumberValidation(String phoneNumber) {
+        String sql = "SELECT * FROM Employee WHERE phoneNumber = ?";
+        RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<>(Employee.class);
+        List<Employee> listEmployees = template.query(sql, rowMapper, phoneNumber);
+        return listEmployees.isEmpty();
+    }
+
 }

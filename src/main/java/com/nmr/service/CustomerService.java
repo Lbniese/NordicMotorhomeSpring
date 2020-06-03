@@ -13,12 +13,20 @@ public class CustomerService {
     @Autowired
     CustomerRepo customerRepo;
 
-    public Boolean createCustomer(Customer customer) {
+    public String createCustomer(Customer customer) {
         try {
-            customerRepo.createCustomer(customer);
-            return true;
+            boolean validEmail = customerRepo.emailValidation(customer.getEmail());
+            boolean validPhoneNumber = customerRepo.phoneNumberValidation(customer.getPhoneNumber());
+            if (!validEmail) {
+                return "emailError";
+            } else if (!validPhoneNumber) {
+                return "phoneNumberError";
+            } else {
+                customerRepo.createCustomer(customer);
+                return "success";
+            }
         } catch (DataIntegrityViolationException ex) {
-            return false;
+            return "zipError";
         }
     }
 

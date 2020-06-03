@@ -13,12 +13,20 @@ public class EmployeeService {
     @Autowired
     EmployeeRepo employeeRepo;
 
-    public Boolean createEmployee(Employee employee) {
+    public String createEmployee(Employee employee) {
         try {
-            employeeRepo.createEmployee(employee);
-            return true;
+            boolean validEmail = employeeRepo.emailValidation(employee.getEmail());
+            boolean validPhoneNumber = employeeRepo.phoneNumberValidation(employee.getPhoneNumber());
+            if (!validEmail) {
+                return "emailError";
+            } else if (!validPhoneNumber) {
+                return "phoneNumberError";
+            } else {
+                employeeRepo.createEmployee(employee);
+                return "success";
+            }
         } catch (DataIntegrityViolationException ex) {
-            return false;
+            return "zipError";
         }
     }
 
