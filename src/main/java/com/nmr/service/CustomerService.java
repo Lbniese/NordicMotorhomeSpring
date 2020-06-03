@@ -13,8 +13,13 @@ public class CustomerService {
     @Autowired
     CustomerRepo customerRepo;
 
-    public Customer createCustomer(Customer customer) {
-        return customerRepo.createCustomer(customer);
+    public Boolean createCustomer(Customer customer) {
+        try {
+            customerRepo.createCustomer(customer);
+            return true;
+        } catch (DataIntegrityViolationException ex) {
+            return false;
+        }
     }
 
     public List<Customer> fetchAll() {

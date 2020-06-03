@@ -85,9 +85,16 @@ public class HomeController {
      * @return "redirect:/customer".
      */
     @PostMapping("/customer")
-    public String customer(@ModelAttribute Customer customer) {
-        customerService.createCustomer(customer);
-        return "redirect:/customer";
+    public String customer(@ModelAttribute Customer customer, Model model) {
+        boolean created = customerService.createCustomer(customer);
+        if (created) {
+            return "redirect:/customer";
+        } else {
+            model.addAttribute("message", "Error: The entered zipcode does not exist in our database!");
+            List<Customer> customerList = customerService.fetchAll();
+            model.addAttribute("customers", customerList);
+            return "home/customer";
+        }
     }
 
 
@@ -163,9 +170,16 @@ public class HomeController {
      */
 
     @PostMapping("/employee")
-    public String employee(@ModelAttribute Employee employee) {
-        employeeService.createEmployee(employee);
-        return "redirect:/employee";
+    public String employee(@ModelAttribute Employee employee, Model model) {
+        boolean created = employeeService.createEmployee(employee);
+        if (created) {
+            return "redirect:/employee";
+        } else {
+            model.addAttribute("message", "Error: The entered zipcode does not exist in our database!");
+            List<Employee> employeeList = employeeService.fetchAll();
+            model.addAttribute("employees", employeeList);
+            return "home/employee";
+        }
     }
 
 
@@ -264,7 +278,7 @@ public class HomeController {
             return "redirect:/motorhome";
         } else {
             model.addAttribute("message", "Error: You can't delete a motorhome assigned to an existing Contract!");
-            List<Motorhome> motorhomeList= motorhomeService.fetchAll();
+            List<Motorhome> motorhomeList = motorhomeService.fetchAll();
             model.addAttribute("motorhomes", motorhomeList);
             return "home/motorhome";
         }

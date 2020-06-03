@@ -13,8 +13,13 @@ public class EmployeeService {
     @Autowired
     EmployeeRepo employeeRepo;
 
-    public Employee createEmployee(Employee employee) {
-        return employeeRepo.createEmployee(employee);
+    public Boolean createEmployee(Employee employee) {
+        try {
+            employeeRepo.createEmployee(employee);
+            return true;
+        } catch (DataIntegrityViolationException ex) {
+            return false;
+        }
     }
 
     public List<Employee> fetchAll() {
