@@ -388,6 +388,11 @@ public class HomeController {
         }
     }
 
+    /**
+     * Defines the path with "/deletecontract/{id}"
+     * @param id
+     * @return
+     */
     @GetMapping("/deletecontract/{id}")
     public String deleteContract(@PathVariable("id") int id) {
         boolean deleted = contractService.deleteContract(id);
@@ -398,6 +403,11 @@ public class HomeController {
         }
     }
 
+    /**
+     * Defines the path with "/cancelcontract/{id}"
+     * @param id
+     * @return
+     */
     @GetMapping("/cancelcontract/{id}")
     public String cancelContract(@PathVariable("id") int id) {
         boolean canceled = contractService.cancelContract(id);
@@ -408,6 +418,12 @@ public class HomeController {
         }
     }
 
+    /**
+     * Defines the path with "/updatecontract/{id}"
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/updatecontract/{id}")
     public String updateContract(@PathVariable("id") int id, Model model) {
         model.addAttribute("contract", contractService.findContractById(id));
@@ -422,17 +438,34 @@ public class HomeController {
         return "home/updatecontract";
     }
 
+
+    /**
+     * Defines the path with "/contract/updatecontract"
+     * @param contract
+     * @return
+     */
     @PostMapping("/contract/updatecontract")
     public String updateContract(@ModelAttribute Contract contract) {
         contractService.updateContract(contract.getId(), contract);
         return "redirect:/contract";
     }
 
+
+    /**
+     * Defines the path with "contract/invoice"
+     * @return
+     */
     @GetMapping("contract/invoice")
     public String invoice() {
         return "home/invoice";
     }
 
+    /**
+     * Defines the path with "/invoice/{id}"
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/invoice/{id}")
     public String invoice(@PathVariable("id") int id, Model model) {
         Contract contract = contractService.findContractById(id);
@@ -452,17 +485,34 @@ public class HomeController {
         return "home/invoice";
     }
 
+
+    /**
+     * Defines the path with "/extras"
+     * @return
+     */
     @GetMapping("/extras")
     public String extras() {
         return "home/extras";
     }
 
+    /**
+     * Defines the path with "completecontract/{id}"
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("completecontract/{id}")
     public String completeContract(@PathVariable("id") int id, Model model) {
         model.addAttribute("contract", contractService.findContractById(id));
         return "home/completecontract";
     }
 
+
+    /**
+     * Defines the path with "/contract/completecontract"
+     * @param contract
+     * @return
+     */
     @PostMapping("/contract/completecontract")
     public String completeContract(@ModelAttribute Contract contract) {
         contractService.completeContract(contract.getId(), contract);
