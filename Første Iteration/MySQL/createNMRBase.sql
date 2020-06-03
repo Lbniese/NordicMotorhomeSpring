@@ -1,4 +1,6 @@
-use nmr;
+CREATE DATABASE nmr IF NOT EXISTS;
+
+USE nmr;
 
 CREATE TABLE Zipcode (
 zipCode				VARCHAR(45) 	NOT NULL 	PRIMARY KEY,
@@ -59,9 +61,9 @@ grill 				INT 			DEFAULT 0,
 lantern 			INT 			DEFAULT 0,
 firstAidKit 		INT			 	DEFAULT 0,
 toiletPaper 		INT 			DEFAULT 0,
-active 				tinyint(1) 		DEFAULT 1,
+active 				TINYINT(1) 		DEFAULT 1,
 kmDriven			INT				DEFAULT 0,
-fuelCharge			tinyint(1)		DEFAULT 0,	
+fuelCharge			TINYINT(1)		DEFAULT 0,	
 FOREIGN KEY (customerId) REFERENCES Customer(id),
 FOREIGN KEY	(motorhomeId) REFERENCES Motorhome(id),
 FOREIGN KEY (employeeId) REFERENCES Employee(id)
