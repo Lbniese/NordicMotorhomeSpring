@@ -39,7 +39,7 @@
     <input name="pricePerDay" required th:value="${motorhome.pricePerDay}" type="text" class="form__field"><br>
 
     <br><label>Service Note</label><br>
-    <input name="serviceNote" required th:value="${motorhome.serviceNote}" type="text" class="form__field"><br>
+    <input name="serviceNote" th:value="${motorhome.serviceNote}" type="text" class="form__field"><br>
 
     </div>
     <button id="createbutton" type="submit">Update Motorhome</button>
