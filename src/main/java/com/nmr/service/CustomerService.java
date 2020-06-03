@@ -3,6 +3,7 @@ package com.nmr.service;
 import com.nmr.model.Customer;
 import com.nmr.repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +26,11 @@ public class CustomerService {
     }
 
     public Boolean deleteCustomer(int id) {
-        return customerRepo.deleteCustomer(id);
+        try {
+            return customerRepo.deleteCustomer(id);
+        } catch (DataIntegrityViolationException ex) {
+            return false;
+        }
     }
 
     public Customer updateCustomer(int id, Customer customer) {

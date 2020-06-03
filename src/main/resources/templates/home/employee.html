@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link href="general.css" rel="stylesheet" type="text/css">
-    <link href="form.css" rel="stylesheet" type="text/css">
+    <link href="/general.css" rel="stylesheet" type="text/css">
+    <link href="/form.css" rel="stylesheet" type="text/css">
     <title>NMR - Employee</title>
 </head>
 <script type="text/javascript">
@@ -16,9 +16,11 @@
 <body onload="zoom()">
 <div class="logo">
     <a href="/">
-        <img alt="logo" id="logo" src="logo.png"/>
+        <img alt="logo" id="logo" src="/logo.png"/>
     </a>
 </div>
+
+<div id="errorBox" th:if="${message != null}" th:text="${message}"></div>
 
 <div class="tabs">
     <button class="tablink" id="viewEmployeeTab" onclick="openPage('viewemployee', this, 'lightsalmon')">View

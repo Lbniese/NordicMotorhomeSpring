@@ -100,12 +100,15 @@ public class HomeController {
      */
 
     @GetMapping("/deletecustomer/{id}")
-    public String deleteCustomer(@PathVariable("id") int id) {
+    public String deleteCustomer(@PathVariable("id") int id, Model model) {
         boolean deleted = customerService.deleteCustomer(id);
         if (deleted) {
             return "redirect:/customer";
         } else {
-            return "redirect:/customer";
+            model.addAttribute("message", "Error: You can't delete a customer assigned to an existing Contract!");
+            List<Customer> customerList = customerService.fetchAll();
+            model.addAttribute("customers", customerList);
+            return "home/customer";
         }
     }
 
@@ -174,12 +177,15 @@ public class HomeController {
      */
 
     @GetMapping("/deleteemployee/{id}")
-    public String deleteEmployeer(@PathVariable("id") int id) {
+    public String deleteEmployee(@PathVariable("id") int id, Model model) {
         boolean deleted = employeeService.deleteEmployee(id);
         if (deleted) {
             return "redirect:/employee";
         } else {
-            return "redirect:/employee";
+            model.addAttribute("message", "Error: You can't delete a employee assigned to an existing Contract!");
+            List<Employee> employeeList = employeeService.fetchAll();
+            model.addAttribute("employees", employeeList);
+            return "home/employee";
         }
     }
 
@@ -252,12 +258,15 @@ public class HomeController {
      */
 
     @GetMapping("/deletemotorhome/{id}")
-    public String deleteMotorhome(@PathVariable("id") int id) {
+    public String deleteMotorhome(@PathVariable("id") int id, Model model) {
         boolean deleted = motorhomeService.deleteMotorhome(id);
         if (deleted) {
             return "redirect:/motorhome";
         } else {
-            return "redirect:/motorhome";
+            model.addAttribute("message", "Error: You can't delete a motorhome assigned to an existing Contract!");
+            List<Motorhome> motorhomeList= motorhomeService.fetchAll();
+            model.addAttribute("motorhomes", motorhomeList);
+            return "home/motorhome";
         }
     }
 

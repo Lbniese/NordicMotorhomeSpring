@@ -3,6 +3,7 @@ package com.nmr.service;
 import com.nmr.model.Employee;
 import com.nmr.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +26,11 @@ public class EmployeeService {
     }
 
     public Boolean deleteEmployee(int id) {
-        return employeeRepo.deleteEmployee(id);
+        try {
+            return employeeRepo.deleteEmployee(id);
+        } catch (DataIntegrityViolationException ex) {
+            return false;
+        }
     }
 
     public Employee updateEmployee(int id, Employee employee) {

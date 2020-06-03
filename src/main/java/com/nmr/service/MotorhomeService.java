@@ -3,6 +3,7 @@ package com.nmr.service;
 import com.nmr.model.Motorhome;
 import com.nmr.repository.MotorhomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,15 +26,15 @@ public class MotorhomeService {
     }
 
     public Boolean deleteMotorhome(int id) {
-        return motorhomeRepo.deleteMotorhome(id);
+        try {
+            return motorhomeRepo.deleteMotorhome(id);
+        } catch (DataIntegrityViolationException ex) {
+            return false;
+        }
     }
 
     public Motorhome updateMotorhome(int id, Motorhome motorhome) {
         return motorhomeRepo.updateMotorhome(id, motorhome);
-    }
-
-    public Motorhome updateSeasonalPrice(int percentage) {
-        return null;
     }
 
 
