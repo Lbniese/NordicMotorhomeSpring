@@ -19,7 +19,8 @@ VALUES
 
 INSERT INTO Employee (firstName, lastName, phoneNumber, email, address, title, zipCode)
 VALUES
-('Jakob', 'Lorenzen', '61852726', 'osaki@lupra.org', 'Strandgade 18', 'Accountant', '2000');
+('Jakob', 'Lorenzen', '61852726', 'osaki@lupra.org', 'Strandgade 18', 'Accountant', '2000'),
+('Emilie', 'Geldorf', '22970005', 'Emiliegeldorf@gmail.com', 'Drejøgade 26b, 4., 403', '2100');
 
 INSERT INTO Motorhome (brand, model, odometer, vehicleSize, vehicleType, pricePerDay, serviceNote)
 VALUES
