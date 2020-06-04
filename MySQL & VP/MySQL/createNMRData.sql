@@ -2,7 +2,7 @@ DELETE FROM Contract;
 ALTER TABLE Contract AUTO_INCREMENT = 1;
 
 DELETE FROM Motorhome;
-ALTER TABLE Motorhome AUTO_INCREMENT =1;
+ALTER TABLE Motorhome AUTO_INCREMENT = 1;
 
 
 DELETE FROM Employee;
@@ -20,7 +20,7 @@ VALUES
 INSERT INTO Employee (firstName, lastName, phoneNumber, email, address, title, zipCode)
 VALUES
 ('Jakob', 'Lorenzen', '61852726', 'osaki@lupra.org', 'Strandgade 18', 'Accountant', '2000'),
-('Emilie', 'Geldorf', '22970005', 'Emiliegeldorf@gmail.com', 'Drejøgade 26b, 4., 403', '2100');
+('Emilie', 'Geldorf', '22970005', 'Emiliegeldorf@gmail.com', 'Drejøgade 26b, 4., 403', 'Sales Assistant', '2100');
 
 INSERT INTO Motorhome (brand, model, odometer, vehicleSize, vehicleType, pricePerDay, serviceNote)
 VALUES
