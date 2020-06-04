@@ -1,0 +1,161 @@
+table {
+	font-size:16px;
+	font-size: 0.833vw;
+}
+
+th {
+	width:20px;
+}
+
+td {
+    padding: 20px;
+	padding: 1.04vw;
+}
+
+th {
+	word-wrap: break-word;
+}
+
+.btnUpdate, .btnDelete, .btnCancel, .btnInvoice {
+	background: #3E3E3E;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    width: 3.64vw;
+    height: 30px;  
+    height:1.56vw;
+    border-radius: 5px;
+    border: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size:13px;
+    font-size: 0.673vw;
+}
+
+@media
+only screen 
+and (min-width: 1920px) {
+	
+	table{
+		font-size:16px;
+	}
+	
+	.btnUpdate, .btnDelete, .btnCancel, .btnInvoice {
+		font-size:13px;
+		height: 30px; 
+		width: 70px;
+	}
+	
+	td {
+		padding: 20px;
+	}
+  
+}
+
+.btnUpdate, .btnDelete {
+    background-color: #ec8434;
+}
+
+a {
+    text-decoration: none;
+}
+
+thead {
+    background-color: #ec8434;
+    border-radius: 2px;
+}
+th, tr, thead, tbody, table, td {
+    text-align: center;
+
+}
+
+table caption {
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+table caption.left{
+	text-align:left;
+}
+
+table{
+    border-spacing: 0px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+tr:nth-child(even){
+    background-color: #fff1e3;
+}
+  
+@media
+only screen 
+and (max-width: 1024px), (min-device-width: 768px) 
+and (max-device-width: 1024px)  {
+      
+	table, thead, tbody, th, td, tr {
+		display: block;
+		font-size: 12px;
+	}
+	
+	tr:nth-child(even){
+		border-color: #ffd7b0;
+	}
+	
+    tr:nth-child(even) td{
+		border-color: #ffd7b0;
+	}
+      
+	.btnUpdate, .btnDelete, .btnCancel, .btnInvoice {
+		height:auto;
+		width:60px;        
+		padding:2px;
+		font-size:9px;
+	}
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		margin: 0 0 1rem 0;
+	}
+    
+	td {
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-top:5px;
+		padding-bottom:5px;
+		padding-left: 50%;
+	}
+      
+	td:nth-last-child(1) {
+		border-bottom:0;
+	}
+      
+	table tr {
+		border: 1px solid #ddd;
+		border-radius:5px;
+	}
+
+	td:before {
+		position: absolute;
+		top: 5px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		content: attr(data-label);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+		
+}
