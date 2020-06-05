@@ -22,10 +22,10 @@
     <input name="id" pattern="^[0-9]+" readOnly required tabindex="-1" th:value="${employee.id}" type="text"class="form__field"><br>
 
     <br><label>First name</label><br>
-    <input name="firstName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${employee.firstName}" type="text" class="form__field"><br>
+    <input name="firstName" pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$" required th:value="${employee.firstName}" type="text" class="form__field"><br>
 
     <br><label>Last name</label><br>
-    <input name="lastName" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${employee.lastName}"
+    <input name="lastName" pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$" required th:value="${employee.lastName}"
            type="text" class="form__field"><br>
 
     <br><label>Phone number</label><br>
@@ -38,7 +38,7 @@
     <input name="address" pattern="^[0-9a-zæøåA-Z\s,-.]+$" required th:value="${employee.address}" type="text" class="form__field"><br>
 
     <br><label>Title</label><br>
-    <input name="title" pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$" required th:value="${employee.title}" type="text" class="form__field"><br>
+    <input name="title" pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$" required th:value="${employee.title}" type="text" class="form__field"><br>
 
     <br><label>Zipcode</label><br>
     <input name="zipCode" pattern="[1-24-9]\d{3}|3[0-8]\d{2}$" required th:value="${employee.zipCode}" type="text" class="form__field"><br>
