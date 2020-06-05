@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <link href="/general.css" rel="stylesheet" type="text/css">
     <link href="/form.css" rel="stylesheet" type="text/css">
+    <link href="/table.css" rel="stylesheet" type="text/css">
     <title>NMR - Customer</title>
 </head>
-<script type="text/javascript">
-    function zoom() {
-        if (navigator.platform == 'MacIntel') {
-            document.body.style.zoom = "80%";
-        }
-    }
-</script>
-<body onload="zoom()">
+<body>
 <div class="logo">
     <a href="/">
         <img alt="logo" id="logo" src="/logo.png"/>
@@ -40,7 +34,7 @@
                         class="form__field"
                         id='firstName'
                         name="firstName"
-                        pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                        pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$"
                         placeholder="First Name"
                         required
                         type="text"/>
@@ -48,7 +42,7 @@
                 <input
                         class="form__field"
                         id='lastName' name="lastName"
-                        pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                        pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$"
                         placeholder="Last Name"
                         required
                         type="text"/>
@@ -104,8 +98,8 @@
     </div>
 </div>
 <div class="tabcontent" id="viewcustomer">
-    <h3>View Customers</h3>
     <table>
+        <caption class="left">View Customers</caption>
         <thead>
         <tr>
             <th>Id</th>
@@ -124,23 +118,23 @@
         </tr>
         </thead>
         <tr th:each="customer: ${customers}">
-            <td th:text="${customer.id}"/>
-            <td th:text="${customer.firstName}"/>
-            <td th:text="${customer.lastName}"/>
-            <td th:text="${customer.phoneNumber}"/>
-            <td th:text="${customer.email}"/>
-            <td th:text="${customer.address}"/>
-            <td th:text="${customer.zipCode}"/>
-            <td th:text="${customer.city}"/>
-            <td th:text="${customer.country}"/>
-            <td th:text="${customer.driverLicenceNumber}"/>
-            <td>
+            <td data-label="Id" th:text="${customer.id}"/>
+            <td data-label="First name" th:text="${customer.firstName}"/>
+            <td data-label="Last name" th:text="${customer.lastName}"/>
+            <td data-label="Phone number" th:text="${customer.phoneNumber}"/>
+            <td data-label="Email" th:text="${customer.email}"/>
+            <td data-label="Address" th:text="${customer.address}"/>
+            <td data-label="Zipcode" th:text="${customer.zipCode}"/>
+            <td data-label="City" th:text="${customer.city}"/>
+            <td data-label="Country" th:text="${customer.country}"/>
+            <td data-label="Driver License Number" th:text="${customer.driverLicenceNumber}"/>
+            <td data-label="Delete">
                 <a th:href="@{'/deletecustomer/'+${customer.id}}">
                     <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
                     </button>
                 </a>
             </td>
-            <td>
+            <td data-label="Update">
                 <a th:href="@{'/updatecustomer/'+${customer.id}}">
                     <button class="btnUpdate">Update</button>
                 </a>

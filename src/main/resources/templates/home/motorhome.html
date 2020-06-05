@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link href="/general.css" rel="stylesheet" type="text/css">
     <link href="/form.css" rel="stylesheet" type="text/css">
+    <link href="/table.css" rel="stylesheet" type="text/css">
     <title>NMR - Motorhome</title>
 </head>
 <body>
@@ -34,7 +35,7 @@
             <input
                     class="form__field"
                     name="brand"
-                    pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                    pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$"
                     placeholder="Brand"
                     required
                     type="text">
@@ -98,8 +99,8 @@
 </div>
 
 <div class="tabcontent" id="viewMotorhomes">
-    <h3>View Motorhomes</h3>
     <table>
+        <caption class="left">View Motorhomes</caption>
         <thead>
         <tr>
             <th>Id</th>
@@ -116,22 +117,22 @@
         </tr>
         </thead>
         <tr th:each="motorhome: ${motorhomes}">
-            <td th:text="${motorhome.id}"/>
-            <td th:text="${motorhome.brand}"/>
-            <td th:text="${motorhome.model}"/>
-            <td th:text="${motorhome.odometer}"/>
-            <td th:text="${motorhome.vehicleSize}"/>
-            <td th:text="${motorhome.vehicleType}"/>
-            <td th:text="${motorhome.pricePerDay}"/>
-            <td th:text="${motorhome.serviceNote}"/>
+            <td data-label="Id" th:text="${motorhome.id}"/>
+            <td data-label="Brand" th:text="${motorhome.brand}"/>
+            <td data-label="Model" th:text="${motorhome.model}"/>
+            <td data-label="Odometer" th:text="${motorhome.odometer}"/>
+            <td data-label="Size" th:text="${motorhome.vehicleSize}"/>
+            <td data-label="Type" th:text="${motorhome.vehicleType}"/>
+            <td data-label="Price Per Day" th:text="${motorhome.pricePerDay}"/>
+            <td data-label="Service Note" th:text="${motorhome.serviceNote}"/>
 
-            <td>
+            <td data-label="Delete">
                 <a th:href="@{'/deletemotorhome/'+${motorhome.id}}">
                     <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
                     </button>
                 </a>
             </td>
-            <td>
+            <td data-label="Update">
                 <a th:href="@{'/updatemotorhome/'+${motorhome.id}}">
                     <button class="btnUpdate">Update</button>
                 </a>

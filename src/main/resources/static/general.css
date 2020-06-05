@@ -89,28 +89,28 @@ h1{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 1558px;
+    width: auto;
 }
 
 #viewemployee{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 1501px;
+    width: auto;
 }
 
 #viewMotorhomes{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 1012px;
+    width: auto;
 }
 
 #viewcontract{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 1558px;
+    width: auto;
 }
 
 #errorBox {

@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <link href="/general.css" rel="stylesheet" type="text/css">
     <link href="/form.css" rel="stylesheet" type="text/css">
+    <link href="/table.css" rel="stylesheet" type="text/css">
     <title>NMR - Employee</title>
 </head>
-<script type="text/javascript">
-    function zoom() {
-        if (navigator.platform == 'MacIntel') {
-            document.body.style.zoom = "75%";
-        }
-    }
-</script>
-<body onload="zoom()">
+<body>
 <div class="logo">
     <a href="/">
         <img alt="logo" id="logo" src="/logo.png"/>
@@ -41,7 +35,7 @@
             <input
                     class="form__field"
                     name="firstName"
-                    pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                    pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$"
                     placeholder="First Name"
                     required
                     type="text">
@@ -50,7 +44,7 @@
             <input
                     class="form__field"
                     name="lastName"
-                    pattern="^[a-zæøåA-ZÆØÅ \\-\\.\\']*$"
+                    pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$"
                     placeholder="Last Name"
                     required
                     type="text">
@@ -109,8 +103,9 @@
 </div>
 <div class="tabcontent" id="viewemployee">
 
-    <h3>View Employees</h3>
+
     <table>
+        <caption class="left">View Employees</caption>
         <thead>
         <tr>
             <th>Id</th>
@@ -129,23 +124,23 @@
         </tr>
         </thead>
         <tr th:each="employee: ${employees}">
-            <td th:text="${employee.id}"/>
-            <td th:text="${employee.firstName}"/>
-            <td th:text="${employee.lastName}"/>
-            <td th:text="${employee.phoneNumber}"/>
-            <td th:text="${employee.email}"/>
-            <td th:text="${employee.title}"/>
-            <td th:text="${employee.address}"/>
-            <td th:text="${employee.zipCode}"/>
-            <td th:text="${employee.city}"/>
-            <td th:text="${employee.country}"/>
-            <td>
+            <td data-label="Id" th:text="${employee.id}"/>
+            <td data-label="First Name" th:text="${employee.firstName}"/>
+            <td data-label="Last name" th:text="${employee.lastName}"/>
+            <td data-label="Phone number" th:text="${employee.phoneNumber}"/>
+            <td data-label="Email" th:text="${employee.email}"/>
+            <td data-label="Title" th:text="${employee.title}"/>
+            <td data-label="Address" th:text="${employee.address}"/>
+            <td data-label="Zip code" th:text="${employee.zipCode}"/>
+            <td data-label="City" th:text="${employee.city}"/>
+            <td data-label="Country" th:text="${employee.country}"/>
+            <td data-label="Delete">
                 <a th:href="@{'/deleteemployee/'+${employee.id}}">
                     <button class="btnDelete" onclick="return confirm('Are you sure you want to delete?')">Delete
                     </button>
                 </a>
             </td>
-            <td>
+            <td data-label="Update">
                 <a th:href="@{'/updateemployee/'+${employee.id}}">
                     <button class="btnUpdate">Update</button>
                 </a>
