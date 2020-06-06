@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="general.css" rel="stylesheet" type="text/css">
     <link href="form.css" rel="stylesheet" type="text/css">
     <link href="/table.css" rel="stylesheet" type="text/css">
@@ -296,7 +295,7 @@
                       th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate) && contract.kmDriven > 0 }">Completed</span>
                 <a th:href="@{'/completecontract/'+${contract.id}}"
                    th:if="${contract.active == true && localDateTime.isAfter(contract.rentalEndDate) && contract.kmDriven == 0 }">
-                    <button class="btnCancel" style="width: auto" >Complete
+                    <button class="btnCancel" style="width: auto">Complete
                     </button>
                 </a>
             </td>
