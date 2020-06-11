@@ -1,14 +1,15 @@
-DELETE FROM Contract;
+use nmr;
+
+DELETE FROM Contract where id > 0;
 ALTER TABLE Contract AUTO_INCREMENT = 1;
 
-DELETE FROM Motorhome;
+DELETE FROM Motorhome where id > 0;
 ALTER TABLE Motorhome AUTO_INCREMENT = 1;
 
-
-DELETE FROM Employee;
+DELETE FROM Employee where id > 0;
 ALTER TABLE Employee AUTO_INCREMENT = 1;
 
-DELETE FROM Customer;
+DELETE FROM Customer where id > 0;
 ALTER TABLE Customer AUTO_INCREMENT = 1;
 
 
@@ -29,5 +30,3 @@ VALUES
 INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, customerId, motorhomeId, employeeId, bikeRack, bedLinen, childSeat, picnicTable, chairs, grill, lantern, firstAidKit, toiletPaper, active, kmDriven, fuelCharge)
 VALUES
 ('2020-12-12 13:00:00', '2020-12-25 21:00:00', 'NMR - Headquarters', 'NMR - Headquarters', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0');
-
-
