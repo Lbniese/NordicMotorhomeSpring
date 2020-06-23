@@ -31,7 +31,6 @@ VALUES
 INSERT INTO Employee (firstName, lastName, phoneNumber, email, address, title, zipCode)
 VALUES
 ('Jakob', 'Lorenzen', '61852726', 'osaki@lupra.org', 'Strandgade 18', 'Accountant', '2000'),
-('Emilie', 'Geldorf', '22970005', 'Emiliegeldorf@gmail.com', 'Drejøgade 26b, 4., 403', 'Sales Assistant', '2100'),
 ('Kristian', 'Olivier', '27312364', 'olivier@live.dk', 'Frederiksborgvej 44 4.th', 'Auto mechanic', '2200'),
 ('Martin', 'Karlsen', '41420636', 'mkarls@hotmail.com', 'Valby Hovedgade 17 1.tv', 'Cleaning staff', '2500'),
 ('Filipa', 'Piraq', '97320043', 'piraq@gmail.com', 'Vigerslev 31 4.tv', 'Cleaning staff', '2500'),
