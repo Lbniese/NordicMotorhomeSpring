@@ -220,13 +220,13 @@
                 Employee Id <br>
                 <select class="form__field" id="slctEmployee" name="employeeId">
                     <tr th:each="employee: ${employees}">
-                        <option th:if="${employeeId == employee.id}" th:value="${employee.id}" selected>
+                        <option th:if="${contract.employeeId == employee.id}" th:value="${employee.id}" selected>
                             <td th:text="${employee.id}"/>
                             <td th:text="${employee.firstName}"/>
                             <td th:text="${employee.lastName}"/>
                             <td th:text="${employee.title}"/>
                         </option>
-                        <option th:if="${employeeId != employee.id}" th:value="${employee.id}">
+                        <option th:if="${contract.employeeId != employee.id}" th:value="${employee.id}">
                             <td th:text="${employee.id}"/>
                             <td th:text="${employee.firstName}"/>
                             <td th:text="${employee.lastName}"/>
