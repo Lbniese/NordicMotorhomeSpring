@@ -86,7 +86,7 @@ VALUES
 ('Jayco', 'Talon 413T', '12500', 'Large', 'Toy Hauler', '1300', ''),
 ('Raptor', '425TS', '12500', 'Small', 'Toy Hauler', '650', '');
 
-
 INSERT INTO Contract (rentalStartDate, rentalEndDate, pickUpPoint, dropOffPoint, customerId, motorhomeId, employeeId, bikeRack, bedLinen, childSeat, picnicTable, chairs, grill, lantern, firstAidKit, toiletPaper, active, kmDriven, fuelCharge)
 VALUES
-('2020-12-12 13:00:00', '2020-12-25 21:00:00', 'NMR - Headquarters', 'NMR - Headquarters', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0');
+('2020-12-12 13:00:00', '2020-12-25 21:00:00', 'NMR - Headquarters', 'NMR - Headquarters', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0'),
+('2020-01-01 10:00:00', '2020-01-14 10:00:00', 'NMR - Headquarters', 'NMR - Headquarters', '4', '37', '1', '0', '0', '0', '0', '3', '0', '0', '0', '0', '1', '0', '0');

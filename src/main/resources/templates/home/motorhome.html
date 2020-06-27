@@ -34,38 +34,17 @@
         <h1>Create Motorhome</h1>
         <form action="motorhome" method="post">
 
-            <input
-                    class="form__field"
-                    name="brand"
-                    pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$"
-                    placeholder="Brand"
-                    required
-                    type="text">
+            <input class="form__field" name="brand" pattern="^[a-zæøåA-ZÆØÅ \-\.\']*$" placeholder="Brand" required type="text">
 
+            <input class="form__field" name="model" placeholder="Model" required type="text">
 
-            <input
-                    class="form__field"
-                    name="model"
-                    placeholder="Model"
-                    required
-                    type="text">
-
-
-            <input
-                    class="form__field"
-                    name="odometer"
-                    pattern="^[0-9]+"
-                    placeholder="Odometer"
-                    required
-                    type="text">
-
+            <input class="form__field" name="odometer" pattern="^[0-9]+" placeholder="Odometer" required type="text">
 
             <select class="form__field" id="slctSize" name="vehicleSize" required>
                 <option label="Vehicle Size" value=""></option>
                 <option label="Small" value="Small"></option>
                 <option label="Large" value="Large"></option>
             </select>
-
 
             <select class="form__field" id="slctType" name="vehicleType" required>
                 <option label="Vehicle Type" value=""></option>
@@ -80,19 +59,9 @@
                 <option label="Toy Hauler" value="Toy Hauler"></option>
             </select>
 
+            <input class="form__field" name="pricePerDay" pattern="[1-9]+[0-9]{1,10}" placeholder="Price Per Day" required type="text">
 
-            <input
-                    class="form__field"
-                    name="pricePerDay"
-                    pattern="[1-9]+[0-9]{1,10}"
-                    placeholder="Price Per Day"
-                    required
-                    type="text">
-            <input
-                    class="form__field"
-                    name="serviceNote"
-                    placeholder="Service Note"
-                    type="text">
+            <input class="form__field" name="serviceNote" placeholder="Service Note" type="text">
 
             <button id="createbutton" type="submit">Create Motorhome</button>
 
